@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
 	
 	public Optional<Categoria>  findByResiduoContainingIgnoreCase(String residuo);
-
+	asdf
 }
