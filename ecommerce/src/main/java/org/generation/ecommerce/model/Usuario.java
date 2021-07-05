@@ -1,27 +1,37 @@
 package org.generation.ecommerce.model;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+=======
+import javax.persistence.Entity;
+>>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 import javax.persistence.OneToMany;
+=======
+>>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+<<<<<<< HEAD
 import org.generation.ecommerce.model.util.TipoUsuario;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+=======
+>>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 /**
  * 
  * @author hanely menezes
@@ -45,6 +55,7 @@ public class Usuario {
 	@Email
 	private String email;
 
+<<<<<<< HEAD
 	@NotNull(message = "Senha não deve ser nulo ou vazio")
 	@Size(min = 8, max = 8)
 	private String senha;
@@ -65,6 +76,14 @@ public class Usuario {
 	@OneToMany
 	@JsonIgnoreProperties("usuario")
 	private List<Produto> listaProduto = new ArrayList<>();	
+=======
+	@NotNull
+	@Size(min = 8, max = 8)
+	private String senha;
+
+	@Enumerated(EnumType.STRING)
+	private String tipoUsuario;
+>>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 
 	// Special Methods
 	public long getId_usuario() {
@@ -75,6 +94,7 @@ public class Usuario {
 		this.id_usuario = id_usuario;
 	}
 
+<<<<<<< HEAD
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
 	}
@@ -83,6 +103,8 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 
+=======
+>>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 	public String getNome() {
 		return nome;
 	}
