@@ -31,7 +31,7 @@ public class CategoriaService {
 	}
 
 	/**
-	 * 
+	 * aa
 	 * @param novoResiduo
 	 * @return
 	 * @author 
