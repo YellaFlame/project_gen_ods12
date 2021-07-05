@@ -34,6 +34,7 @@ public class CategoriaService {
 	 * 
 	 * @param novoResiduo
 	 * @return
+	 * @author 
 	 */
 	public Optional<?> cadastrar(Categoria novoResiduo) {
 		return ((Optional<?>) repository.findByResiduoContainingIgnoreCase(novoResiduo.getResiduo()))
