@@ -1,10 +1,7 @@
 package org.generation.ecommerce.controller;
 
 import java.util.List;
-<<<<<<< HEAD
 
-=======
->>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -31,11 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-<<<<<<< HEAD
+
 @RequestMapping("api/v1/usuario")
-=======
-@RequestMapping("/usuario")
->>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 @CrossOrigin("*")
 public class UsusarioController {
 	// @Autowired private UsuarioRepository repositoryU;
@@ -44,20 +38,12 @@ public class UsusarioController {
 	@Autowired
 	private UsuarioRepository repositoryU;
 
-<<<<<<< HEAD
 	@PostMapping("/cadastrar")
-=======
-	@PostMapping
->>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 	public ResponseEntity<Object> cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
 		return serviceU.cadastrarUsuario(usuario);
 	}
 
-<<<<<<< HEAD
 	@GetMapping("/todos")
-=======
-	@GetMapping
->>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 	public ResponseEntity<List<Usuario>> listarTodos() {
 		return ResponseEntity.ok(repositoryU.findAll());
 	}
@@ -72,11 +58,7 @@ public class UsusarioController {
 		return serviceU.listarPorNome(nome);
 	}
 
-<<<<<<< HEAD
 	@PutMapping("/alteração/{id_usuario}")
-=======
-	@PutMapping("/{id_usuario}")
->>>>>>> d82f769e485cf5fb6af44baf352bc877cce0654c
 	public Optional<Usuario> alterarSenha(@Valid @PathVariable Long id_usuario,
 			@RequestBody UsuarioDTO senhaParaAtualizar) {
 		return serviceU.alterarSenha(id_usuario, senhaParaAtualizar);
