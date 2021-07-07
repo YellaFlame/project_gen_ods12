@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.generation.ecommerce.model.Categoria;
 import org.generation.ecommerce.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -65,8 +64,8 @@ public class CategoriaService {
 	 * @param residuoParaAtualizar
 	 * @return
 	 */
-	public Optional<Categoria> att(Long id, Categoria residuoParaAtualizar) {
-		return repository.findById(id).map(novoResiduo -> {
+	public Optional<Categoria> att(Long idCategoria, Categoria residuoParaAtualizar) {
+		return repository.findById(idCategoria).map(novoResiduo -> {
 			novoResiduo.setResiduo(residuoParaAtualizar.getResiduo());
 			return Optional.ofNullable(repository.save(novoResiduo));
 		}).orElseGet(() -> {

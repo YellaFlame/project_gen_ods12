@@ -3,6 +3,7 @@ package org.generation.ecommerce.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 
 import javax.persistence.EnumType;
@@ -31,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_usuario;
+	private long idUsuario;
 
 	@NotBlank(message = "Nome não deve ser nulo ou vazio")
 	@Size(max = 40)
@@ -47,31 +48,22 @@ public class Usuario {
 	@NotNull(message = "Senha não deve ser nulo ou vazio")
 	@Size(min = 8, max = 8)
 	private String senha;
-	
+
 	@NotNull
 	@Enumerated(EnumType.STRING)
 	private TipoUsuario tipoUsuario;
-	
-	
-	public List<Produto> getListaProduto() {
-		return listaProduto;
-	}
 
-	public void setListaProduto(List<Produto> listaProduto) {
-		this.listaProduto = listaProduto;
-	}
-
-	@OneToMany
-	@JsonIgnoreProperties("usuario")
-	private List<Produto> listaProduto = new ArrayList<>();	
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties({"usuario"})
+	private List<Produto> listaProduto = new ArrayList<>();
 
 	// Special Methods
-	public long getId_usuario() {
-		return id_usuario;
+	public long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdUsuario(long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public TipoUsuario getTipoUsuario() {
@@ -112,6 +104,14 @@ public class Usuario {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
+	}
+	
+	public List<Produto> getListaProduto() {
+		return listaProduto;
+	}
+
+	public void setListaProduto(List<Produto> listaProduto) {
+		this.listaProduto = listaProduto;
 	}
 
 }

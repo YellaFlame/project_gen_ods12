@@ -26,15 +26,15 @@ public class UsuarioService {
 	 * @return
 	 */
 	public ResponseEntity<Object> cadastrarUsuario(Usuario novoUsuario) {
-		return repositoryU.findById(novoUsuario.getId_usuario()).map(usuarioExistente -> {
+		return repositoryU.findById(novoUsuario.getIdUsuario()).map(usuarioExistente -> {
 			return ResponseEntity.notFound().build();
 		}).orElseGet(() -> {
 			return ResponseEntity.status(201).body(repositoryU.save(novoUsuario));
 		});
 	}
 
-	public ResponseEntity<Usuario> listarPorId(long id_usuario) {
-		return repositoryU.findById(id_usuario).map(resposta -> ResponseEntity.ok(resposta))
+	public ResponseEntity<Usuario> listarPorId(long idUsuario) {
+		return repositoryU.findById(idUsuario).map(resposta -> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
@@ -48,8 +48,8 @@ public class UsuarioService {
 		}
 	}
 
-	public Optional<Usuario> alterarSenha(Long id_usuario, UsuarioDTO senhaParaAtualizar) {
-		return repositoryU.findById(id_usuario).map(senhaAtual -> {
+	public Optional<Usuario> alterarSenha(Long idUsuario, UsuarioDTO senhaParaAtualizar) {
+		return repositoryU.findById(idUsuario).map(senhaAtual -> {
 			senhaAtual.setSenha(senhaParaAtualizar.getSenha());
 			return Optional.ofNullable(repositoryU.save(senhaAtual));
 		}).orElseGet(() -> {
@@ -57,9 +57,9 @@ public class UsuarioService {
 		});
 	}
 
-	public ResponseEntity<String> deletarUsuario(Long id_usuario) {
-		return repositoryU.findById(id_usuario).map(usuarioExistente -> {
-			repositoryU.deleteById(usuarioExistente.getId_usuario());
+	public ResponseEntity<String> deletarUsuario(Long idUsuario) {
+		return repositoryU.findById(idUsuario).map(usuarioExistente -> {
+			repositoryU.deleteById(usuarioExistente.getIdUsuario());
 			return ResponseEntity.ok("Usuário deletado com sucesso!");
 		}).orElseGet(() -> {
 			return ResponseEntity.ok("Usuário não encontrado!");

@@ -13,8 +13,8 @@ public class ProdutoService {
 	@Autowired 
 	private ProdutoRepository produto;
 	
-	public ResponseEntity<Produto> buscarPorId(Long id_produto) {
-		return produto.findById(id_produto).map(res -> ResponseEntity.ok(res))
+	public ResponseEntity<Produto> buscarPorId(Long idProduto) {
+		return produto.findById(idProduto).map(res -> ResponseEntity.ok(res))
 				.orElse(ResponseEntity.notFound().build());
 	
 	}

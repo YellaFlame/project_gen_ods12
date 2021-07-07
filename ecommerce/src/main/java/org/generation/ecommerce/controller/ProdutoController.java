@@ -31,14 +31,14 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoService serviceProduto;
 
-	@GetMapping("/todos")
+	@GetMapping("/buscar/todos")
 	public ResponseEntity<List<Produto>> buscarTodos() {
 		return ResponseEntity.ok(produto.findAll());
 	}
 
-	@GetMapping("/buscar/id/{id_produto}")
-	public ResponseEntity<ResponseEntity<Produto>> getID(@Valid @PathVariable Long id_produto) {
-		return ResponseEntity.ok(serviceProduto.buscarPorId(id_produto));
+	@GetMapping("/buscar/id/{idProduto}")
+	public ResponseEntity<ResponseEntity<Produto>> getID(@Valid @PathVariable Long idProduto) {
+		return ResponseEntity.ok(serviceProduto.buscarPorId(idProduto));
 	}
 
 	@GetMapping("/buscar/status/{status}")
@@ -61,8 +61,8 @@ public class ProdutoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produto.save(produto1));
 	}
 
-	@PutMapping
-	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1) {
+	@PutMapping("/atualizar/id/{idProduto}")
+	public ResponseEntity<Produto> alterar(@Valid @PathVariable @RequestBody Produto produto1, long idProduto) {
 		return ResponseEntity.ok(produto.save(produto1));
 	}
 
