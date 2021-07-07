@@ -32,9 +32,9 @@ public class CategoriaController {
 		return ResponseEntity.ok(categoriaService.findAll());
 	}
 	
-	@GetMapping("/residuo/buscar/{id}")
-	public ResponseEntity<?> findById(@Valid @PathVariable Long id) {
-		return ResponseEntity.ok(repository.findById(id));
+	@GetMapping("/residuo/buscar/{idCategoria}")
+	public ResponseEntity<?> findById(@Valid @PathVariable Long idCategoria) {
+		return ResponseEntity.ok(repository.findById(idCategoria));
 	}
 
 	@GetMapping("/buscar/residuo/{residuo}")
@@ -42,18 +42,18 @@ public class CategoriaController {
 		return ResponseEntity.ok(repository.findByResiduoContainingIgnoreCase(residuo));
 	}
 
-	@PostMapping("/cadastro")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<?> cadastroResiduo(@Valid @RequestBody Categoria residuo) {
 		return ResponseEntity.ok(categoriaService.cadastrar(residuo));
 	}
 
-	@PutMapping("/residuo/atualizar/{id}")
-	public ResponseEntity<?> atualizar(@Valid @PathVariable Long id, @RequestBody Categoria residuo) {
-		return ResponseEntity.ok(categoriaService.att(id, residuo));
+	@PutMapping("/residuo/atualizar/id/{idCategoria}")
+	public ResponseEntity<?> atualizar(@Valid @PathVariable Long idCategoria, @RequestBody Categoria residuo) {
+		return ResponseEntity.ok(categoriaService.att(idCategoria, residuo));
 	}
 
-	@DeleteMapping("/residuo/delete/{id}")
-	public void delete(@Valid @PathVariable Long id) {
-		repository.deleteById(id);
+	@DeleteMapping("/residuo/deletar/id/{idCategoria}")
+	public void delete(@Valid @PathVariable Long idCategoria) {
+		repository.deleteById(idCategoria);
 	}
 }

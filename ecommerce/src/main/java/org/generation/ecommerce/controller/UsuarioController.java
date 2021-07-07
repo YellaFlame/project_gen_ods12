@@ -29,9 +29,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 
-@RequestMapping("api/v1/usuario")
+@RequestMapping("/api/v1/usuario")
 @CrossOrigin("*")
-public class UsusarioController {
+public class UsuarioController {
 	// @Autowired private UsuarioRepository repositoryU;
 	@Autowired
 	private UsuarioService serviceU;
@@ -43,14 +43,14 @@ public class UsusarioController {
 		return serviceU.cadastrarUsuario(usuario);
 	}
 
-	@GetMapping("/todos")
+	@GetMapping("/buscar/todos")
 	public ResponseEntity<List<Usuario>> listarTodos() {
 		return ResponseEntity.ok(repositoryU.findAll());
 	}
 
-	@GetMapping("/buscar/id/{id_usuario}")
-	public ResponseEntity<Usuario> listarId(@Valid @PathVariable(value = "id_usuario") Long id_usuario) {
-		return serviceU.listarPorId(id_usuario);
+	@GetMapping("/buscar/id/{idUsuario}")
+	public ResponseEntity<Usuario> listarId(@Valid @PathVariable(value = "idUsuario") Long idUsuario) {
+		return serviceU.listarPorId(idUsuario);
 	}
 
 	@GetMapping("/buscar/nome/{nome}")
@@ -58,14 +58,14 @@ public class UsusarioController {
 		return serviceU.listarPorNome(nome);
 	}
 
-	@PutMapping("/alteração/{id_usuario}")
-	public Optional<Usuario> alterarSenha(@Valid @PathVariable Long id_usuario,
+	@PutMapping("/alteração/{idUsuario}")
+	public Optional<Usuario> alterarSenha(@Valid @PathVariable Long idUsuario,
 			@RequestBody UsuarioDTO senhaParaAtualizar) {
-		return serviceU.alterarSenha(id_usuario, senhaParaAtualizar);
+		return serviceU.alterarSenha(idUsuario, senhaParaAtualizar);
 	}
 
-	@DeleteMapping("/deletar/{id_usuario}")
-	public ResponseEntity<String> deletarUsuario(@Valid @PathVariable Long id_usuario) {
-		return serviceU.deletarUsuario(id_usuario);
+	@DeleteMapping("/deletar/{idUsuario}")
+	public ResponseEntity<String> deletarUsuario(@Valid @PathVariable Long idUsuario) {
+		return serviceU.deletarUsuario(idUsuario);
 	}
 }

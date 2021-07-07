@@ -1,8 +1,5 @@
 package org.generation.ecommerce.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,69 +16,39 @@ public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id_Produto;
-	
+	private long idProduto;
+
 	@NotNull
 	private String status;
-		
+
 	@NotNull
 	private String endereco;
-		
+
 	@NotNull
-	private String data_retirada;
-	
+	private String dataRetirada;
+
 	private String descricao;
 
 	@NotNull
 	private Long quantidade;
-	
+
 	@ManyToOne
-	@JsonIgnoreProperties("produto")
+	@JsonIgnoreProperties({"produto", "listaProduto"})
 	@JoinColumn(name = "fk_categoria")
 	private Categoria categoria;
-	
+
 	@ManyToOne
-	@JsonIgnoreProperties("usuario")
+	@JsonIgnoreProperties({"usuario","listaProduto"})
 	@JoinColumn(name = "fk_usuario")
 	private Usuario usuario;
-	
-	
-	//fk_categoria
-	//fk_usuario
-	//@ManyToOne
-	//@JsonIgnoreProperties({""})
-	//private CategoriaModel categoria;
 
-	public Categoria getCategoria() {
-		return categoria;
+	// Special Methods
+	public long getIdProduto() {
+		return idProduto;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
-
-	public void setId_Produto(long id_Produto) {
-		this.id_Produto = id_Produto;
-	}
-
-	public void setQuantidade(Long quantidade) {
-		this.quantidade = quantidade;
-	}
-
-	public long getId_Produto() {
-		return id_Produto;
-	}
-
-	public void setId_Produto(Long id_Produto) {
-		this.id_Produto = id_Produto;
+	public void setIdProduto(long idProduto) {
+		this.idProduto = idProduto;
 	}
 
 	public String getStatus() {
@@ -100,12 +67,12 @@ public class Produto {
 		this.endereco = endereco;
 	}
 
-	public String getData_retirada() {
-		return data_retirada;
+	public String getDataRetirada() {
+		return dataRetirada;
 	}
 
-	public void setData_retirada(String data_retirada) {
-		this.data_retirada = data_retirada;
+	public void setDataRetirada(String dataRetirada) {
+		this.dataRetirada = dataRetirada;
 	}
 
 	public String getDescricao() {
@@ -116,15 +83,34 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public long getQuantidade() {
+	public Long getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(long quantidade) {
+	public void setQuantidade(Long quantidade) {
 		this.quantidade = quantidade;
 	}
 
+	public Categoria getCategoria() {
+		return categoria;
+	}
 
-	
-	
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	// fk_categoria
+	// fk_usuario
+	// @ManyToOne
+	// @JsonIgnoreProperties({""})
+	// private CategoriaModel categoria;
+
 }
