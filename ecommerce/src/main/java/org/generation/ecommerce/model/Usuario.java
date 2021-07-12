@@ -46,7 +46,7 @@ public class Usuario {
 	private String email;
 
 	@NotNull(message = "Senha não deve ser nulo ou vazio")
-	@Size(min = 8, max = 8)
+	@Size(min = 8)
 	private String senha;
 
 	@NotNull
