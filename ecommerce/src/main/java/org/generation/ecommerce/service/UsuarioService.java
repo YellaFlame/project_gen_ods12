@@ -1,18 +1,24 @@
 package org.generation.ecommerce.service;
 
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.generation.ecommerce.model.Usuario;
+import org.generation.ecommerce.model.dto.UserLoginDto;
 import org.generation.ecommerce.model.dto.UsuarioDTO;
 import org.generation.ecommerce.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
  * 
  * @author hanely menezes
+ *
+ *
  *
  */
 @Service
@@ -29,8 +35,32 @@ public class UsuarioService {
 		return repositoryU.findById(novoUsuario.getIdUsuario()).map(usuarioExistente -> {
 			return ResponseEntity.notFound().build();
 		}).orElseGet(() -> {
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			String senhaCriptografada = encoder.encode(novoUsuario.getSenha());
+			novoUsuario.setSenha(senhaCriptografada);
 			return ResponseEntity.status(201).body(repositoryU.save(novoUsuario));
 		});
+	}
+
+	public Optional<UserLoginDto> logar(Optional<UserLoginDto> usuarioLogin) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		Optional<Usuario> usuario = repositoryU.findByUsuario(usuarioLogin.get().getUsuario());
+
+		if (usuario.isPresent()) {
+
+			if (encoder.matches(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
+				String auth = usuarioLogin.get().getUsuario() + ":" + usuarioLogin.get().getSenha();
+				byte[] encondedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
+				String authHeader = "Basic " + new String(encondedAuth);
+
+				usuarioLogin.get().setToken(authHeader);
+				usuarioLogin.get().setNome(usuario.get().getNome());
+
+				return usuarioLogin;
+			}
+		}
+
+		return null;
 	}
 
 	public ResponseEntity<Usuario> listarPorId(long idUsuario) {
