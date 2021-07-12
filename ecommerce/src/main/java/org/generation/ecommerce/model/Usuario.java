@@ -42,6 +42,10 @@ public class Usuario {
 	@Size(max = 40)
 	private String sobrenome;
 
+	@NotBlank
+	@Size(max = 100)
+	private String usuario;
+
 	@Email
 	private String email;
 
@@ -54,12 +58,20 @@ public class Usuario {
 	private TipoUsuario tipoUsuario;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties({"usuario"})
+	@JsonIgnoreProperties({ "usuario" })
 	private List<Produto> listaProduto = new ArrayList<>();
 
 	// Special Methods
 	public long getIdUsuario() {
 		return idUsuario;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public void setIdUsuario(long idUsuario) {
@@ -105,7 +117,7 @@ public class Usuario {
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
 	}
-	
+
 	public List<Produto> getListaProduto() {
 		return listaProduto;
 	}
