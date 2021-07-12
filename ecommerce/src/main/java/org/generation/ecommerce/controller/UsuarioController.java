@@ -2,15 +2,18 @@ package org.generation.ecommerce.controller;
 
 import java.util.List;
 
+
 import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.generation.ecommerce.model.Usuario;
+import org.generation.ecommerce.model.dto.UserLogin;
 import org.generation.ecommerce.model.dto.UsuarioDTO;
 import org.generation.ecommerce.repository.UsuarioRepository;
 import org.generation.ecommerce.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,8 +42,15 @@ public class UsuarioController {
 	private UsuarioRepository repositoryU;
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Object> cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
-		return serviceU.cadastrarUsuario(usuario);
+	public ResponseEntity<Object> cadastrarUsuario(@Valid @RequestBody Usuario novoUsuario) {
+		return serviceU.cadastrarUsuario(novoUsuario);
+	}
+	
+	@PostMapping("/logar")
+	public ResponseEntity<UserLogin> Logar (@Valid @RequestBody Optional<UserLogin> user){
+	
+		return serviceU.logar(user).map(userLogin -> ResponseEntity.ok(userLogin))
+				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 
 	@GetMapping("/buscar/todos")
