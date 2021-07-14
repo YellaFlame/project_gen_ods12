@@ -1,6 +1,7 @@
 package org.generation.ecommerce.configuration;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +29,7 @@ public class SwaggerConfig {
 
 	public static ApiInfo metadata() {
 		return new ApiInfoBuilder().title("API - Sucateria").description("Projeto API Spring - Sucateria")
-				.version("1.0.0").license("Apache License Version 2.0").licenseUrl("http://localhost:8080/swagger-ui/")
+				.version("1.0.0").license("Grupo 6").licenseUrl("http://localhost:8080/swagger-ui/")
 				.contact(contact()).build();
 	}
 
