@@ -1,10 +1,7 @@
 package org.generation.ecommerce.service;
 
 import java.nio.charset.Charset;
-<<<<<<< HEAD
 
-=======
->>>>>>> abf6b54ed8846d65726278daafaf9778b35348be
 import java.util.List;
 import java.util.Optional;
 
