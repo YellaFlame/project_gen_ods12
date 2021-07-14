@@ -21,6 +21,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder autenticacao) throws Exception {
+		autenticacao.inMemoryAuthentication().withUser("boaz").password(senhaCodificada().encode("boaz")).authorities("ROLE_ADMIN");
 		autenticacao.userDetailsService(userDetailsService);
 	}
 
