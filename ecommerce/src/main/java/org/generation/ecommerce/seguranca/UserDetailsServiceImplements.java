@@ -2,7 +2,6 @@ package org.generation.ecommerce.seguranca;
 
 import java.util.Optional;
 
-
 import org.generation.ecommerce.model.Usuario;
 import org.generation.ecommerce.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

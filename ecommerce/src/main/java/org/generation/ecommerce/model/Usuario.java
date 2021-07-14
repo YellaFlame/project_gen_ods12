@@ -1,7 +1,6 @@
 package org.generation.ecommerce.model;
 
 import java.util.ArrayList;
-
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -39,15 +38,15 @@ public class Usuario {
 	@Size(max = 40)
 	private String nome;
 
-	@NotBlank
-	@Size(min = 6, max = 100)
-	private String usuario;
-
 	@NotBlank(message = "Sobrenome não deve ser nulo ou vazio")
 	@Size(max = 40)
 	private String sobrenome;
 
 	@NotBlank
+	@Size(max = 100)
+	private String usuario;
+
+	@NotNull(message = "Email não pode ser nulo ou vazio")
 	private String email;
 
 	@NotNull(message = "Senha não deve ser nulo ou vazio")
@@ -65,6 +64,14 @@ public class Usuario {
 	// Special Methods
 	public long getIdUsuario() {
 		return idUsuario;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public void setIdUsuario(long idUsuario) {
@@ -117,14 +124,6 @@ public class Usuario {
 
 	public void setListaProduto(List<Produto> listaProduto) {
 		this.listaProduto = listaProduto;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
 	}
 
 }

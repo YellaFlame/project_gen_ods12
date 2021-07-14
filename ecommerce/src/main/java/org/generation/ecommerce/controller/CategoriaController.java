@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/categoria")
+@RequestMapping("api/v1/categoria")
 @CrossOrigin("*")
 public class CategoriaController {
 
@@ -27,7 +27,7 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaRepository repository;
 
-	@GetMapping("/buscar/todos")
+	@GetMapping("/todos")
 	public ResponseEntity<?> getAll() {
 		return ResponseEntity.ok(categoriaService.findAll());
 	}

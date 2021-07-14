@@ -2,13 +2,12 @@ package org.generation.ecommerce.controller;
 
 import java.util.List;
 
-
 import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.generation.ecommerce.model.Usuario;
-import org.generation.ecommerce.model.dto.UserLogin;
+import org.generation.ecommerce.model.dto.UserLoginDto;
 import org.generation.ecommerce.model.dto.UsuarioDTO;
 import org.generation.ecommerce.repository.UsuarioRepository;
 import org.generation.ecommerce.service.UsuarioService;
@@ -42,14 +41,13 @@ public class UsuarioController {
 	private UsuarioRepository repositoryU;
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Object> cadastrarUsuario(@Valid @RequestBody Usuario novoUsuario) {
-		return serviceU.cadastrarUsuario(novoUsuario);
+	public ResponseEntity<Object> cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
+		return serviceU.cadastrarUsuario(usuario);
 	}
-	
+
 	@PostMapping("/logar")
-	public ResponseEntity<UserLogin> Logar (@Valid @RequestBody Optional<UserLogin> user){
-	
-		return serviceU.logar(user).map(userLogin -> ResponseEntity.ok(userLogin))
+	public ResponseEntity<UserLoginDto> authentication(@Valid @RequestBody Optional<UserLoginDto> user) {
+		return serviceU.logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 
