@@ -46,7 +46,11 @@ public class Usuario {
 	@Size(max = 100)
 	private String usuario;
 
+<<<<<<< HEAD
 	@NotNull(message = "Email não pode ser nulo ou vazio")
+=======
+	@Email
+>>>>>>> abf6b54ed8846d65726278daafaf9778b35348be
 	private String email;
 
 	@NotNull(message = "Senha não deve ser nulo ou vazio")
