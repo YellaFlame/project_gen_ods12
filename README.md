@@ -44,6 +44,7 @@ ferramentas foram usadas na construção do projeto:
 <img width="25" height="25" src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-icon.svg" alt="bootstrap"/></code>
 <img width="25" height="25" src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5"/></code>
 <img width="25" height="25" src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" alt="Typescript"/></code>
+<img width="25" height="25" src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" alt="Typescript"/></code>
 </p>
 
 ## Development Team
