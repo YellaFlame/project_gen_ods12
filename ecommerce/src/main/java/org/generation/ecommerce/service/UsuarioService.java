@@ -80,7 +80,7 @@ public class UsuarioService {
 
 	/**
 	 * 
-	 * @param idUsuario, tipo long para pesqueisar o usuário no banco
+	 * @param idUsuario, tipo long para pesquisar o usuário no banco
 	 * @return, usuário encontrado ou então retorna notFound
 	 */
 	public ResponseEntity<Usuario> listarPorId(long idUsuario) {

@@ -42,7 +42,7 @@ public class UsuarioController {
 	
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
-		return serviceU.cadastrarUsuario(novoUsuario);
+		return serviceU.cadastrarUsuario(usuario);
 	}
 
 	@PostMapping("/logar")
