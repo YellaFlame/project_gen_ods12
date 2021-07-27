@@ -30,5 +30,7 @@ public class UsuarioDTO {
 
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+		
 
 }
