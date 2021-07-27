@@ -1,7 +1,6 @@
 package org.generation.ecommerce.configuration;
 
 import java.util.ArrayList;
-
 import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +15,11 @@ import springfox.documentation.service.Response;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
+/**
+ * @author Jessica Marques
+  * @author Paola
+ * @author Rafael
+ **/
 @Configuration
 public class SwaggerConfig {
 

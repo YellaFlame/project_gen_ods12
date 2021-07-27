@@ -41,7 +41,7 @@ public class Usuario {
 	@NotBlank(message = "Sobrenome não deve ser nulo ou vazio")
 	@Size(max = 40)
 	private String sobrenome;
-
+	
 	@NotBlank
 	@Size(max = 100)
 	private String usuario;
