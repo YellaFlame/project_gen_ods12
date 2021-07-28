@@ -1,6 +1,13 @@
-.fs-16{
-    font-size: 16pt;
+
+.vaivei:hover{
+    color: black;
 }
-a {
-    cursor: pointer;
+
+#vai{
+    border-radius: 50%;
 }
+
+.teste{
+    background-color: #c2d8b9;
+}
+
