@@ -1,3 +1,7 @@
+.bg-rodape {
+    background-color: #035AA6;
+}
+
 ul.social-network{
     list-style: none;
     padding: 0;
@@ -22,3 +26,8 @@ ul.social-network li{
 .fa-instagram:hover{
     color: #C13584;
 }
+
+.bg-copyright {
+    background-color: #E5F2D8;
+}
+

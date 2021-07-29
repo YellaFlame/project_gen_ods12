@@ -1,6 +1,22 @@
+.bg-menu {
+    background-color: #035AA6;
+}
+
 .fs-16{
     font-size: 16pt;
 }
-a {
+
+a{
     cursor: pointer;
 }
+
+
+.vaivei:hover{
+    color: black;
+}
+
+#vai{
+    border-radius: 50%;
+}
+
+
