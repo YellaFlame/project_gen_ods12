@@ -10,6 +10,12 @@
  </p>
 
 ## About the Project
+A sucateria, é um sistema de e-commerce destinado a conectar catadores de materiais recicláveis com os produtores de lixo residual e comercial.
+A nossa missão é diminuir o impacto gerado pelo lixo no meio ambiente, ajudando a melhorar as condições de trabalho dos catadores e na conscientização da comunidade, através do sistema de gestão ambiental no Brasil.
+Nossos valores estão interligados com a transparência, onde nosso trabalho é gerar a aproximação de catadores, quem gera o lixo e as empresas que compram esses materiais para o destino correto dos resíduos.
+Visamos conectar pessoas que buscam os mesmos valores que os nossos e desejam mudar seus hábitos para diminuir substancialmente a geração de resíduos sólidos por meio da reciclagem, para que ao longo do tempo essas mudanças possam ser visíveis para as futuras gerações. 
+Estamos de braços abertos para te acolher a fazer parte da nossa missão e torna-lo parte da nossa comunidade, onde para você gerador de resíduos é possível solicitar um de nossos colaboradores a recolher a sua reciclagem para o destino correto sem erros, e para você coletor de reciclagem, desenvolvemos a plataforma ideal para te auxiliar a se conectar ao destino certeiro de onde recolher a reciclagem com a quantidade e descrição do que será recolhido e se necessário nossa equipe irá auxiliar em todo processo.
+Contamos com o Feedback de nossos usuários, a sua opinião é de total relevância, queremos saber como foi todo o processo para que possamos melhorar a experiência do usuário da Sucateria.
 
 ## Features
 :white_check_mark:
