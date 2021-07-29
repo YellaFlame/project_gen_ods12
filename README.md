@@ -10,7 +10,7 @@
  </p>
 
 ## About the Project
-A sucateria, é um sistema de e-commerce destinado a conectar catadores de materiais recicláveis com os produtores de lixo residual e comercial.
+<p align="justify"> A sucateria, é um sistema de e-commerce destinado a conectar catadores de materiais recicláveis com os produtores de lixo residual e comercial.
 A nossa missão é diminuir o impacto gerado pelo lixo no meio ambiente, ajudando a melhorar as condições de trabalho dos catadores e na conscientização da comunidade, através do sistema de gestão ambiental no Brasil.
 Nossos valores estão interligados com a transparência, onde nosso trabalho é gerar a aproximação de catadores, quem gera o lixo e as empresas que compram esses materiais para o destino correto dos resíduos.
 Visamos conectar pessoas que buscam os mesmos valores que os nossos e desejam mudar seus hábitos para diminuir substancialmente a geração de resíduos sólidos por meio da reciclagem, para que ao longo do tempo essas mudanças possam ser visíveis para as futuras gerações. 
@@ -20,7 +20,7 @@ Contamos com o Feedback de nossos usuários, a sua opinião é de total relevân
 ## Features
 :white_check_mark:
 Modelar e implementar o banco de dados: Criação de diagrama entidade relacionamento (DER)
-
+<img src="https://i.imgur.com/vCMd5G9.png" alt="DER"/></code>
 </p>
 :white_check_mark:
 Criar o projeto spring no spring Initializer.
