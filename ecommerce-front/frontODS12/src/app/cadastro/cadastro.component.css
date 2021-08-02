@@ -11,14 +11,16 @@ float: right;
     width: 100%;
 }
 .bg-img{
-    background-image: url('https://sustentavel.com.br/wp-content/uploads/2020/01/Cultura-sustent%C3%A1vel-2.jpg');
+    background-image:url('https://hccenergiasolar.com.br/uploads/hccenergiasolar_image_494-1-.jpeg?nf_resize=fit&h=480');
     background-repeat: no-repeat;
     background-size: cover;
+    margin: auto;
+
 }
 
 .container {
-    width: 60rem;
-    height: 40rem;
+    width: 80rem;
+    height: 60rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
     border-radius: 5px;
     position: relative;
@@ -39,4 +41,8 @@ float: right;
     box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
     filter: blur(10px);
     margin: -20px;
+   
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
   }

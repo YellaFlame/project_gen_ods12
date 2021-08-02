@@ -1,60 +1,66 @@
-<div class="bg-img">
-    <div class="container d-flex justify-content-center ">
-        <div class="col-md-6">
-            <p class="text-center mt-3">Já é nosso cliente? Insira as informações para entrar</p>
-            <form class="">
-                <div class="mb-3 w-50">
-                    <label for="Usuário" class="form-label">Usuário</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3 w-50">
-                    <label for="exampleInputEmail1" class="form-label">Senha</label>
-                    <input type="Senha" class="form-control" id="Senha">
-                </div>
+<div class="container-fluid d-flex justify-content-center bg-img">
+    <div class="col-md-6">
+        <p class="text-center mt-3">Já é nosso cliente? Insira as informações para entrar</p>
+        <form class="form-group">
+            <div class="mb-3 w-50">
+                <label for="Usuário" class="form-label">Usuário</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="mb-3 w-50">
+                <label for="exampleInputEmail1" class="form-label">Senha</label>
+                <input type="Senha" class="form-control" id="Senha">
+            </div>
 
-                <button type="submit" class="btn btn-primary mb-3">Entre</button>
-            </form>
+            <button type="submit" class="btn btn-primary mb-3">Entre</button>
+        </form>
+    </div>
+
+
+    <div class="container-fluid col-md-6 mb-5 justify-content-center">
+        <p class="text-center mt-3">Não possui uma conta? Insira as informações para cadastrar</p>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="Nome" class="form-label">Nome</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="Nome" class="form-label">Sobrenome</label>
+                <input type="text" class="form-control">
+            </div>
         </div>
-        <div class="col-md-6">
-            <p class="text-center mt-3">Não possui uma conta? Cadastre-se aqui</p>
-            <form class="">
-                <div class="div-container">
-                    <div class="mb-3 md-3 w-50 div-left pe-3">
-                        <label for="Nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="mb-3 md-3 w-50 div-right">
-                        <label for="Sobrenome" class="form-label">Sobrenome</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="div-container">
-                    <div class="div-left">
-                        <label for="Usuário" class="form-label">Usuário</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="w-50 div-right">
-                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">Nós não compartilhamos seu email</div>
-                    </div>
-                </div>
-                <div class="div-container">
-                    <div class="w-100">
-                        <label for="Confime sua Senha" class="form-label">Confime sua Senha</label>
-                        <input type="password" class="form-control">
-                    </div>
-                    <div class="w-100">
-                        <label for="Confime sua Senha" class="form-label">Confime sua Senha</label>
-                        <input type="password" class="form-control">
-                    </div>
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Aceitar os termos e condições</label>
-                </div>
-                <button type="submit" class="btn btn-primary mb-3">Enviar</button>
-            </form>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="Nome" class="form-label">Usuário</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="Nome" class="form-label">Email</label>
+                <input type="text" class="form-control">
+            </div>
         </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="Nome" class="form-label">Senha</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="Nome" class="form-label">Confirme sua Senha</label>
+                <input type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="tipo">Tipo de Usuario</label>
+                <select class="form-control" name="tipo" id="tipo">
+                    <option value="condonime">Condonime</option>
+                    <option value="sucateiro">Sucateiro</option>
+                    <option value="adm">Administrador</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3 mt-3">Cadastrar</button>
     </div>
 </div>
+
