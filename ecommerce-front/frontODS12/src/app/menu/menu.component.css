@@ -6,7 +6,6 @@ a{
     cursor: pointer;
 }
 
-
 .vaivei:hover{
     color: black;
 }
@@ -17,4 +16,8 @@ a{
 
 .teste{
     background-color: #c2d8b9;
+}
+
+.w-50{
+    width: 50%;
 }
