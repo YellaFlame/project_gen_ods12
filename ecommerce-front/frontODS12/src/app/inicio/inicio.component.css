@@ -1,3 +1,9 @@
+.card-body {
+    position: relative;
+    bottom: 200px
+}
+
+
 h5 {
     font-size: large;
     font-weight: bold;
@@ -10,31 +16,29 @@ p {
 }
 
 .img-1 { 
-    max-width: 50%;
-    height: 250px;
-    width: 400px;
+    max-width: 70%;
+    height: 450px;
+    width: 555px;
 }
 
 .img-2 {
-    max-width: 20%;
-    height: 180px;
-    width: 300px;
-    margin: 0 60px;
+    max-width: 60%;
+    height: 400px;
+    width: 500px;
+    margin: 0 20px;
 }
 
 .img-3 {
-    height: 200px;
-    width: 300px;
-    /* border: 2px solid #F29422; */
+    height: 400px;
+    width: 500px;
     margin-top: 10px;
 }
 
 .img-4 {
-    max-width: 50%;
-    height: 200px;
-    width: 350px;
-    margin: 10px 50px 50px 50px;
-    /* border: 2px solid #035AA6; */
+    max-width: 100%;
+    height: 400px;
+    width: 550px;
+    margin: 10px 10px 50px 50px;
 }
 
 .card-texto1 {
@@ -93,6 +97,5 @@ p {
     left: 500px;
     bottom: 110px;
 }
-
 
 
