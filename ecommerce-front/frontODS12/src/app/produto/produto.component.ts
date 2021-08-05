@@ -13,6 +13,7 @@ export class ProdutoComponent implements OnInit {
 
   produto: Produto = new Produto()
   listaProdutos: Produto[]
+  seila = environment.token
 
   constructor(
     private produtoService: ProdutoService,

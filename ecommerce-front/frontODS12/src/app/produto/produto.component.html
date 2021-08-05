@@ -15,15 +15,22 @@
             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                 <div class="row ">
                     <div class="col d-flex flex-column align-items-center m-5">
-                        <h1 class="m-2 fs-54">Lixo</h1>
+                        <h1 class="m-2 fs-54">Lixo, {{seila}}</h1>
                         
-                        <!-- <input class="m-2" type="text" name="imagem" id="imagem" placeholder="iamgem">
+                        <input class="m-2" type="text" name="imagem" id="imagem" placeholder="iamgem">
 
-                        <input [(ngModel)]='produto.descricao' class="m-2" type="text" name="descricao" id="descricao" placeholder="descrição"> -->
 
-                        <input [(ngModel)]='produto.quantidade' class="m-2" type="number" name="quantidade" id="quantidade">
+                        <input [(ngModel)]='produto.status' class="m-2" type="text" name="text" id="status" placeholder="status">
 
-                        <input [(ngModel)]='produto.descricao' class="m-2" type="text" name="descricao" id="descricao">
+                        <input [(ngModel)]='produto.endereco' class="m-2" type="text" name="endereco" id="endereco" placeholder="endereco">
+
+                        <input [(ngModel)]='produto.dataRetirada' class="m-2" type="date" name="dataRetirada" id="dataRetirada" placeholder="dataRetirada">
+
+                        <input [(ngModel)]='produto.descricao' class="m-2" type="text" name="descricao" id="descricao" placeholder="descrição">
+
+                        <input [(ngModel)]='produto.quantidade' class="m-2" type="number" name="quantidade" id="quantidade" placeholder="quantidade">
+
+                        <!-- <input [(ngModel)]='produto.categoria' class="m-2" type="text" name="categoria" id="categoria" placeholder="categoria"> -->
 
                         <button  class="btn btn-warning text-white" type="submit" (click)='cadastrar()'>Cadastrar</button>
                     </div>

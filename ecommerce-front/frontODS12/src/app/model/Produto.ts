@@ -1,3 +1,4 @@
+import { Categoria } from "./Categoria"
 import { Usuario } from "./Usuario"
 
 export class Produto {
@@ -7,6 +8,6 @@ export class Produto {
     public dataRetirada: string
     public descricao: string
     public quantidade: number
-    //public categoria: Categoria LEMBRAR DE IMPORTAR CATEGORIA
-    public usuario: Usuario
+    // public categoria: string
+    // public usuario: Usuario
 }
