@@ -24,7 +24,7 @@ import org.generation.ecommerce.service.ProdutoService;
  * @author Rafael
  **/
 @RestController
-@RequestMapping("/api/v1/produto")
+@RequestMapping("/produto")
 @CrossOrigin("*")
 public class ProdutoController {
 
@@ -64,12 +64,12 @@ public class ProdutoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produto.save(produto1));
 	}
 
-	@PutMapping("/atualizar/id/{idProduto}")
-	public ResponseEntity<Produto> alterar(@Valid @PathVariable @RequestBody Produto produto1, long idProduto) {
+	@PutMapping("/atualizar/id")
+	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1, long idProduto) {
 		return ResponseEntity.ok(produto.save(produto1));
 	}
 
-	@DeleteMapping("/deletar/{id}")
+	@DeleteMapping("/deletar/id/{id}")
 	public void delete(@Valid @PathVariable Long id) {
 		produto.deleteById(id);
 	}
