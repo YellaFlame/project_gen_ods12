@@ -1,0 +1,12 @@
+import { Usuario } from "./Usuario"
+
+export class Produto {
+    public idProduto: number
+    public status: string
+    public endereco: string
+    public dataRetirada: string
+    public descricao: string
+    public quantidade: number
+    //public categoria: Categoria LEMBRAR DE IMPORTAR CATEGORIA
+    public usuario: Usuario
+}
