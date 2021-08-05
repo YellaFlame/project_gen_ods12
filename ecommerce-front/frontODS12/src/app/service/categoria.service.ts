@@ -15,7 +15,7 @@ export class CategoriaService {
   ) { }
 
   token = {
-    headers: new HttpHeaders().set("Authorization", "Basic bmFydXRvMjoxMjM0NTY3OA==")
+    headers: new HttpHeaders().set("Authorization", "Basic bmFydXRvOjEyMzQ1Njc4")
   }
 
   getAllResiduo(): Observable<Categoria[]>{

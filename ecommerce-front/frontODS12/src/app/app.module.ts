@@ -12,9 +12,11 @@ import { InicioComponent } from './inicio/inicio.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { FormsModule } from "@angular/forms";
 import { CategoriaComponent } from './categoria/categoria.component';
+
 
 
 
@@ -27,8 +29,10 @@ import { CategoriaComponent } from './categoria/categoria.component';
     SobreComponent,
     ContatoComponent,
     CadastroComponent,
+    ComoFuncionaComponent
     ProdutoComponent,
     CategoriaComponent
+
   ],
   imports: [
     BrowserModule,

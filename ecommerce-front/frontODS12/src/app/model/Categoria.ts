@@ -1,5 +1,5 @@
 export class Categoria {
-    public Id: number
+    public idCategoria: number
     public residuo: string
     public preco: number
 }
