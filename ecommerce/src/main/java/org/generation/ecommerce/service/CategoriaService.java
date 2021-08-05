@@ -22,6 +22,7 @@ public class CategoriaService {
 	 * 
 	 * @return
 	 */
+	/*
 	public ResponseEntity<List<Categoria>> findAll() {
 		List<Categoria> listaCategoria = repository.findAll();
 		if (listaCategoria.isEmpty()) {
@@ -31,6 +32,7 @@ public class CategoriaService {
 			return ResponseEntity.status(200).body(listaCategoria);
 		}
 	}
+	*/
 
 	/**
 	 * @param novoResiduo - Corpo de parametro necessario para passar um novo residuo.

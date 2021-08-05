@@ -13,7 +13,6 @@ export class ProdutoComponent implements OnInit {
 
   produto: Produto = new Produto()
   listaProdutos: Produto[]
-  seila = environment.token
 
   constructor(
     private produtoService: ProdutoService,
@@ -22,7 +21,7 @@ export class ProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(environment.token = '') {
+    if(environment.token == '') {
       alert('Sua sessão expirou, faça o login novamente.')
       this.router.navigate(['/inicio'])
     }

@@ -1,5 +1,7 @@
 package org.generation.ecommerce.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.generation.ecommerce.model.Categoria;
@@ -31,8 +33,8 @@ public class CategoriaController {
 	private CategoriaRepository repository;
 
 	@GetMapping("/todos")
-	public ResponseEntity<?> getAll() {
-		return ResponseEntity.ok(categoriaService.findAll());
+	public ResponseEntity<List<Categoria>> getAll() {
+		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/buscar/id")
