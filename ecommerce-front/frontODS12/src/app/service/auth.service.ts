@@ -17,13 +17,14 @@ export class AuthService {
 
 
   entrar(userLogin: UserLoginDto): Observable<UserLoginDto>{
-    return this.http.post<UserLoginDto>("http://localhost:8080/api/v1/usuario/logar", userLogin)
+    return this.http.post<UserLoginDto>("http://localhost:8080/usuario/logar", userLogin)
   }
 
   cadastrar(user: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>("http://localhost:8080/api/v1/usuario/cadastrar", user)
+    return this.http.post<Usuario>("http://localhost:8080/usuario/cadastrar", user)
   }
   
+
   logado(){
     let ok: boolean = false
 

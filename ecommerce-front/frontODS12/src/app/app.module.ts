@@ -1,8 +1,8 @@
 import { HttpClientModule } from "@angular/common/http"
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,11 @@ import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { FormsModule } from "@angular/forms";
+import { CategoriaComponent } from './categoria/categoria.component';
+
+
 
 
 @NgModule({
@@ -25,6 +30,9 @@ import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
     ContatoComponent,
     CadastroComponent,
     ComoFuncionaComponent
+    ProdutoComponent,
+    CategoriaComponent
+
   ],
   imports: [
     BrowserModule,
@@ -32,7 +40,10 @@ import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: LocationStrategy,
+    useClass: HashLocationStrategy
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

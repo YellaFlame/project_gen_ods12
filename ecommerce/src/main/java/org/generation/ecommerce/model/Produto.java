@@ -40,7 +40,7 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties({"produto", "listaProduto"})
 	@JoinColumn(name = "fk_categoria")
-	@NotNull
+	
 	private Categoria categoria;
 
 	@ManyToOne

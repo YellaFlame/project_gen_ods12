@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("/api/v1/usuario")
+@RequestMapping("/usuario")
 @CrossOrigin("*")
 public class UsuarioController {
 	// @Autowired private UsuarioRepository repositoryU;
