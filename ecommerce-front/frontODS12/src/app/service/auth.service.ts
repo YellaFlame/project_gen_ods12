@@ -24,6 +24,7 @@ export class AuthService {
     return this.http.post<Usuario>("http://localhost:8080/api/v1/usuario/cadastrar", user)
   }
   
+
   logado(){
     let ok: boolean = false
 

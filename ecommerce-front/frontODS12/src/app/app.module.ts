@@ -14,6 +14,8 @@ import { ContatoComponent } from './contato/contato.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { FormsModule } from "@angular/forms";
+import { CategoriaComponent } from './categoria/categoria.component';
+
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { FormsModule } from "@angular/forms";
     SobreComponent,
     ContatoComponent,
     CadastroComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,

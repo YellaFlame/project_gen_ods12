@@ -10,7 +10,8 @@ import { AuthService } from '../service/auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  usuario = environment.usuario
+  user = environment.usuario
+  token = environment.token
 
   constructor( 
     private router: Router,
@@ -18,15 +19,16 @@ export class MenuComponent implements OnInit {
   ) { }
   
   ngOnInit(){
-    
+  
   }
 
   sair(){
-    this.router.navigate(["/inicio"])
-    alert("Log-Off realizado com sucesso, obrigado por visitar nossa pagina")
     environment.token = ''
     environment.Id = 0
     environment.tipo = ''
     environment.usuario = ''
+    this.router.navigate(["/inicio"])
+    alert("Log-Off realizado com sucesso, obrigado por visitar nossa pagina")
+   
   }
 }

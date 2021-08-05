@@ -20,8 +20,6 @@ export class CadastroComponent implements OnInit {
   //Atributos para Logar
   userLogin: UserLoginDto = new UserLoginDto
 
-  nome = environment.usuario
-
 
 
   constructor(
@@ -66,12 +64,14 @@ export class CadastroComponent implements OnInit {
   //Metodos para Logar
   entrar(){
     console.log(JSON.stringify(this.userLogin))
+  
     this.authService.entrar(this.userLogin).subscribe((resp: UserLoginDto) =>{
       this.userLogin = resp
       environment.token = this.userLogin.token
       environment.usuario = this.userLogin.usuario
       environment.tipo = this.user.tipo
       environment.Id = this.user.Id
+      
       
       alert("Login efetuado com sucesso!")
       this.router.navigate(["/inicio"])
