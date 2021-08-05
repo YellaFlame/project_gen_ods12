@@ -39,7 +39,7 @@ export class CategoriaComponent implements OnInit {
       this.categoriaService.postResiduo(this.lixo).subscribe((resp: Categoria) => {
         this.lixo = resp
         alert("Residuo cadastrado com sucesso.")
-        this.findAllResiduo()
+       
         this.lixo = new Categoria()
       }, erro =>{
         if(erro.status == 400){
