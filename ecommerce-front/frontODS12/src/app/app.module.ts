@@ -12,6 +12,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ContatoComponent } from './contato/contato.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { DescarteComponent } from './descarte/descarte.component';
+import { ParceiroComponent } from './parceiro/parceiro.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { CadastroComponent } from './cadastro/cadastro.component';
     InicioComponent,
     SobreComponent,
     ContatoComponent,
-    CadastroComponent
+    CadastroComponent,
+    DescarteComponent,
+    ParceiroComponent
   ],
   imports: [
     BrowserModule,
