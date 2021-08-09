@@ -18,8 +18,11 @@ import { FormsModule } from "@angular/forms";
 import { CategoriaComponent } from './categoria/categoria.component';
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> PaolaBenotti-master
 @NgModule({
   declarations: [
     AppComponent,
