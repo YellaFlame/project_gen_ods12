@@ -20,6 +20,7 @@ export class CategoriaService {
   }
 
   getAllResiduo(): Observable<Categoria[]>{
+<<<<<<< HEAD
     return this.http.get<Categoria[]>("http://localhost:8080/residuo/todos", this.token)
   }
 
@@ -37,5 +38,13 @@ export class CategoriaService {
 
   deleteResiduo(id: number){
     return this.http.delete(`http://localhost:8080/residuo/deletar/${id}`, this.token)
+=======
+    console.log("Token "+ environment.token)
+    return this.http.get<Categoria[]>("https://sucateriaods12.herokuapp.com/residuo/todos", this.token)
+  }
+
+  postResiduo(residuo: Categoria): Observable<Categoria>{
+    return this.http.post<Categoria>("https://sucateriaods12.herokuapp.com/residuo/cadastrar", residuo, this.token)
+>>>>>>> f768a90dbe96ba73cc7a5f4152df3e7925ac26f0
   }
 }
