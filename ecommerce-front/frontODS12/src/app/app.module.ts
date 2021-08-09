@@ -17,12 +17,6 @@ import { ProdutoComponent } from './produto/produto.component';
 import { FormsModule } from "@angular/forms";
 import { CategoriaComponent } from './categoria/categoria.component';
 
-
-<<<<<<< HEAD
-
-
-=======
->>>>>>> PaolaBenotti-master
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +26,7 @@ import { CategoriaComponent } from './categoria/categoria.component';
     SobreComponent,
     ContatoComponent,
     CadastroComponent,
-    ComoFuncionaComponent
+    ComoFuncionaComponent,
     ProdutoComponent,
     CategoriaComponent
 

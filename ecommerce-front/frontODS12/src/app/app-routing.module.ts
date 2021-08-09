@@ -3,12 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
 import { CategoriaComponent } from './categoria/categoria.component';
-
 import { ContatoComponent } from './contato/contato.component';
-import { DescarteComponent } from './descarte/descarte.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProdutoComponent } from './produto/produto.component';
-import { ParceiroComponent } from './parceiro/parceiro.component';
 import { SobreComponent } from './sobre/sobre.component';
 
 const routes: Routes = [
