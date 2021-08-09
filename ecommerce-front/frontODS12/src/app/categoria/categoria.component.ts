@@ -43,6 +43,7 @@ export class CategoriaComponent implements OnInit {
       })
     }
 
+    
     findAllResiduo(){
       this.categoriaService.getAllResiduo().subscribe((resp: Categoria[])=>{
         this.listaLixo = resp
