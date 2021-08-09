@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCategoria;
+	private Long id;
 
 	@NotNull(message = "Campo não pode ser nulo")
 	private String residuo;
@@ -53,11 +53,11 @@ public class Categoria {
 	}
 
 	public Long getId() {
-		return idCategoria;
+		return id;
 	}
 
-	public void setId(Long idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getResiduo() {

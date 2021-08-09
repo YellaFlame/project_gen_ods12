@@ -21,14 +21,12 @@ export class CategoriaComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-
+    this.findAllResiduo()
     if(environment.token == ""){
       alert("Seu token expirou")
       this.router.navigate(["/inicio"])
       
     }
-
-    this.findAllResiduo()
     
   }
 
@@ -43,7 +41,6 @@ export class CategoriaComponent implements OnInit {
       })
     }
 
-    
     findAllResiduo(){
       this.categoriaService.getAllResiduo().subscribe((resp: Categoria[])=>{
         this.listaLixo = resp

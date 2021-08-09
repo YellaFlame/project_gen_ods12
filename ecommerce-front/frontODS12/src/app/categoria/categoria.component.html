@@ -13,7 +13,6 @@
                 </div>
                 <button (click)="cadastrar()" type="submit" class="btn btn-primary mb-3">Cadastrar</button>
             </div>
-        </div>
 
 
         <div class="col-md-6">
@@ -28,6 +27,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Residuo</th>
                             <th scope="col">Preço</th>
+                            <th scope="col">Modificações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +35,10 @@
                             <th>{{item.id}}</th>
                             <td>{{item.residuo}}</td>
                             <td>{{item.preco}}</td>
+                            <td class="d-flex justify-content-end">
+                                <button class="btn btn-info mr-3 " [routerLink]="['/categoria-edit', item.id]">Editar</button>
+                                <button class="btn btn-danger" [routerLink]="['/categoria-delete', item.id]">Apagar</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -42,4 +46,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
