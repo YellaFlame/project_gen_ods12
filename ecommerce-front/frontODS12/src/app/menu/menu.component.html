@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light teste">
+<nav class="navbar navbar-expand-lg navbar-light teste" id="myTopnav">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,6 +21,20 @@
                     <a>
                         <p class="m-0 text-white fs-16" routerLink='/contato'>Contato</p>
                     </a>
+                </li>
+                
+                <li class="nav-item pe-5">
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown link
+                    </a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
                 </li>
 
                 <ng-container *ngIf="auth.logado();">
