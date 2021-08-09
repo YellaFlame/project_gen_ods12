@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ContatoComponent } from './contato/contato.component';
+import { DescarteComponent } from './descarte/descarte.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProdutoComponent } from './produto/produto.component';
+import { ParceiroComponent } from './parceiro/parceiro.component';
 import { SobreComponent } from './sobre/sobre.component';
 
 const routes: Routes = [
@@ -14,9 +16,13 @@ const routes: Routes = [
   {path:"sobre", component:SobreComponent},
   {path:"contato", component:ContatoComponent},
   {path:"cadastro", component:CadastroComponent},
+
   {path:"categoria", component:CategoriaComponent},
-  {path:"produto", component: ProdutoComponent}
+  {path:"produto", component: ProdutoComponent},
   //{path:"produto/:id", component: ProdutoComponent}
+
+  {path:"descarte", component:DescarteComponent},
+  {path:"parceiro", component:ParceiroComponent}
 
 ];
 
