@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
+import { CategoriaGet } from '../model/CategoriaGet';
 import { CategoriaService } from '../service/categoria.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { CategoriaService } from '../service/categoria.service';
 export class CategoriaComponent implements OnInit {
 
   lixo: Categoria = new Categoria
-  listaLixo: Categoria[]
+  listaLixo: CategoriaGet[]
   
   constructor(
     private router: Router,
@@ -21,13 +22,13 @@ export class CategoriaComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-
+    this.findAllResiduo()
     if(environment.token == ""){
       this.router.navigate(["/inicio"])
       alert("Seu token expirou")
     }
 
-    this.findAllResiduo()
+    
     
   }
 
@@ -45,7 +46,7 @@ export class CategoriaComponent implements OnInit {
     }
 
     findAllResiduo(){
-      this.categoriaService.getAllResiduo().subscribe((resp: Categoria[])=>{
+      this.categoriaService.getAllResiduo().subscribe((resp: CategoriaGet[])=>{
         this.listaLixo = resp
       })
     }

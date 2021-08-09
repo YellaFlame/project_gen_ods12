@@ -18,26 +18,26 @@ export class ProdutoService {
   }
 
   getAllProduto(): Observable<Produto[]>{
-    return this.http.get<Produto[]>('http://localhost:8080/produto/buscar/todos', this.token)
+    return this.http.get<Produto[]>('https://sucateriaods12.herokuapp.com/produto/buscar/todos', this.token)
   }
 
   getByIdProduto(idProduto:number): Observable<Produto>{
-    return this.http.get<Produto>(`http://localhost:8080/produto/buscar/id/${idProduto}`, this.token)
+    return this.http.get<Produto>('https://sucateriaods12.herokuapp.com/produto/buscar/id/${idProduto}', this.token)
   }
 
   getByStatusProduto(status:string): Observable<Produto>{
-    return this.http.get<Produto>(`http://localhost:8080/produto/buscar/status/${status}`, this.token)
+    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/status/${status}`, this.token)
   }
 
   postProduto(produto: Produto): Observable<Produto>{
-    return this.http.post<Produto>('http://localhost:8080/produto/cadastrar', produto, this.token)
+    return this.http.post<Produto>('https://sucateriaods12.herokuapp.com/produto/cadastrar', produto, this.token)
   }
 
   putProduto(produto: Produto): Observable<Produto>{
-    return this.http.put<Produto>('http://localhost:8080/produto/atualizar/id', produto, this.token)
+    return this.http.put<Produto>('https://sucateriaods12.herokuapp.com/produto/atualizar/id', produto, this.token)
   }
 
   deleteProduto(idProduto:number) {
-    return this.http.delete(`http://localhost:8080/produto/deletar/id/${idProduto}`, this.token)
+    return this.http.delete(`https://sucateriaods12.herokuapp.com/produto/deletar/id/${idProduto}`, this.token)
   }
 }
