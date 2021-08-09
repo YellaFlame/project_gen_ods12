@@ -21,10 +21,10 @@ export class CategoriaService {
 
   getAllResiduo(): Observable<Categoria[]>{
     console.log("Token "+ environment.token)
-    return this.http.get<Categoria[]>("https://sucateriagenn.herokuapp.com/residuo/todos", this.token)
+    return this.http.get<Categoria[]>("https://sucateriaods12.herokuapp.com/residuo/todos", this.token)
   }
 
   postResiduo(residuo: Categoria): Observable<Categoria>{
-    return this.http.post<Categoria>("https://sucateriagenn.herokuapp.com/residuo/cadastrar", residuo, this.token)
+    return this.http.post<Categoria>("https://sucateriaods12.herokuapp.com/residuo/cadastrar", residuo, this.token)
   }
 }
