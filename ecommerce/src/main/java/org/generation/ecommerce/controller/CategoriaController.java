@@ -1,5 +1,7 @@
 package org.generation.ecommerce.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.generation.ecommerce.model.Categoria;
@@ -7,6 +9,7 @@ import org.generation.ecommerce.repository.CategoriaRepository;
 import org.generation.ecommerce.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +19,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author Leonardo Rosenbaum
+ **/
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("/residuo")
+@CrossOrigin("*")
 public class CategoriaController {
 
 	@Autowired
@@ -25,33 +32,33 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaRepository repository;
 
-	@GetMapping("/all")
-	public ResponseEntity<?> getAll() {
-		return ResponseEntity.ok(categoriaService.findAll());
+	@GetMapping("/todos")
+	public ResponseEntity<List<Categoria>> getAll() {
+		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	@GetMapping("/residuo/buscar/{id}")
-	public ResponseEntity<?> findById(@Valid @PathVariable Long id) {
-		return ResponseEntity.ok(repository.findById(id));
+	@GetMapping("/buscar/id")
+	public ResponseEntity<?> findById(@Valid @RequestBody Long idCategoria) {
+		return ResponseEntity.ok(repository.findById(idCategoria));
 	}
 
-	@GetMapping("/residuo/buscar/residuo/{residuo}")
-	public ResponseEntity<?> findByResiduo(@Valid @PathVariable String residuo) {
+	@GetMapping("/buscar/residuo")
+	public ResponseEntity<?> findByResiduo(@Valid @RequestBody String residuo) {
 		return ResponseEntity.ok(repository.findByResiduoContainingIgnoreCase(residuo));
 	}
 
-	@PostMapping("/residuo/cadastro")
+	@PostMapping("/cadastrar")
 	public ResponseEntity<?> cadastroResiduo(@Valid @RequestBody Categoria residuo) {
 		return ResponseEntity.ok(categoriaService.cadastrar(residuo));
 	}
 
-	@PutMapping("/residuo/atualizar/{id}")
-	public ResponseEntity<?> atualizar(@Valid @PathVariable Long id, @RequestBody Categoria residuo) {
-		return ResponseEntity.ok(categoriaService.att(id, residuo));
+	@PutMapping("/atualizar/id/{idCategoria}")
+	public ResponseEntity<?> atualizar(@Valid @PathVariable Long idCategoria, @RequestBody Categoria residuo) {
+		return ResponseEntity.ok(categoriaService.att(idCategoria, residuo));
 	}
 
-	@DeleteMapping("/residuo/delete/{id}")
-	public void delete(@Valid @PathVariable Long id) {
-		repository.deleteById(id);
+	@DeleteMapping("/deletar/id")
+	public void delete(@Valid @RequestBody Long idCategoria) {
+		repository.deleteById(idCategoria);
 	}
 }
