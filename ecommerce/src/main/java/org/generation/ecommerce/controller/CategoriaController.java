@@ -52,7 +52,7 @@ public class CategoriaController {
 		return ResponseEntity.ok(categoriaService.cadastrar(residuo));
 	}
 
-	@PutMapping("/atualizar/id/{idCategoria}")
+	@PutMapping("/atualizar/id/")
 	public ResponseEntity<?> atualizar(@Valid @PathVariable Long idCategoria, @RequestBody Categoria residuo) {
 		return ResponseEntity.ok(categoriaService.att(idCategoria, residuo));
 	}

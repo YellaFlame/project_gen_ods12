@@ -17,7 +17,6 @@ import { ProdutoComponent } from './produto/produto.component';
 import { FormsModule } from "@angular/forms";
 import { CategoriaComponent } from './categoria/categoria.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

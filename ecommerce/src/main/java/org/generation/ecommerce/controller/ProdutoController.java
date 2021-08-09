@@ -39,23 +39,23 @@ public class ProdutoController {
 		return ResponseEntity.ok(produto.findAll());
 	}
 
-	@GetMapping("/buscar/id/{idProduto}")
-	public ResponseEntity<ResponseEntity<Produto>> getID(@Valid @PathVariable Long idProduto) {
+	@GetMapping("/buscar/id")
+	public ResponseEntity<ResponseEntity<Produto>> getID(@Valid @RequestBody Long idProduto) {
 		return ResponseEntity.ok(serviceProduto.buscarPorId(idProduto));
 	}
 
-	@GetMapping("/buscar/status/{status}")
-	public ResponseEntity<List<Produto>> buscarStatus(@Valid @PathVariable String status) {
+	@GetMapping("/buscar/status")
+	public ResponseEntity<List<Produto>> buscarStatus(@Valid @RequestBody String status) {
 		return ResponseEntity.ok(produto.findAllByStatusContainingIgnoreCase(status));
 	}
 
-	@GetMapping("/buscar/endereco/{endereco}")
-	public ResponseEntity<List<Produto>> buscarEndereco(@Valid @PathVariable String endereco) {
+	@GetMapping("/buscar/endereco")
+	public ResponseEntity<List<Produto>> buscarEndereco(@Valid @RequestBody String endereco) {
 		return ResponseEntity.ok(produto.findAllByEnderecoContainingIgnoreCase(endereco));
 	}
 
-	@GetMapping("/buscar/descricao/{descricao}")
-	public ResponseEntity<List<Produto>> buscarDescricao(@Valid @PathVariable String descricao) {
+	@GetMapping("/buscar/descricao")
+	public ResponseEntity<List<Produto>> buscarDescricao(@Valid @RequestBody String descricao) {
 		return ResponseEntity.ok(produto.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
 
@@ -69,8 +69,8 @@ public class ProdutoController {
 		return ResponseEntity.ok(produto.save(produto1));
 	}
 
-	@DeleteMapping("/deletar/id/{id}")
-	public void delete(@Valid @PathVariable Long id) {
+	@DeleteMapping("/deletar/id")
+	public void delete(@Valid @RequestBody Long id) {
 		produto.deleteById(id);
 	}
 }
