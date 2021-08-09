@@ -19,7 +19,6 @@
                         
                         <input class="m-2" type="text" name="imagem" id="imagem" placeholder="imagem">
 
-
                         <input [(ngModel)]='produto.status' class="m-2" type="text" name="text" id="status" placeholder="status">
 
                         <input [(ngModel)]='produto.endereco' class="m-2" type="text" name="endereco" id="endereco" placeholder="endereco">
@@ -30,8 +29,24 @@
 
                         <input [(ngModel)]='produto.quantidade' class="m-2" type="number" name="quantidade" id="quantidade" placeholder="quantidade">
 
-                        <!-- <input [(ngModel)]='produto.categoria' class="m-2" type="text" name="categoria" id="categoria" placeholder="categoria"> -->
 
+                        <div>
+                          <label for="categoria">Categoria</label>
+                          <select name="categoria" id="categoria">
+                            
+                            <option *ngFor='let item of listaCategoria' value="{{item.id}}">
+                              {{item.residuo}}
+                            </option>
+                            
+                            
+                          </select>
+                        </div>
+
+
+
+
+                        
+                      
                         <button  class="btn btn-warning text-white" type="submit" (click)='cadastrar()'>Cadastrar</button>
                     </div>
                 </div>

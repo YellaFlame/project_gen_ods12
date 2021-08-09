@@ -71,6 +71,7 @@ export class CadastroComponent implements OnInit {
       environment.usuario = this.userLogin.usuario
       environment.tipo = this.user.tipo
       environment.Id = this.user.Id
+      console.log(this.userLogin.token)
       
       
       alert("Login efetuado com sucesso!")

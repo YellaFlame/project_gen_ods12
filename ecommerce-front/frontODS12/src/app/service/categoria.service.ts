@@ -15,14 +15,16 @@ export class CategoriaService {
   ) { }
 
   token = {
-    headers: new HttpHeaders().set("Authorization", "Basic bmFydXRvOjEyMzQ1Njc4")
+    headers: new HttpHeaders().set("Authorization", environment.token )
+
   }
 
   getAllResiduo(): Observable<Categoria[]>{
-    return this.http.get<Categoria[]>("http://localhost:8080/residuo/todos", this.token)
+    console.log("Token "+ environment.token)
+    return this.http.get<Categoria[]>("https://sucateriagenn.herokuapp.com/residuo/todos", this.token)
   }
 
   postResiduo(residuo: Categoria): Observable<Categoria>{
-    return this.http.post<Categoria>("http://localhost:8080/residuo/cadastrar", residuo, this.token)
+    return this.http.post<Categoria>("https://sucateriagenn.herokuapp.com/residuo/cadastrar", residuo, this.token)
   }
 }

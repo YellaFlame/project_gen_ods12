@@ -1,6 +1,5 @@
-import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
 import { CategoriaService } from '../service/categoria.service';
@@ -17,14 +16,16 @@ export class CategoriaComponent implements OnInit {
   
   constructor(
     private router: Router,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(){
 
     if(environment.token == ""){
-      this.router.navigate(["/inicio"])
       alert("Seu token expirou")
+      this.router.navigate(["/inicio"])
+      
     }
 
     this.findAllResiduo()
@@ -32,21 +33,20 @@ export class CategoriaComponent implements OnInit {
   }
 
   cadastrar(){
+    console.log("Lixo "+JSON.stringify(this.lixo))
       this.categoriaService.postResiduo(this.lixo).subscribe((resp: Categoria) => {
         this.lixo = resp
         alert("Residuo cadastrado com sucesso.")
         this.findAllResiduo()
         this.lixo = new Categoria()
-      }, erro =>{
-        if(erro.status == 500){
-          alert("Ja tem esse ai vei")
-        }
+      
       })
     }
 
     findAllResiduo(){
       this.categoriaService.getAllResiduo().subscribe((resp: Categoria[])=>{
         this.listaLixo = resp
+        console.log("Lixo "+JSON.stringify(this.listaLixo))
       })
     }
   }

@@ -18,8 +18,6 @@ import { FormsModule } from "@angular/forms";
 import { CategoriaComponent } from './categoria/categoria.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +27,7 @@ import { CategoriaComponent } from './categoria/categoria.component';
     SobreComponent,
     ContatoComponent,
     CadastroComponent,
-    ComoFuncionaComponent
+    ComoFuncionaComponent,
     ProdutoComponent,
     CategoriaComponent
 
