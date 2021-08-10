@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router"
 import { environment } from "src/environments/environment.prod"
 import { Categoria } from "../model/Categoria"
 import { Produto } from "../model/Produto"
+import { AuthService } from "../service/auth.service"
 import { CategoriaService } from "../service/categoria.service"
 import { ProdutoService } from "../service/produto.service"
 
@@ -24,6 +25,7 @@ export class ProdutoComponent implements OnInit {
   idCategoria: number
 
   constructor(
+    public auth: AuthService,
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
     private router: Router,
@@ -32,10 +34,23 @@ export class ProdutoComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
+<<<<<<< HEAD
+<<<<<<< HEAD
+    if(environment.token == '') {
+      alert('Sua sessão expirou, faça o login novamente.')
+      this.router.navigate(['/inicio'])
+     }
+=======
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
     // if(environment.token == '') {
     //  alert('Sua sessão expirou, faça o login novamente.')
     //   this.router.navigate(['/inicio'])
     // }
+<<<<<<< HEAD
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
 
     this.getAllProdutos()
     this.getAllCategoria()

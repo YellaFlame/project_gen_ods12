@@ -43,13 +43,13 @@ public class CategoriaController {
 	}
 
 	@GetMapping("/buscar/residuo")
-	public ResponseEntity<?> findByResiduo(@Valid @RequestBody String residuo) {
-		return ResponseEntity.ok(repository.findByResiduoContainingIgnoreCase(residuo));
+	public ResponseEntity<List<Categoria>> findByResiduo(@Valid @RequestBody String residuo) {
+		return ResponseEntity.ok(repository.findAllByResiduoContainingIgnoreCase(residuo));
 	}
 
 	@PostMapping("/cadastrar")
 	public ResponseEntity<?> cadastroResiduo(@Valid @RequestBody Categoria residuo) {
-		return ResponseEntity.ok(categoriaService.cadastrar(residuo));
+		return ResponseEntity.ok(repository.save(residuo));
 	}
 
 	@PutMapping("/atualizar")
