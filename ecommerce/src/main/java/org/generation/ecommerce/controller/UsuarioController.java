@@ -56,8 +56,8 @@ public class UsuarioController {
 		return ResponseEntity.ok(repositoryU.findAll());
 	}
 
-	@GetMapping("/buscar/id")
-	public ResponseEntity<Usuario> listarId(@Valid @RequestBody Long idUsuario) {
+	@GetMapping("/buscar/{id}")
+	public ResponseEntity<Usuario> listarId(@PathVariable long idUsuario) {
 		return serviceU.listarPorId(idUsuario);
 	}
 
