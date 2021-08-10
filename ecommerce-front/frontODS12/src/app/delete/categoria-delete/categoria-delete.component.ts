@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/model/Categoria';
-
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -12,8 +11,9 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class CategoriaDeleteComponent implements OnInit {
 
-  idCategoria: number
-  lixo2: Categoria = new Categoria()
+
+  lixo: Categoria = new Categoria()
+  id: number
 
   constructor(
     private categoriaService: CategoriaService,
@@ -25,23 +25,26 @@ export class CategoriaDeleteComponent implements OnInit {
     if(environment.token == ""){
       alert("Seu token expirou")
       this.router.navigate(["/inicio"])
+    }
 
-      this.idCategoria = this.route.snapshot.params["id"]
-      this.findyByIdCategoria(this.idCategoria)
+      this.id = this.route.snapshot.params["id"]
+      this.findyByIdCategoria(this.id)
   }
-}
+
 
   findyByIdCategoria(id: number){
     this.categoriaService.getByIdResiduo(id).subscribe((resp: Categoria) => {
-      this.lixo2 = resp
+      this.lixo = resp
     })
   }
 
   apagar(){
-    this.categoriaService.deleteResiduo(this.idCategoria).subscribe(()=>{
+    this.categoriaService.deleteResiduo(this.id).subscribe(()=>{
       alert("Deletou mano")
       this.router.navigate(["/categoria"])
     })
   }
-
+  gambiarra(){
+    this.router.navigate(["/categoria"])
+  }
 }
