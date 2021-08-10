@@ -41,6 +41,7 @@ public class CategoriaService {
 	 * @version - v1.0
 	 * @author - Rosenbaum
 	 */
+	/*
 	public Optional<?> cadastrar(Categoria novoResiduo) {
 		return ((Optional<?>) repository.findByResiduoContainingIgnoreCase(novoResiduo.getResiduo()))
 				.map(residuoExistente -> {
@@ -49,7 +50,7 @@ public class CategoriaService {
 					return Optional.ofNullable(repository.save(novoResiduo));
 				});
 			}
-
+*/
 	/** 
 	 * @param idCategoria - Pede um ID de categoria para checar se ele existe
 	 * @param residuoParaAtualizar - Se o ID corresponder com a DB, solicita o corpo de um novo residuo para atualizar.
