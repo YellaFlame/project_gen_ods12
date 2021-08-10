@@ -40,10 +40,13 @@ public class ProdutoController {
 		return ResponseEntity.ok(produto.findAll());
 	}
 
+
 	@GetMapping("/buscar/{id}")
-	public ResponseEntity<?> getID(@Valid @PathVariable Long idProduto) {
-		return ResponseEntity.ok(produto.findById(idProduto));
-	}
+    public ResponseEntity<Produto> GetById(@PathVariable long id){
+        return produto.findById(id)
+                .map(resp -> ResponseEntity.ok(resp))
+                .orElse(ResponseEntity.notFound().build());
+    }
 
 	@GetMapping("/buscar/status/{id}")
 	public ResponseEntity<List<Produto>> buscarStatus(@Valid @PathVariable String status) {
