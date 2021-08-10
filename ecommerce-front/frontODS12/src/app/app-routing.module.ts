@@ -9,7 +9,12 @@ import { ProdutoComponent } from './produto/produto.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ParceiroComponent } from './parceiro/parceiro.component';
 import { DescarteComponent } from './descarte/descarte.component';
-import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { PlasticoComponent } from './descarte/plastico/plastico.component';
+import { PapelComponent } from './descarte/papel/papel.component';
+import { MetalComponent } from './descarte/metal/metal.component';
+import { VidroComponent } from './descarte/vidro/vidro.component';
+import { OrganicoComponent } from './descarte/organico/organico.component';
+
 
 const routes: Routes = [
   {path:"", redirectTo:"inicio", pathMatch:"full"},
@@ -23,7 +28,12 @@ const routes: Routes = [
   {path:"produto", component: ProdutoComponent},
   {path:"parceiro", component: ParceiroComponent},
   {path:"descarte", component: DescarteComponent},
-  {path:"cadastrar", component: CadastrarComponent}
+  {path:"plastico", component: PlasticoComponent},
+  {path:"papel", component: PapelComponent},
+  {path:"metal", component: MetalComponent},
+  {path:"vidro", component: VidroComponent},
+  {path:"organico", component: OrganicoComponent}
+  
 
 
   //{path:"produto/:id", component: ProdutoComponent}

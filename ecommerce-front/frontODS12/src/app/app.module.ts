@@ -18,7 +18,12 @@ import { FormsModule } from "@angular/forms";
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ParceiroComponent } from "./parceiro/parceiro.component";
 import { DescarteComponent } from "./descarte/descarte.component";
-import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { PlasticoComponent } from './descarte/plastico/plastico.component';
+import { PapelComponent } from './descarte/papel/papel.component';
+import { MetalComponent } from './descarte/metal/metal.component';
+import { VidroComponent } from './descarte/vidro/vidro.component';
+import { OrganicoComponent } from './descarte/organico/organico.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
     CategoriaComponent,
     ParceiroComponent,
     DescarteComponent,
-    CadastrarComponent
+    PlasticoComponent,
+    PapelComponent,
+    MetalComponent,
+    VidroComponent,
+    OrganicoComponent,
+    
 
   ],
   imports: [
