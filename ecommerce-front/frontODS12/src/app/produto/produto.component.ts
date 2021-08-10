@@ -62,7 +62,7 @@ export class ProdutoComponent implements OnInit {
   getByIdProduto(id: number){
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
       this.produto = resp
-      alert("produto "+ JSON.stringify(this.produto))
+      //alert("produto "+ JSON.stringify(this.produto))
     })
   }
 
@@ -81,14 +81,10 @@ export class ProdutoComponent implements OnInit {
     })
   }
   atualizar(){
-    this.categoria.id = this.idCategoria
-    this.produto.categoria = this.categoria
+    // this.categoria.id = this.idCategoria
+    // this.produto.categoria = this.categoria
 
-    if(this.idProd != 0){
-      this.deletar()
-    }
-
-    this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
+      this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
       alert('Produto atualizado com sucesso.')
       this.produto = new Produto()
@@ -99,14 +95,17 @@ export class ProdutoComponent implements OnInit {
 
   pegarId(idInput: number){
     this.idProd = idInput;
-  alert(this.idProd)
     this.getByIdProduto(this.idProd)
   }
 
   deletar(){
-    this.produtoService.deleteProduto(this.idProd).subscribe(()=> {
-      alert('Produto deletado.')
-      this.router.navigate(['/produto'])
-    })
+    if(this.idProd != 0) {
+      this.produtoService.deleteProduto(this.idProd).subscribe(()=> {
+        alert('Produto deletado.')
+        this.router.navigate(['/produto'])
+        this.getAllProdutos()
+      })
+    }
+    
   }
 }

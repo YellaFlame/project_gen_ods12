@@ -96,8 +96,8 @@
                   <td>{{item.dataRetirada | date: 'dd/MM/yyyy'}}</td>
                   <td class="d-flex justify-content-end">
                     <button data-bs-toggle="modal" 
-                      class="btn btn-info me-3" (click)="pegarId(item.idProduto)">Editar</button>
-                      <!-- data-bs-target="#exampleModal" -->
+                      class="btn btn-info me-3" data-bs-target="#exampleModal"  (click)="pegarId(item.idProduto)">Editar</button>
+  
                   </td>
                 </tr>
               </tbody>
@@ -156,7 +156,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)='atualizar()'>Atualizar </button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Apagar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)='deletar()'>Apagar</button>
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal" >Voltar</button>
       </div>
     </div>
