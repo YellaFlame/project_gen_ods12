@@ -22,7 +22,7 @@ export class ProdutoService {
   }
 
   getByIdProduto(idProduto:number): Observable<Produto>{
-    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/id/${idProduto}`, this.token)
+    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/${idProduto}`, this.token)
   }
 
   getByStatusProduto(status:string): Observable<Produto>{
@@ -34,7 +34,7 @@ export class ProdutoService {
   }
 
   getByDescricaoProduto(descricao:string): Observable<Produto>{
-    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/status/${descricao}`, this.token)
+    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/descricao/${descricao}`, this.token)
   }
 
   postProduto(produto: Produto): Observable<Produto>{
@@ -42,10 +42,10 @@ export class ProdutoService {
   }
 
   putProduto(produto: Produto): Observable<Produto>{
-    return this.http.put<Produto>('https://sucateriaods12.herokuapp.com/produto/atualizar/id', produto, this.token)
+    return this.http.put<Produto>('https://sucateriaods12.herokuapp.com/produto/atualizar', produto, this.token)
   }
 
   deleteProduto(idProduto:number) {
-    return this.http.delete(`https://sucateriaods12.herokuapp.com/produto/deletar/id/${idProduto}`, this.token)
+    return this.http.delete(`https://sucateriaods12.herokuapp.com/produto/deletar/${idProduto}`, this.token)
   }
 }

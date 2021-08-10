@@ -95,10 +95,9 @@
                   <td>{{item.endereco}}</td>
                   <td>{{item.dataRetirada | date: 'dd/MM/yyyy'}}</td>
                   <td class="d-flex justify-content-end">
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal"
-                      class="btn btn-info me-3">Editar</button>
-
-                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">Apagar</button>
+                    <button data-bs-toggle="modal" 
+                      class="btn btn-info me-3" (click)="pegarId(item.idProduto)">Editar</button>
+                      <!-- data-bs-target="#exampleModal" -->
                   </td>
                 </tr>
               </tbody>
@@ -117,33 +116,52 @@
 </div>
 
 
-
-
-
-<!-- Modal excluir meus lixos -->
-<div class="modal" tabindex="-1" role="dialog" id="modal-excluir">
-  <div class="modal-dialog" role="document">
+<!-- Modal editar meus lixos -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Excluir Produto?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="exampleModalLabel">Alterar pedido</h5>
+
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <div class="modal-body">
+
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <div class="row ">
             <div class="col d-flex flex-column align-items-center m-5">
-              <h1 class="m-2 fs-54">Deseja deletar produto {{categoria.id}}?</h1>
+              <h1 class="m-2 fs-54">Lixo</h1>
+
+              <input [(ngModel)]='produto.status' class="m-2" type="text" name="status1" id="status1"
+                placeholder="excluir este campo notNull">
+
+              <input [(ngModel)]='produto.endereco' class="m-2" type="text" name="endereco1" id="endereco1"
+                placeholder="endereco1">
+
+              <input [(ngModel)]='produto.dataRetirada' class="m-2" type="date" name="dataRetirada1" id="dataRetirada1"
+                placeholder="Data de Retirada">
+
+              <input [(ngModel)]='produto.descricao' class="m-2" type="text" name="descricao1" id="descricao1"
+                placeholder="descrição">
+
+              <input [(ngModel)]='produto.quantidade' class="m-2" type="number" name="quantidade1" id="quantidade1"
+                placeholder="quantidade">
+
             </div>
           </div>
         </div>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary" (click)='deletar()'>Confirmar</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)='atualizar()'>Atualizar </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Apagar</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" >Voltar</button>
       </div>
     </div>
   </div>
 </div>
+
+
+

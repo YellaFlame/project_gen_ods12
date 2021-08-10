@@ -77,7 +77,7 @@ export class CadastroComponent implements OnInit {
       this.router.navigate(["/inicio"])
     }, erro => {
       if(erro.status == 500){
-        alert("Usuario ou senha incorretos")
+        alert("Usuário ou senha incorretos")
       }
     })
   }

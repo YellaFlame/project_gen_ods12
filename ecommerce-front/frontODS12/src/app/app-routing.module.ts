@@ -9,6 +9,8 @@ import { ProdutoComponent } from './produto/produto.component';
 import { SobreComponent } from './sobre/sobre.component';
 import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.component';
 import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
+import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
+import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 
 
 const routes: Routes = [
@@ -22,9 +24,9 @@ const routes: Routes = [
   {path:"categoria", component:CategoriaComponent},
   {path:"produto", component: ProdutoComponent},
   {path:"produto-editar/:id", component: ProdutoEditarComponent},
-  {path:"produto-deletar/:id", component: ProdutoDeletarComponent}
-
-
+  {path:"produto-deletar/:id", component: ProdutoDeletarComponent},
+  {path:"categoria-edit/:id", component:CategoriaEditComponent},
+  {path:"categoria-delete/:id", component:CategoriaDeleteComponent}
 ];
 
 @NgModule({

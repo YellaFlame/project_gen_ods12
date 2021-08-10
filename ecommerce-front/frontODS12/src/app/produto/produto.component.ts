@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
-import { Categoria } from '../model/Categoria';
-import { Produto } from '../model/Produto';
-import { CategoriaService } from '../service/categoria.service';
-import { ProdutoService } from '../service/produto.service';
+import { Component } from "@angular/core"
+import { OnInit } from "@angular/core"
+import { ActivatedRoute, Router } from "@angular/router"
+import { environment } from "src/environments/environment.prod"
+import { Categoria } from "../model/Categoria"
+import { Produto } from "../model/Produto"
+import { CategoriaService } from "../service/categoria.service"
+import { ProdutoService } from "../service/produto.service"
+
 
 @Component({
   selector: 'app-produto',
@@ -15,7 +17,7 @@ export class ProdutoComponent implements OnInit {
 
   produto: Produto = new Produto()
   listaProdutos: Produto[]
-  idProd: number
+  idProd: number = 0
 
   categoria: Categoria = new Categoria()
   listaCategoria: Categoria[]
@@ -35,12 +37,8 @@ export class ProdutoComponent implements OnInit {
     //   this.router.navigate(['/inicio'])
     // }
 
-    
-    let id = this.route.snapshot.params['id']
-    //this.getByIdProduto(id)
     this.getAllProdutos()
     this.getAllCategoria()
-
   }
 
   getAllCategoria(){
@@ -64,6 +62,7 @@ export class ProdutoComponent implements OnInit {
   getByIdProduto(id: number){
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
       this.produto = resp
+      alert("produto "+ JSON.stringify(this.produto))
     })
   }
 
@@ -76,15 +75,32 @@ export class ProdutoComponent implements OnInit {
     })
   }
 
+  findByIdCategoria(id: number){
+    this.categoriaService.getByIdResiduo(id).subscribe((resp: Categoria)=> {
+      this.categoria = resp
+    })
+  }
   atualizar(){
     this.categoria.id = this.idCategoria
-    //this.produto.categoria = this.categoria
+    this.produto.categoria = this.categoria
+
+    if(this.idProd != 0){
+      this.deletar()
+    }
 
     this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
       alert('Produto atualizado com sucesso.')
+      this.produto = new Produto()
+      this.getAllProdutos()
       this.router.navigate(['/produto'])
     })
+  }
+
+  pegarId(idInput: number){
+    this.idProd = idInput;
+  alert(this.idProd)
+    this.getByIdProduto(this.idProd)
   }
 
   deletar(){
