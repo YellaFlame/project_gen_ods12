@@ -40,6 +40,9 @@ export class CategoriaService {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
 =======
 >>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
