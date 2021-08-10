@@ -7,12 +7,22 @@ import { ContatoComponent } from './contato/contato.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { SobreComponent } from './sobre/sobre.component';
+
+import { ParceiroComponent } from './parceiro/parceiro.component';
+import { DescarteComponent } from './descarte/descarte.component';
+import { PlasticoComponent } from './descarte/plastico/plastico.component';
+import { PapelComponent } from './descarte/papel/papel.component';
+import { MetalComponent } from './descarte/metal/metal.component';
+import { VidroComponent } from './descarte/vidro/vidro.component';
+import { OrganicoComponent } from './descarte/organico/organico.component';
+
 import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.component';
 import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
 import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 import { ParceiroComponent } from './parceiro/parceiro.component';
 import { DescarteComponent } from './descarte/descarte.component';
+
 
 
 const routes: Routes = [
@@ -25,12 +35,20 @@ const routes: Routes = [
   {path:"como-funciona", component:ComoFuncionaComponent},
   {path:"categoria", component:CategoriaComponent},
   {path:"produto", component: ProdutoComponent},
+  {path:"parceiro", component: ParceiroComponent},
+  {path:"descarte", component: DescarteComponent},
+  {path:"plastico", component: PlasticoComponent},
+  {path:"papel", component: PapelComponent},
+  {path:"metal", component: MetalComponent},
+  {path:"vidro", component: VidroComponent},
+  {path:"organico", component: OrganicoComponent}  
   {path:"produto-editar/:id", component: ProdutoEditarComponent},
   {path:"produto-deletar/:id", component: ProdutoDeletarComponent},
   {path:"parceiro", component:ParceiroComponent},
   {path:"descarte", component:DescarteComponent},
   {path:"categoria-edit/:id", component:CategoriaEditComponent},
   {path:"categoria-delete/:id", component:CategoriaDeleteComponent}
+
 ];
 
 @NgModule({
