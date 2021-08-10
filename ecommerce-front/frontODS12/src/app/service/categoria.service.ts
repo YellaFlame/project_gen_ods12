@@ -39,4 +39,7 @@ export class CategoriaService {
     return this.http.delete(`https://sucateriaods12.herokuapp.com/residuo/deletar/${id}`, this.token)
   }
 
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157

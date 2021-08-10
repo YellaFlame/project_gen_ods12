@@ -34,10 +34,17 @@ export class ProdutoComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
+<<<<<<< HEAD
     if(environment.token == '') {
       alert('Sua sessão expirou, faça o login novamente.')
       this.router.navigate(['/inicio'])
      }
+=======
+    // if(environment.token == '') {
+    //  alert('Sua sessão expirou, faça o login novamente.')
+    //   this.router.navigate(['/inicio'])
+    // }
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
 
     this.getAllProdutos()
     this.getAllCategoria()
