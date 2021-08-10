@@ -11,6 +11,8 @@ import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.c
 import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
 import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
+import { ParceiroComponent } from './parceiro/parceiro.component';
+import { DescarteComponent } from './descarte/descarte.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path:"produto", component: ProdutoComponent},
   {path:"produto-editar/:id", component: ProdutoEditarComponent},
   {path:"produto-deletar/:id", component: ProdutoDeletarComponent},
+  {path:"parceiro", component:ParceiroComponent},
+  {path:"descarte", component:DescarteComponent},
   {path:"categoria-edit/:id", component:CategoriaEditComponent},
   {path:"categoria-delete/:id", component:CategoriaDeleteComponent}
 ];

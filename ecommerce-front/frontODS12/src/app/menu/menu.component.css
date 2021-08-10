@@ -26,9 +26,7 @@ a{
     border-radius: 50%;
 }
 
-.dropdown{
-    background-image: url('https://i.pinimg.com/564x/ed/7f/36/ed7f3659a5cb689e234f98517e4a1ca8.jpg');
-    border-radius: 50%;
-    width: 100%;
+.dropdown-menu{
+    background-color: #001d3d  ;
 }
 
