@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
-
 import { Categoria } from '../model/Categoria';
 
 @Injectable({
@@ -38,11 +36,5 @@ export class CategoriaService {
 
     return this.http.delete(`https://sucateriaods12.herokuapp.com/residuo/deletar/${id}`, this.token)
   }
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
->>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
-=======
->>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
+
