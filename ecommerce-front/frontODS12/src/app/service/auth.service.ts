@@ -10,28 +10,47 @@ import { Usuario } from '../model/Usuario';
 })
 export class AuthService {
 
+
+
   constructor(
     private http: HttpClient
   ) { }
 
 
   entrar(userLogin: UserLoginDto): Observable<UserLoginDto>{
-    return this.http.post<UserLoginDto>("https://sucateriagenn.herokuapp.com/usuario/logar", userLogin)
+    return this.http.post<UserLoginDto>("https://sucateriaods12.herokuapp.com/usuario/logar", userLogin)
   }
 
   cadastrar(user: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>("https://sucateriagenn.herokuapp.com/usuario/cadastrar", user)
+    return this.http.post<Usuario>("https://sucateriaods12.herokuapp.com/usuario/cadastrar", user) 
   }
 
   logado(){
     let ok: boolean = false
 
-    if(environment.token != ''){
+    if(environment.token != ""){
       ok = true
     }
 
     return ok
   }
+  
+  isAdmin(){
+    let ok: boolean = false
+    if(environment.tipo == "adm"){
+      ok = true
+    }
+    return ok
+  }
+
+  sucateiro(){
+    let ok: boolean = false
+    if(environment.tipo == "sucateiro"){
+      ok = true
+    }
+    return ok
+  }
+  
 }
 
 

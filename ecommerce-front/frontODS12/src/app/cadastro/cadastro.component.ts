@@ -63,7 +63,7 @@ export class CadastroComponent implements OnInit {
 
   //Metodos para Logar
   entrar(){
-    console.log(JSON.stringify(this.userLogin))
+    
   
     this.authService.entrar(this.userLogin).subscribe((resp: UserLoginDto) =>{
       this.userLogin = resp
@@ -72,13 +72,14 @@ export class CadastroComponent implements OnInit {
       environment.tipo = this.user.tipo
       environment.Id = this.user.Id
       console.log(this.userLogin.token)
+
+      console.log(JSON.stringify(this.userLogin))
       
-      
-      alert("Login efetuado com sucesso!")
+  
       this.router.navigate(["/inicio"])
     }, erro => {
       if(erro.status == 500){
-        alert("Usuario ou senha incorretos")
+        alert("Usuário ou senha incorretos")
       }
     })
   }

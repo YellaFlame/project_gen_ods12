@@ -15,16 +15,34 @@ export class CategoriaService {
   ) { }
 
   token = {
-    headers: new HttpHeaders().set("Authorization", environment.token )
-
+    headers: new HttpHeaders().set("Authorization", "Basic bWFyaTphc2RmYXNkZg==" )
   }
 
   getAllResiduo(): Observable<Categoria[]>{
-    console.log("Token "+ environment.token)
-    return this.http.get<Categoria[]>("https://sucateriagenn.herokuapp.com/residuo/todos", this.token)
+    return this.http.get<Categoria[]>("https://sucateriaods12.herokuapp.com/residuo/todos", this.token)
+  }
+
+  getByIdResiduo(id: number): Observable<Categoria>{
+    return this.http.get<Categoria>(`https://sucateriaods12.herokuapp.com/residuo/${id}`, this.token)
   }
 
   postResiduo(residuo: Categoria): Observable<Categoria>{
-    return this.http.post<Categoria>("https://sucateriagenn.herokuapp.com/residuo/cadastrar", residuo, this.token)
+    return this.http.post<Categoria>("https://sucateriaods12.herokuapp.com/residuo/cadastrar", residuo, this.token)
   }
+
+  putResiduo(residuo: Categoria): Observable<Categoria>{
+    return this.http.put<Categoria>("https://sucateriaods12.herokuapp.com/residuo/atualizar", residuo, this.token)
+  }
+
+  deleteResiduo(id: number){
+
+    return this.http.delete(`https://sucateriaods12.herokuapp.com/residuo/deletar/${id}`, this.token)
+  }
+
+<<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
