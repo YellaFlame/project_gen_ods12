@@ -20,10 +20,6 @@ import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.c
 import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
 import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
-import { ParceiroComponent } from './parceiro/parceiro.component';
-import { DescarteComponent } from './descarte/descarte.component';
-
-
 
 const routes: Routes = [
   {path:"", redirectTo:"inicio", pathMatch:"full"},
@@ -41,7 +37,7 @@ const routes: Routes = [
   {path:"papel", component: PapelComponent},
   {path:"metal", component: MetalComponent},
   {path:"vidro", component: VidroComponent},
-  {path:"organico", component: OrganicoComponent}  
+  {path:"organico", component: OrganicoComponent},
   {path:"produto-editar/:id", component: ProdutoEditarComponent},
   {path:"produto-deletar/:id", component: ProdutoDeletarComponent},
   {path:"parceiro", component:ParceiroComponent},

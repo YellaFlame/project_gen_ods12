@@ -17,7 +17,6 @@ import { ProdutoComponent } from './produto/produto.component';
 import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.component';
 import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
 import { FormsModule } from "@angular/forms";
-import { CategoriaComponent } from './categoria/categoria.component';
 import { ParceiroComponent } from "./parceiro/parceiro.component";
 import { DescarteComponent } from "./descarte/descarte.component";
 import { PlasticoComponent } from './descarte/plastico/plastico.component';

@@ -14,7 +14,7 @@ a{
     border-radius: 50%;
 }
 
-.teste{
+.bg-color{
     background-color: #001d3d;
 }
 
@@ -30,3 +30,6 @@ a{
     background-color: #001d3d  ;
 }
 
+.navbar{
+    position: fixed;
+}
