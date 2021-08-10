@@ -14,7 +14,7 @@ export class ProdutoService {
   ) { }
 
   token = {
-    headers: new HttpHeaders().set('Authorization', environment.token)
+    headers: new HttpHeaders().set('Authorization', "Basic bWFyaTphc2RmYXNkZg==")
   }
 
   getAllProduto(): Observable<Produto[]>{

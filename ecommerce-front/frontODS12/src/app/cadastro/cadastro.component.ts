@@ -73,8 +73,7 @@ export class CadastroComponent implements OnInit {
       environment.Id = this.user.Id
       console.log(this.userLogin.token)
       
-      
-      alert("Login efetuado com sucesso!")
+  
       this.router.navigate(["/inicio"])
     }, erro => {
       if(erro.status == 500){

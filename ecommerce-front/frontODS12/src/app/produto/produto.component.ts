@@ -15,8 +15,11 @@ export class ProdutoComponent implements OnInit {
 
   produto: Produto = new Produto()
   listaProdutos: Produto[]
+  idProd: number
+
   categoria: Categoria = new Categoria()
   listaCategoria: Categoria[]
+  idCategoria: number
 
   constructor(
     private produtoService: ProdutoService,
@@ -26,33 +29,68 @@ export class ProdutoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(environment.token == '') {
-      alert('Sua sessão expirou, faça o login novamente.')
-      this.router.navigate(['/inicio'])
-    }
+    window.scroll(0,0)
+    // if(environment.token == '') {
+    //  alert('Sua sessão expirou, faça o login novamente.')
+    //   this.router.navigate(['/inicio'])
+    // }
 
-    this.findAllProdutos()
-    this.getAllResiduo()
+    
+    let id = this.route.snapshot.params['id']
+    //this.getByIdProduto(id)
+    this.getAllProdutos()
+    this.getAllCategoria()
+
   }
 
-  findAllProdutos() {
+  getAllCategoria(){
+    this.categoriaService.getAllResiduo().subscribe((resp: Categoria[]) => {
+      this.listaCategoria = resp
+    })
+  }
+
+  getByIdCategoria(){
+    this.categoriaService.getByIdResiduo(this.idCategoria).subscribe((resp: Categoria) =>{
+      this.categoria = resp
+    })
+  }
+
+  getAllProdutos() {
       this.produtoService.getAllProduto().subscribe((resp: Produto []) => {
         this.listaProdutos = resp
       })
+  }
+
+  getByIdProduto(id: number){
+    this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
+      this.produto = resp
+    })
   }
 
   cadastrar(){
     this.produtoService.postProduto(this.produto).subscribe((resp: Produto) => {
       this.produto = resp
       alert('Produto criado com sucesso!')
-      this.findAllProdutos()
+      this.getAllProdutos()
       this.produto = new Produto()
     })
   }
 
-  getAllResiduo(){
-    this.categoriaService.getAllResiduo().subscribe((resp: Categoria[]) =>{
-      this.listaCategoria = resp
+  atualizar(){
+    this.categoria.id = this.idCategoria
+    //this.produto.categoria = this.categoria
+
+    this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
+      this.produto = resp
+      alert('Produto atualizado com sucesso.')
+      this.router.navigate(['/produto'])
+    })
+  }
+
+  deletar(){
+    this.produtoService.deleteProduto(this.idProd).subscribe(()=> {
+      alert('Produto deletado.')
+      this.router.navigate(['/produto'])
     })
   }
 }

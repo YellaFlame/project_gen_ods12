@@ -15,7 +15,7 @@ export class CategoriaService {
   ) { }
 
   token = {
-    headers: new HttpHeaders().set("Authorization", environment.token )
+    headers: new HttpHeaders().set("Authorization", "Basic bWFyaTphc2RmYXNkZg==" )
 
   }
 
@@ -24,7 +24,11 @@ export class CategoriaService {
     return this.http.get<Categoria[]>("https://sucateriaods12.herokuapp.com/residuo/todos", this.token)
   }
 
-  postResiduo(residuo: Categoria): Observable<Categoria>{
+  getByIdResiduo(id: number): Observable<Categoria>{
+      return this.http.get<Categoria>(`https://sucateriaods12.herokuapp.com/residuo/buscar/id/${id}`, this.token)
+  }
+
+  postResiduo(residuo: Categoria): Observable<Categoria>{Categoria
     return this.http.post<Categoria>("https://sucateriaods12.herokuapp.com/residuo/cadastrar", residuo, this.token)
   }
 }

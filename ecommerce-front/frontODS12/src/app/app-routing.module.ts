@@ -7,6 +7,9 @@ import { ContatoComponent } from './contato/contato.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.component';
+import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
+
 
 const routes: Routes = [
   {path:"", redirectTo:"inicio", pathMatch:"full"},
@@ -18,7 +21,8 @@ const routes: Routes = [
   {path:"como-funciona", component:ComoFuncionaComponent},
   {path:"categoria", component:CategoriaComponent},
   {path:"produto", component: ProdutoComponent},
-  //{path:"produto/:id", component: ProdutoComponent}
+  {path:"produto-editar/:id", component: ProdutoEditarComponent},
+  {path:"produto-deletar/:id", component: ProdutoDeletarComponent}
 
 
 ];
