@@ -7,6 +7,9 @@ import { ContatoComponent } from './contato/contato.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { ParceiroComponent } from './parceiro/parceiro.component';
+import { DescarteComponent } from './descarte/descarte.component';
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"inicio", pathMatch:"full"},
@@ -18,6 +21,11 @@ const routes: Routes = [
   {path:"como-funciona", component:ComoFuncionaComponent},
   {path:"categoria", component:CategoriaComponent},
   {path:"produto", component: ProdutoComponent},
+  {path:"parceiro", component: ParceiroComponent},
+  {path:"descarte", component: DescarteComponent},
+  {path:"cadastrar", component: CadastrarComponent}
+
+
   //{path:"produto/:id", component: ProdutoComponent}
 
 

@@ -16,6 +16,9 @@ import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { FormsModule } from "@angular/forms";
 import { CategoriaComponent } from './categoria/categoria.component';
+import { ParceiroComponent } from "./parceiro/parceiro.component";
+import { DescarteComponent } from "./descarte/descarte.component";
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { CategoriaComponent } from './categoria/categoria.component';
     CadastroComponent,
     ComoFuncionaComponent,
     ProdutoComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    ParceiroComponent,
+    DescarteComponent,
+    CadastrarComponent
 
   ],
   imports: [
