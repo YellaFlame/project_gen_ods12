@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
   sair(){
     environment.token = ''
     environment.Id = 0
-    environment.tipo = ''
+    environment.tipo = ""
     environment.usuario = ''
     this.router.navigate(["/inicio"])
     alert("Log-Off realizado com sucesso, obrigado por visitar nossa pagina")

@@ -23,9 +23,9 @@ public class ProdutoService {
 	 * @param idProduto
 	 * @return
 	 */
-	public ResponseEntity<Produto> buscarPorId(Long idProduto) {
-		return produto.findById(idProduto).map(res -> ResponseEntity.ok(res))
-				.orElse(ResponseEntity.notFound().build());
-	
-	}
+//	public ResponseEntity<Produto> buscarPorId(Long idProduto) {
+//		return produto.findById(idProduto).map(res -> ResponseEntity.ok(res))
+//				.orElse(ResponseEntity.notFound().build());
+//	
+//	}
 }

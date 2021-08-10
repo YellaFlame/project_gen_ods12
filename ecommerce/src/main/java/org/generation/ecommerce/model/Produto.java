@@ -23,7 +23,6 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long idProduto;
 
-	@NotNull
 	private String status;
 
 	@NotNull
@@ -40,7 +39,6 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties({"produto", "listaProduto"})
 	@JoinColumn(name = "fk_categoria")
-	
 	private Categoria categoria;
 
 	@ManyToOne

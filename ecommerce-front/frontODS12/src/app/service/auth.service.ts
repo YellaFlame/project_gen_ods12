@@ -10,7 +10,7 @@ import { Usuario } from '../model/Usuario';
 })
 export class AuthService {
 
-  tipo = environment.tipo
+
 
   constructor(
     private http: HttpClient
@@ -18,11 +18,11 @@ export class AuthService {
 
 
   entrar(userLogin: UserLoginDto): Observable<UserLoginDto>{
-    return this.http.post<UserLoginDto>("http://localhost:8080/usuario/logar", userLogin)
+    return this.http.post<UserLoginDto>("https://sucateriaods12.herokuapp.com/usuario/logar", userLogin)
   }
 
   cadastrar(user: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>("http://localhost:8080/usuario/cadastrar", user)
+    return this.http.post<Usuario>("https://sucateriaods12.herokuapp.com/usuario/cadastrar", user) 
   }
 
   logado(){
@@ -37,11 +37,20 @@ export class AuthService {
   
   isAdmin(){
     let ok: boolean = false
-    if(this.tipo == "adm"){
+    if(environment.tipo == "adm"){
       ok = true
     }
     return ok
   }
+
+  sucateiro(){
+    let ok: boolean = false
+    if(environment.tipo == "sucateiro"){
+      ok = true
+    }
+    return ok
+  }
+  
 }
 
 

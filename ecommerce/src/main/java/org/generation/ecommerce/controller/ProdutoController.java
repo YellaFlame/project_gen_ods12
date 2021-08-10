@@ -1,6 +1,7 @@
 package org.generation.ecommerce.controller;
 
 import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,23 +40,26 @@ public class ProdutoController {
 		return ResponseEntity.ok(produto.findAll());
 	}
 
-	@GetMapping("/buscar/id")
-	public ResponseEntity<ResponseEntity<Produto>> getID(@Valid @RequestBody Long idProduto) {
-		return ResponseEntity.ok(serviceProduto.buscarPorId(idProduto));
-	}
 
-	@GetMapping("/buscar/status")
-	public ResponseEntity<List<Produto>> buscarStatus(@Valid @RequestBody String status) {
+	@GetMapping("/buscar/{id}")
+    public ResponseEntity<Produto> GetById(@PathVariable long id){
+        return produto.findById(id)
+                .map(resp -> ResponseEntity.ok(resp))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+	@GetMapping("/buscar/status/{id}")
+	public ResponseEntity<List<Produto>> buscarStatus(@Valid @PathVariable String status) {
 		return ResponseEntity.ok(produto.findAllByStatusContainingIgnoreCase(status));
 	}
 
-	@GetMapping("/buscar/endereco")
-	public ResponseEntity<List<Produto>> buscarEndereco(@Valid @RequestBody String endereco) {
+	@GetMapping("/buscar/endereco/{endereco}")
+	public ResponseEntity<List<Produto>> buscarEndereco(@Valid @PathVariable String endereco) {
 		return ResponseEntity.ok(produto.findAllByEnderecoContainingIgnoreCase(endereco));
 	}
 
-	@GetMapping("/buscar/descricao")
-	public ResponseEntity<List<Produto>> buscarDescricao(@Valid @RequestBody String descricao) {
+	@GetMapping("/buscar/descricao/{descricao}")
+	public ResponseEntity<List<Produto>> buscarDescricao(@Valid @PathVariable String descricao) {
 		return ResponseEntity.ok(produto.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
 
@@ -64,13 +68,13 @@ public class ProdutoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produto.save(produto1));
 	}
 
-	@PutMapping("/atualizar/id")
-	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1, long idProduto) {
+	@PutMapping("/atualizar")
+	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1) {
 		return ResponseEntity.ok(produto.save(produto1));
 	}
 
-	@DeleteMapping("/deletar/id")
-	public void delete(@Valid @RequestBody Long id) {
+	@DeleteMapping("/deletar/{id}")
+	public void delete(@Valid @PathVariable Long id) {
 		produto.deleteById(id);
 	}
 }

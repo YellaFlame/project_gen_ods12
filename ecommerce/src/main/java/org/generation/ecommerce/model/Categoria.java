@@ -29,20 +29,22 @@ public class Categoria {
 	@NotNull(message = "Campo não pode ser nulo")
 	private String residuo;
 
-	@NotNull(message = "Campo não pode ser nulo")
-	private Float preco;
+//	@NotNull(message = "Campo não pode ser nulo")
+//	private Float preco;
+	
+	private String imagem;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "categoria" })
 	private List<Produto> listaProduto = new ArrayList<>();
 
-	public Float getPreco() {
-		return preco;
-	}
-
-	public void setPreco(Float preco) {
-		this.preco = preco;
-	}
+//	public Float getPreco() {
+//		return preco;
+//	}
+//
+//	public void setPreco(Float preco) {
+//		this.preco = preco;
+//	}
 
 	public List<Produto> getListaProduto() {
 		return listaProduto;
@@ -67,5 +69,15 @@ public class Categoria {
 	public void setResiduo(String residuo) {
 		this.residuo = residuo;
 	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+	
+	
 
 }
