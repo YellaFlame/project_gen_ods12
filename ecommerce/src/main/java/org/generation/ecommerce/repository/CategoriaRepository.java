@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
 	
-	public Optional<Categoria>  findByResiduoContainingIgnoreCase(String residuo);
+	public List<Categoria>  findAllByResiduoContainingIgnoreCase(String residuo);
 
 
 }

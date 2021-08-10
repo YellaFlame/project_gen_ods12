@@ -69,7 +69,7 @@ public class ProdutoController {
 	}
 
 	@PutMapping("/atualizar")
-	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1, long idProduto) {
+	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1) {
 		return ResponseEntity.ok(produto.save(produto1));
 	}
 

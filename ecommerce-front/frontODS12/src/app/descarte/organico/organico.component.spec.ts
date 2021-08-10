@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DescarteComponent } from './descarte.component';
+import { OrganicoComponent } from './organico.component';
 
-describe('DescarteComponent', () => {
-  let component: DescarteComponent;
-  let fixture: ComponentFixture<DescarteComponent>;
+describe('OrganicoComponent', () => {
+  let component: OrganicoComponent;
+  let fixture: ComponentFixture<OrganicoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DescarteComponent ]
+      declarations: [ OrganicoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DescarteComponent);
+    fixture = TestBed.createComponent(OrganicoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

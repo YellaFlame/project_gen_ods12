@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router"
 import { environment } from "src/environments/environment.prod"
 import { Categoria } from "../model/Categoria"
 import { Produto } from "../model/Produto"
+import { AuthService } from "../service/auth.service"
 import { CategoriaService } from "../service/categoria.service"
 import { ProdutoService } from "../service/produto.service"
 
@@ -24,6 +25,7 @@ export class ProdutoComponent implements OnInit {
   idCategoria: number
 
   constructor(
+    public auth: AuthService,
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
     private router: Router,
@@ -32,10 +34,23 @@ export class ProdutoComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
+<<<<<<< HEAD
+<<<<<<< HEAD
+    if(environment.token == '') {
+      alert('Sua sessão expirou, faça o login novamente.')
+      this.router.navigate(['/inicio'])
+     }
+=======
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
     // if(environment.token == '') {
     //  alert('Sua sessão expirou, faça o login novamente.')
     //   this.router.navigate(['/inicio'])
     // }
+<<<<<<< HEAD
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
+=======
+>>>>>>> 82cc62e893453c39b24e2d1994c25f3ce8df0157
 
     this.getAllProdutos()
     this.getAllCategoria()
@@ -62,7 +77,7 @@ export class ProdutoComponent implements OnInit {
   getByIdProduto(id: number){
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
       this.produto = resp
-      alert("produto "+ JSON.stringify(this.produto))
+      //alert("produto "+ JSON.stringify(this.produto))
     })
   }
 
@@ -81,14 +96,10 @@ export class ProdutoComponent implements OnInit {
     })
   }
   atualizar(){
-    this.categoria.id = this.idCategoria
-    this.produto.categoria = this.categoria
+    // this.categoria.id = this.idCategoria
+    // this.produto.categoria = this.categoria
 
-    if(this.idProd != 0){
-      this.deletar()
-    }
-
-    this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
+      this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
       alert('Produto atualizado com sucesso.')
       this.produto = new Produto()
@@ -99,14 +110,17 @@ export class ProdutoComponent implements OnInit {
 
   pegarId(idInput: number){
     this.idProd = idInput;
-  alert(this.idProd)
     this.getByIdProduto(this.idProd)
   }
 
   deletar(){
-    this.produtoService.deleteProduto(this.idProd).subscribe(()=> {
-      alert('Produto deletado.')
-      this.router.navigate(['/produto'])
-    })
+    if(this.idProd != 0) {
+      this.produtoService.deleteProduto(this.idProd).subscribe(()=> {
+        alert('Produto deletado.')
+        this.router.navigate(['/produto'])
+        this.getAllProdutos()
+      })
+    }
+    
   }
 }

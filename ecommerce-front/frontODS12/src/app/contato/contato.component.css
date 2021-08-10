@@ -9,11 +9,15 @@
 }
 
 .bg-img{
-    background-image:url('https://hccenergiasolar.com.br/uploads/hccenergiasolar_image_494-1-.jpeg?nf_resize=fit&h=480');
+    background-image:url('../../assets/img/recicla.png');
     background-repeat: no-repeat;
     background-size: cover;
     margin: auto;
 
+}
+
+.fs-15{
+    font-size: 15px;
 }
 
 
