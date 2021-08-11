@@ -241,23 +241,20 @@
           <input [(ngModel)]="userLogin.usuario" type="text" class="form-control" id="usuario"
             placeholder="Insira seu usuário">
         </div>
-<<<<<<< HEAD
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="tipo">Tipo de Usuario</label>
+                <label class="tipousuario" for="tipo">Tipo de Usuario</label>
                 <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
-                    <option>Selecione uma Opção</option>
+                    <option>Selecione tipo de usuário</option>
                     <option value="condonime">Condonime</option>
                     <option value="sucateiro">Sucateiro</option>
                     <option value="administrador">Administrador</option>
                 </select>
             </div>
-=======
         <div class="mb-3 w-50 m-auto">
           <label for="senha" class="form-label">Senha</label>
           <input [(ngModel)]="userLogin.senha" type="password" class="form-control" id="senha"
             placeholder="Insira sua senha">
->>>>>>> 280b2298b23e138ec277c0b0e6e7f6daaf377e79
         </div>
         <button (click)="entrar()" class="btn btn-success mb-3">Entrar</button>
       </div>
