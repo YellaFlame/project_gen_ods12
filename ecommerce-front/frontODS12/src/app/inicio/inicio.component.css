@@ -1,3 +1,6 @@
+body {
+    background-color: #E5F2D8;
+}
 .capa {
     max-width: 100%;
     width: 100%;
@@ -54,8 +57,8 @@ p {
     background: linear-gradient(#164927, #41b668);
     z-index: 1;
     bottom: 90px;
-    height: 200px;
-    width: 200px;
+    height: 190px;
+    width: 190px;
     transition: all .5s;
 }
 
@@ -70,8 +73,8 @@ p {
     background: linear-gradient(#f88f0e, #9b7548);
     z-index: 1;
     margin-left: 650px;
-    height: 190px;
-    width: 190px;
+    height: 180px;
+    width: 180px;
     top: 300px;
     left: 70px;
     transition: all .5s;
@@ -116,4 +119,43 @@ p {
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
+
+.text-color{
+    font-style: italic;
+    color:#164927;
+
+}
+.equipe{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    bottom: 100px;
+    margin: 0 auto;
+}
+
+.box-equipe {
+   padding: 0 60px;
+   /* border: solid #001d3d; */
+   box-sizing:border-box;
+   text-align: center;
+   
+}
+
+.botao-equipe {
+    background-color: #E5F2D8;
+    border: solid  1.5px #001d3d;
+    color: #001d3d;
+    padding: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.botao-equipe:hover {  
+    background-color: #001d3d;
+    color: #E5F2D8;
+    cursor: pointer;
+}
+
 

@@ -38,7 +38,7 @@ export class ProdutoComponent implements OnInit {
       alert('Sua sessão expirou, faça o login novamente.')
       this.router.navigate(['/inicio'])
      }
-
+    
     this.getAllProdutos()
     this.getAllCategoria()
   }
