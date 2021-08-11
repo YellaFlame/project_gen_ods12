@@ -1,23 +1,8 @@
-.form {
-    background-color: rgb(63, 63, 117);
-    color:azure;
-    max-width: 60%;
-    margin: auto;
-}
-.w-100{
-    width: 100%;
+.bg-verde{
+    background-color: #1b532e;
 }
 
-.bg-img{
-    background-image:url('../../assets/img/recicla.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: auto;
+    
 
-}
-
-.fs-15{
-    font-size: 15px;
-}
 
 

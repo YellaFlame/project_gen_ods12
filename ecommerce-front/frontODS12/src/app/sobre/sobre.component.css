@@ -1,5 +1,5 @@
 .bg-canudo {
-    background-image: url(../../assets/img/canudo.jpg);
+    background-image: url(https://i.imgur.com/29AKkuh.jpg);
     background-size:cover;
     height: 150vh; 
     width:fit-content;
@@ -7,7 +7,7 @@
 
 .sobre {
     display: flex;
-    text-align: center;
+    text-align: justify;
     width: 70%; 
     margin: auto;
     background-color: #1b532e;
@@ -27,4 +27,7 @@ h1, h3, p {
     margin: auto;
     background-color: #E5F2D8;
     width: 70%;
+    color: #1b532e;
+    text-align: justify;
+    padding: 20px;
 }
