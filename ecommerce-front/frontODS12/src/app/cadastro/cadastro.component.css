@@ -45,28 +45,28 @@
     }
 
     .bggeral{
-      background-color: #0d2c0f;
+      background-color: #E5F2D8;
     }
 
     h3{
-      color:black;
+      color:white;
     }
 
     h6{
-      color:black;
+      color:white;
       font-style: italic;
     }
 
     .form-label{
-      color:black
+      color:white
     }
 
     .tipousuario{
-      color:black
+      color:white
     }
 
     .form-check-label{
-      color:black
+      color:white
     }
 
     .card{
@@ -75,5 +75,62 @@
       margin: auto;
       margin-top: 25px;
       margin-bottom: 25px;
-      background-color: #D2D9A0;
+      background-color: #001d3d;
+    }
+
+    .modal-content{
+      background-color: gray;
+    }
+
+    .bggeral{
+      /* background-color: #0d2c0f; */
+      background-color: #E5F2D8;
+    }
+
+    h3{
+      color:white;
+    }
+
+    h6{
+      color:white;
+      font-style: italic;
+    }
+
+    .form-label{
+      color:white
+    }
+
+    .tipousuario{
+      color:white
+    }
+
+    .form-check-label{
+      color:white
+    }
+
+    .card{
+      width: 30rem;
+      height: 30rem;
+      margin: auto;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      background-color: #001d3d;
+      /* background-color: #D2D9A0; */
+    }
+
+    .modal-content{
+      background-color: gray;
+    }
+
+    .entrar{
+      margin: auto;
+    }
+
+    .cadastrar{
+      padding: 10px 10px
+      
+    }
+
+    .tabela-sucateiro{
+      position: left;
     }
