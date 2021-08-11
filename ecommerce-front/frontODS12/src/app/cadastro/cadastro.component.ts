@@ -69,13 +69,10 @@ export class CadastroComponent implements OnInit {
       this.userLogin = resp
       environment.token = this.userLogin.token
       environment.usuario = this.userLogin.usuario
-      environment.tipo = this.user.tipo
-      environment.Id = this.user.Id
-      console.log(this.userLogin.token)
-
+      environment.tipo = this.userLogin.tipo
+      environment.Id = this.userLogin.Id
       console.log(JSON.stringify(this.userLogin))
-      
-  
+     
       this.router.navigate(["/inicio"])
     }, erro => {
       if(erro.status == 500){

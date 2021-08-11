@@ -4,4 +4,5 @@ export const environment = {
   usuario:"",
   Id: 0,
   tipo: ""
+
 };
