@@ -40,6 +40,22 @@ export class AuthService {
     }
     return ok
   }
+
+  condonime(){
+    let ok: boolean = false
+    if(environment.tipo == "condonime"){
+      ok = true
+    }
+    return ok
+  }
+
+  admin(){
+    let ok: boolean = false
+    if(environment.tipo == "adm"){
+      ok = true
+    }
+    return ok
+  }
   
 }
 

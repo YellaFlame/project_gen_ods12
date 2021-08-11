@@ -49,13 +49,19 @@
             <option value="adm">Administrador</option>
           </select>
         </div>
+        <div class="col-md-6 d-flex cadastrar">
+          <button type="submit" class="btn btn-success mb-3 mt-3" (click)="cadastrar()">Cadastrar</button>
+        </div>
+     
       </div>
+
       <!--Termos de uso-->
       <div class="mb-3 form-check" data-toggle="modal" data-target="#modalExemplo">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Aceitar os termos e condições</label>
       </div>
       <!--/Termos de uso-->
+
       <!--modal termos de uso-->
       <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -222,9 +228,6 @@
         </div>
       </div>
       <!--/Modal termos de uso-->
-      <div>
-        <button type="submit" class="btn btn-success mb-3 mt-3" (click)="cadastrar()">Cadastrar</button>
-      </div>
     </div>
   </div>
   <!--/Card Cadastrar-->
@@ -241,28 +244,16 @@
           <input [(ngModel)]="userLogin.usuario" type="text" class="form-control" id="usuario"
             placeholder="Insira seu usuário">
         </div>
-<<<<<<< HEAD
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label for="tipo">Tipo de Usuario</label>
-                <select class="form-control" name="tipo" id="tipo" (change)="tipoUser($event)">
-                    <option>Selecione uma Opção</option>
-                    <option value="condonime">Condonime</option>
-                    <option value="sucateiro">Sucateiro</option>
-                    <option value="administrador">Administrador</option>
-                </select>
+            <div class="mb-3 w-50 m-auto">
+               <label for="senha" class="form-label">Senha</label>
+                   <input [(ngModel)]="userLogin.senha" type="password" class="form-control" id="senha"  placeholder="Insira sua senha">
             </div>
-=======
-        <div class="mb-3 w-50 m-auto">
-          <label for="senha" class="form-label">Senha</label>
-          <input [(ngModel)]="userLogin.senha" type="password" class="form-control" id="senha"
-            placeholder="Insira sua senha">
->>>>>>> 280b2298b23e138ec277c0b0e6e7f6daaf377e79
-        </div>
+          </div>
+          <div class="row w-50 entrar">
         <button (click)="entrar()" class="btn btn-success mb-3">Entrar</button>
+      </div>
       </div>
     </div>
   </div>
   <!--/Card Entrar-->
 
-</div>
