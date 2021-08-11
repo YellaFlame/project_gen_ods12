@@ -6,3 +6,9 @@
     font-size: 25px;
 }
 
+.card{
+    width: 30rem;
+    margin: auto;
+    background-color: #001d3d;
+  }
+
