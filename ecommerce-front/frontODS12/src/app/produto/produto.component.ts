@@ -69,6 +69,7 @@ export class ProdutoComponent implements OnInit {
   }
 
   cadastrar(){
+    this.produto.status = "Disponivel";
     this.produtoService.postProduto(this.produto).subscribe((resp: Produto) => {
       this.produto = resp
       alert('Produto criado com sucesso!')
@@ -82,6 +83,44 @@ export class ProdutoComponent implements OnInit {
       this.categoria = resp
     })
   }
+
+  reservado(){
+    // this.categoria.id = this.idCategoria
+    // this.produto.categoria = this.categoria
+    this.produto.status = "Reservado";
+      this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
+      this.produto = resp
+      alert('Produto atualizado com sucesso.')
+      this.produto = new Produto()
+      this.getAllProdutos()
+      this.router.navigate(['/produto'])
+    })
+  }
+
+  cancelar(){
+    this.produto.status = "Disponivel";
+      this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
+      this.produto = resp
+      alert('Produto atualizado com sucesso.')
+      this.produto = new Produto()
+      this.getAllProdutos()
+      this.router.navigate(['/produto'])
+    })
+  }
+
+  finalizado(){
+    // this.categoria.id = this.idCategoria
+    // this.produto.categoria = this.categoria
+    this.produto.status = "Finalizado";
+      this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
+      this.produto = resp
+      alert('Produto atualizado com sucesso.')
+      this.produto = new Produto()
+      this.getAllProdutos()
+      this.router.navigate(['/produto'])
+    })
+  }
+
   atualizar(){
     // this.categoria.id = this.idCategoria
     // this.produto.categoria = this.categoria
