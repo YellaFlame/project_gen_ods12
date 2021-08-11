@@ -38,15 +38,6 @@ export class ProdutoComponent implements OnInit {
       alert('Sua sessão expirou, faça o login novamente.')
       this.router.navigate(['/inicio'])
      }
-<<<<<<< HEAD
-
-=======
->>>>>>> 280b2298b23e138ec277c0b0e6e7f6daaf377e79
-    // if(environment.token == '') {
-    //  alert('Sua sessão expirou, faça o login novamente.')
-    //   this.router.navigate(['/inicio'])
-    // }
-
     this.getAllProdutos()
     this.getAllCategoria()
   }

@@ -1,3 +1,6 @@
+body {
+    background-color: #E5F2D8;
+}
 .capa {
     max-width: 100%;
     width: 100%;
@@ -117,17 +120,42 @@ p {
     transform: scale(1.5);
 }
 
-.botao-equipe{
-    background-color: #001d3d;
+.text-color{
+    font-style: italic;
+    color:#164927;
+
+}
+.equipe{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 90%;
+    bottom: 100px;
+    margin: 0 auto;
+}
+
+.box-equipe {
+   padding: 0 60px;
+   /* border: solid #001d3d; */
+   box-sizing:border-box;
+   text-align: center;
+   
+}
+
+.botao-equipe {
+    background-color: #E5F2D8;
+    border: solid  1.5px #001d3d;
+    color: #001d3d;
     padding: 10px;
     border-radius: 8px;
     text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+.botao-equipe:hover {  
+    background-color: #001d3d;
     color: #E5F2D8;
+    cursor: pointer;
 }
-
-.botao-equipe:hover {
-    background-color: #E5F2D8;
-}
-
 
 
