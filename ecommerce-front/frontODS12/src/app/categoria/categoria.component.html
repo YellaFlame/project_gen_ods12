@@ -1,3 +1,4 @@
+
 <div class="container mb-5 mt-5" id="postagens">
     <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
@@ -15,13 +16,19 @@
             aria-labelledby="nav-todasPostagens-tab">
             <div class="form-group w-50 mt-5 mb-5">
                 <div class="mb-3">
+
                     <label for="residuo" class="form-label">Residuo</label>
                     <input [(ngModel)]="lixo.residuo" type="text" class="form-control" id="residuo" name="residuo">
                 </div>
                 <div class="mb-3">
                     <label for="preco" class="form-label">Imagem</label>
+
+                    <input [(ngModel)]="lixo.imagem" type="text" class="form-control" id="preco" name="preco" placeholder="Link da Imagem">
+
+
                     <input [(ngModel)]="lixo.imagem" type="text" class="form-control" id="preco" name="preco"
                         placeholder="Link da Imagem">
+
                 </div>
                 <button (click)="cadastrar()" type="submit" class="btn btn-primary mb-3">Cadastrar</button>
             </div>

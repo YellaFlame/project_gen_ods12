@@ -3,9 +3,10 @@
 }
 
 .logo{
-    max-width: 150px;
+    max-width: 100%;
     width: 150px;
-    height: auto;
+    height: 40px;
+    object-fit: cover;
 }
 
 a{
@@ -34,9 +35,5 @@ a{
 
 .dropdown-menu{
     background-color: #001d3d  ;
-}
-
-.fontmenu{
-  font-family: didote;
 }
 

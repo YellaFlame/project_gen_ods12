@@ -52,10 +52,10 @@ export class CadastroComponent implements OnInit {
       this.authService.cadastrar(this.user).subscribe((resp: Usuario) => {
         this.user = resp
         this.router.navigate(["/cadastro"])
-        alert("Usuario cadastrado com sucesso! Por Favor, faça o login para utilizar todas as funcionalidades do site")
+        alert("Usuario cadastrado com sucesso!")
       }, erro =>{
         if(erro.status == 400){
-          alert("Email ou Usuario ja existem, por favor cadastre outro.")
+          alert("Email ou usuário existentes")
         }
       })
     }
