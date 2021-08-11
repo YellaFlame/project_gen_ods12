@@ -6,8 +6,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto d-flex align-items-center justify-content-center">
+
                 <li class="nav-item pe-5">
-                    <img src="https://i.imgur.com/cTgSGYG.png" alt="" class="logo">
+                    <img src="../../assets/img/logo1.png" alt="" class="logo">
                 </li>
 
                 <ng-container *ngIf="auth.logado();">
@@ -27,7 +28,7 @@
                     </li>
                 </ng-container>
                 
-                <li class="nav-item pe-5 alig">
+                <li class="nav-item pe-5">
                     <a class="">
                         <p class="m-0 text-white fs-16" routerLink='/inicio'>Inicio</p>
                     </a>
@@ -50,8 +51,10 @@
                                 <ul class="dropdown-menu dropdown-menu-dark"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
                                     <li><a class="dropdown-item" routerLink="/parceiro">Seja um Parceiro</a></li>
+                                    <hr>
                                     <li><a class="dropdown-item" routerLink="/como-funciona">Como Funciona</a></li>
-                                    <li><a class="dropdown-item" routerLink="/descarte">Descarte Cosnciente</a></li>
+                                    <hr>
+                                    <li><a class="dropdown-item" routerLink="/descarte">Descarte Consciente</a></li>
                                     <hr>
                                     <li><a class="dropdown-item" routerLink="/sobre">Nós</a></li>
                                 </ul>
