@@ -48,15 +48,32 @@
       background-color: #0d2c0f;
     }
 
-    h1{
-      color:white;
+    h3{
+      color:black;
     }
 
-    h4{
-      color:white;
+    h6{
+      color:black;
       font-style: italic;
     }
 
     .form-label{
-      color:white
+      color:black
+    }
+
+    .tipousuario{
+      color:black
+    }
+
+    .form-check-label{
+      color:black
+    }
+
+    .card{
+      width: 30rem;
+      height: 30rem;
+      margin: auto;
+      margin-top: 25px;
+      margin-bottom: 25px;
+      background-color: #D2D9A0;
     }

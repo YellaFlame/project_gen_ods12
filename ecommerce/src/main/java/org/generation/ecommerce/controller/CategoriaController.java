@@ -37,28 +37,28 @@ public class CategoriaController {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
-	@GetMapping("/buscar/id")
-	public ResponseEntity<?> findById(@Valid @RequestBody Long idCategoria) {
-		return ResponseEntity.ok(repository.findById(idCategoria));
+	@GetMapping("/{id}")
+	public ResponseEntity<?> findById(@Valid @PathVariable Long id) {
+		return ResponseEntity.ok(repository.findById(id));
 	}
 
 	@GetMapping("/buscar/residuo")
-	public ResponseEntity<?> findByResiduo(@Valid @RequestBody String residuo) {
-		return ResponseEntity.ok(repository.findByResiduoContainingIgnoreCase(residuo));
+	public ResponseEntity<List<Categoria>> findByResiduo(@Valid @RequestBody String residuo) {
+		return ResponseEntity.ok(repository.findAllByResiduoContainingIgnoreCase(residuo));
 	}
 
 	@PostMapping("/cadastrar")
 	public ResponseEntity<?> cadastroResiduo(@Valid @RequestBody Categoria residuo) {
-		return ResponseEntity.ok(categoriaService.cadastrar(residuo));
+		return ResponseEntity.ok(repository.save(residuo));
 	}
 
-	@PutMapping("/atualizar/id/{idCategoria}")
-	public ResponseEntity<?> atualizar(@Valid @PathVariable Long idCategoria, @RequestBody Categoria residuo) {
-		return ResponseEntity.ok(categoriaService.att(idCategoria, residuo));
+	@PutMapping("/atualizar")
+	public ResponseEntity<?> atualizar(@Valid @RequestBody Categoria residuo) {
+		return ResponseEntity.ok(repository.save(residuo));
 	}
 
-	@DeleteMapping("/deletar/id")
-	public void delete(@Valid @RequestBody Long idCategoria) {
-		repository.deleteById(idCategoria);
+	@DeleteMapping("/deletar/{id}")
+	public void delete(@Valid @PathVariable Long id) {
+		repository.deleteById(id);
 	}
 }

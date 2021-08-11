@@ -5,15 +5,14 @@
             <div class="form-group w-50">
                 <div class="mb-3 ">
                     <label for="residuo" class="form-label">Residuo</label>
-                    <input [(ngModel)]="lixo.residuo" type="text" class="form-control" id="residuo">
+                    <input [(ngModel)]="lixo.residuo" type="text" class="form-control" id="residuo" name="residuo">
                 </div>
                 <div class="mb-3">
                     <label for="preco" class="form-label">Preço</label>
-                    <input [(ngModel)]="lixo.preco" type="text" class="form-control" id="preco">
+                    <input [(ngModel)]="lixo.preco" type="text" class="form-control" id="preco" name="preco">
                 </div>
-                <button (click)="cadastrar()" class="btn btn-primary mb-3">Cadastrar</button>
+                <button (click)="cadastrar()" type="submit" class="btn btn-primary mb-3">Cadastrar</button>
             </div>
-        </div>
 
 
         <div class="col-md-6">
@@ -25,16 +24,21 @@
                     <caption>vai pelo amor de deus</caption>
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Residuo</th>
                             <th scope="col">Preço</th>
+                            <th scope="col">Modificações</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor='let item of listaLixo'>
-                            <th>{{item.idCategoria}}</th>
+                            <th>{{item.id}}</th>
                             <td>{{item.residuo}}</td>
                             <td>{{item.preco}}</td>
+                            <td class="d-flex justify-content-end">
+                                <button class="btn btn-info mr-3 " [routerLink]="['/categoria-edit', item.id]">Editar</button>
+                                <button class="btn btn-danger" [routerLink]="['/categoria-delete', item.id]">Apagar</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -42,4 +46,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

@@ -1,6 +1,7 @@
 package org.generation.ecommerce.controller;
 
 import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,12 +40,15 @@ public class ProdutoController {
 		return ResponseEntity.ok(produto.findAll());
 	}
 
-	@GetMapping("/buscar/id/{idProduto}")
-	public ResponseEntity<ResponseEntity<Produto>> getID(@Valid @PathVariable Long idProduto) {
-		return ResponseEntity.ok(serviceProduto.buscarPorId(idProduto));
-	}
 
-	@GetMapping("/buscar/status/{status}")
+	@GetMapping("/buscar/{id}")
+    public ResponseEntity<Produto> GetById(@PathVariable long id){
+        return produto.findById(id)
+                .map(resp -> ResponseEntity.ok(resp))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+	@GetMapping("/buscar/status/{id}")
 	public ResponseEntity<List<Produto>> buscarStatus(@Valid @PathVariable String status) {
 		return ResponseEntity.ok(produto.findAllByStatusContainingIgnoreCase(status));
 	}
@@ -64,12 +68,12 @@ public class ProdutoController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(produto.save(produto1));
 	}
 
-	@PutMapping("/atualizar/id")
-	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1, long idProduto) {
+	@PutMapping("/atualizar")
+	public ResponseEntity<Produto> alterar(@Valid @RequestBody Produto produto1) {
 		return ResponseEntity.ok(produto.save(produto1));
 	}
 
-	@DeleteMapping("/deletar/id/{id}")
+	@DeleteMapping("/deletar/{id}")
 	public void delete(@Valid @PathVariable Long id) {
 		produto.deleteById(id);
 	}

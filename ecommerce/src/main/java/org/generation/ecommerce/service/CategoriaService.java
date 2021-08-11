@@ -1,12 +1,13 @@
 package org.generation.ecommerce.service;
 
-import java.util.List;
+
+
 import java.util.Optional;
 
 import org.generation.ecommerce.model.Categoria;
 import org.generation.ecommerce.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -40,6 +41,7 @@ public class CategoriaService {
 	 * @version - v1.0
 	 * @author - Rosenbaum
 	 */
+	/*
 	public Optional<?> cadastrar(Categoria novoResiduo) {
 		return ((Optional<?>) repository.findByResiduoContainingIgnoreCase(novoResiduo.getResiduo()))
 				.map(residuoExistente -> {
@@ -48,7 +50,7 @@ public class CategoriaService {
 					return Optional.ofNullable(repository.save(novoResiduo));
 				});
 			}
-
+*/
 	/** 
 	 * @param idCategoria - Pede um ID de categoria para checar se ele existe
 	 * @param residuoParaAtualizar - Se o ID corresponder com a DB, solicita o corpo de um novo residuo para atualizar.
@@ -56,8 +58,8 @@ public class CategoriaService {
 	 * @version v1.0
 	 * @author - Rosenbaum
 	 */
-	public Optional<Categoria> att(Long idCategoria, Categoria residuoParaAtualizar) {
-		return repository.findById(idCategoria).map(novoResiduo -> {
+	public Optional<Categoria> att(Long id, Categoria residuoParaAtualizar) {
+		return repository.findById(id).map(novoResiduo -> {
 			novoResiduo.setResiduo(residuoParaAtualizar.getResiduo());
 			return Optional.ofNullable(repository.save(novoResiduo));
 		}).orElseGet(() -> {

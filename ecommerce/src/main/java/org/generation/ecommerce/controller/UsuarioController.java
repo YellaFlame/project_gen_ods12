@@ -56,38 +56,38 @@ public class UsuarioController {
 		return ResponseEntity.ok(repositoryU.findAll());
 	}
 
-	@GetMapping("/buscar/id/{idUsuario}")
-	public ResponseEntity<Usuario> listarId(@Valid @PathVariable(value = "idUsuario") Long idUsuario) {
+	@GetMapping("/buscar/id")
+	public ResponseEntity<Usuario> listarId(@Valid @RequestBody Long idUsuario) {
 		return serviceU.listarPorId(idUsuario);
 	}
 
-	@GetMapping("/buscar/nome/{nome}")
-	public ResponseEntity<List<Usuario>> listarNome(@Valid @PathVariable(value = "nome") String nome) {
+	@GetMapping("/buscar/nome")
+	public ResponseEntity<List<Usuario>> listarNome(@Valid @RequestBody String nome) {
 		return serviceU.listarPorNome(nome);
 	}
 
-	@PutMapping("/alterar/senha/{idUsuario}")
-	public Optional<Usuario> alterarSenha(@Valid @PathVariable Long idUsuario,
+	@PutMapping("/alterar/senha")
+	public Optional<Usuario> alterarSenha(@Valid @RequestBody Long idUsuario,
 			@RequestBody UsuarioDTO senhaParaAtualizar) {
 		return serviceU.alterarSenha(idUsuario, senhaParaAtualizar);
 	}
 
-	@PutMapping("/alterar/usuario/{idUsuario}")
-	public Optional<Usuario> alterarUsuario(@Valid @PathVariable Long idUsuario,
+	@PutMapping("/alterar/usuario")
+	public Optional<Usuario> alterarUsuario(@Valid @RequestBody Long idUsuario,
 			@RequestBody UsuarioDTO usuarioParaAtualizar) {
 		return serviceU.alterarUsuario(idUsuario, usuarioParaAtualizar);
 	}
 
-	@PutMapping("/selecionar/produto/idproduto/{idProduto}/usuario/idusuario/{idUsuario}")
-	public ResponseEntity<Usuario> adicionarProdutonaCesta(@PathVariable(value = "idUsuario") Long idUsuario,
-			@PathVariable(value = "idPruduto") Long idProduto) {
+	@PutMapping("/alterar/produto")
+	public ResponseEntity<Usuario> adicionarProdutonaCesta(@RequestBody Long idUsuario,
+			@RequestBody Long idProduto) {
 		return serviceU.selecionarProduto(idUsuario, idProduto)
 				.map(produtoSelecionado -> ResponseEntity.status(201).body(produtoSelecionado))
 				.orElse(ResponseEntity.badRequest().build());
 	}
 
-	@DeleteMapping("/deletar/{idUsuario}")
-	public ResponseEntity<String> deletarUsuario(@Valid @PathVariable Long idUsuario) {
+	@DeleteMapping("/deletar")
+	public ResponseEntity<String> deletarUsuario(@Valid @RequestBody Long idUsuario) {
 		return serviceU.deletarUsuario(idUsuario);
 	}
 

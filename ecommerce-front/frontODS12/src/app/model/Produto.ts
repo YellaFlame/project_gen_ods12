@@ -8,6 +8,6 @@ export class Produto {
     public dataRetirada: string
     public descricao: string
     public quantidade: number
-    // public categoria: string
-    // public usuario: Usuario
+    public categoria: Categoria
+    public usuario: Usuario
 }
