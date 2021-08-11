@@ -1,7 +1,16 @@
 .bg-verde{
     background-color: #1b532e;
 }
+.w-100{
+    width: 100%;
+}
 
+.bg-img{
+    /* background-image:url('../../assets/img/recicla.png'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
     
 
 

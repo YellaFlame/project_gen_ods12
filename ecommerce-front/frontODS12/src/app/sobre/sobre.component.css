@@ -14,13 +14,13 @@
 }
 
 h1, h3, p {
-    margin: 20px;
-    line-height: 2rem;
+  margin: 20px;
+  line-height: 2rem;
 }
 
 .bg-missao {
-    background-color: #1b532e;
-    padding: 70px;
+  background-color: #1b532e;
+  padding: 70px;
 }
 
 .missao {
@@ -31,3 +31,13 @@ h1, h3, p {
     text-align: justify;
     padding: 20px;
 }
+
+.card-text {
+text-align: center;
+}
+
+.img-icone {
+width: 80px;
+height: 80px;
+}
+
