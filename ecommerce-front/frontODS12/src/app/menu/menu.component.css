@@ -2,6 +2,12 @@
     font-size: 16pt;
 }
 
+.logo{
+    max-width: 150px;
+    width: 150px;
+    height: auto;
+}
+
 a{
     cursor: pointer;
 }
@@ -29,4 +35,7 @@ a{
 .dropdown-menu{
     background-color: #001d3d  ;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 280b2298b23e138ec277c0b0e6e7f6daaf377e79

@@ -1,23 +1,21 @@
-.form {
-    background-color: rgb(63, 63, 117);
-    color:azure;
-    max-width: 60%;
-    margin: auto;
+.bg-verde{
+    background-color: #1b532e;
 }
 .w-100{
     width: 100%;
 }
 
 .bg-img{
+<<<<<<< HEAD
     background-image:url('../../assets/img/reciclando-respeito.jpg');
+=======
+    /* background-image:url('../../assets/img/recicla.png'); */
+>>>>>>> 280b2298b23e138ec277c0b0e6e7f6daaf377e79
     background-repeat: no-repeat;
     background-size: cover;
     margin: auto;
-
 }
+    
 
-.fs-15{
-    font-size: 15px;
-}
 
 
