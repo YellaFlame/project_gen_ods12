@@ -1,12 +1,12 @@
-<div class="container-fluid">
-    <div class="row d-flex align-items-center">
+<div class="container">
+    <div class="row mb-5 mt-5">
         <div class="col-md-6">
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fs-16">Cadastre um Residuo</h5>
+                    <h5 class="card-title fs-16">Cadastre um Resíduo</h5>
                     <div class="form-group">
-                        <div class="w-50">
-                            <label for="residuo" class="form-label">Residuo</label>
+                        <div class="mb-3 w-50">
+                            <label for="residuo" class="form-label">Resíduo</label>
                             <input [(ngModel)]="lixo.residuo" type="text" class="form-control" id="residuo"
                                 name="residuo">
                         </div>
@@ -16,16 +16,13 @@
                         </div>
                         <button (click)="cadastrar()" type="submit" class="btn btn-primary mb-3">Cadastrar</button>
                     </div>
-
                 </div>
             </div>
-
-
         </div>
 
         <div class="col-md-6">
-            <div class="row d-flex justify-content-center mt-5 mb-5 ">
-                <h2 class="d-flex justify-content-center mt-5 mb-5 fs-16">Todos os Residuos</h2>
+            <div class="row">
+                <h2 class="text-center fs-16">Todos os Residuos</h2>
                 <table class="table caption-top table-outline-dark table-sm table-hover">
                     <caption></caption>
                     <thead>
@@ -52,15 +49,7 @@
                 </table>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Título do card</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Subtitulo do card</h6>
-                <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o
-                    conteúdo do card.</p>
-                <a href="#" class="card-link">Link do card</a>
-                <a href="#" class="card-link">Outro link</a>
-            </div>
-        </div>
+
     </div>
 </div>
+
