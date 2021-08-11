@@ -10,8 +10,6 @@ import { Usuario } from '../model/Usuario';
 })
 export class AuthService {
 
-
-
   constructor(
     private http: HttpClient
   ) { }
@@ -35,14 +33,6 @@ export class AuthService {
     return ok
   }
   
-  isAdmin(){
-    let ok: boolean = false
-    if(environment.tipo == "adm"){
-      ok = true
-    }
-    return ok
-  }
-
   sucateiro(){
     let ok: boolean = false
     if(environment.tipo == "sucateiro"){

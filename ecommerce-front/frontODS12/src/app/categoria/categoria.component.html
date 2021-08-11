@@ -1,20 +1,22 @@
-<div class="container">
-    <div class="row mb-5 mt-5">
-        <div class="col-md-6">
+<div class="container-fluid d-flex justify-content-center">
+    <div class="row mb-5 mt-5 d-flex align-items-center">
+
+        <div class="col-md-6 ">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title fs-16">Cadastre um Resíduo</h5>
-                    <div class="form-group">
+                <div class="card-body justify-content-center">
+                    <h5 class="card-title text-white fs-16 ">Cadastre um Resíduo</h5>
+                    <div class="form-group ">
                         <div class="mb-3 w-50">
-                            <label for="residuo" class="form-label">Resíduo</label>
+                            <label for="residuo" class="form-label text-white">Resíduo</label>
                             <input [(ngModel)]="lixo.residuo" type="text" class="form-control" id="residuo"
                                 name="residuo">
                         </div>
                         <div class="mb-3 w-50">
-                            <label for="preco" class="form-label">Preço</label>
-                            <input [(ngModel)]="lixo.preco" type="text" class="form-control" id="preco" name="preco">
+                            <label for="preco" class="form-label text-white">Preço</label>
+                            <input [(ngModel)]="lixo.imagem" type="text" class="form-control" id="preco" name="preco"
+                                placeholder="R$">
                         </div>
-                        <button (click)="cadastrar()" type="submit" class="btn btn-primary mb-3">Cadastrar</button>
+                        <button (click)="cadastrar()" type="submit" class="btn btn-light mb-3">Cadastrar</button>
                     </div>
                 </div>
             </div>
@@ -29,7 +31,7 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Residuo</th>
-                            <th scope="col">Preço</th>
+                            <th scope="col">Imagem</th>
                             <th scope="col">Modificações</th>
                         </tr>
                     </thead>
@@ -37,7 +39,7 @@
                         <tr *ngFor='let item of listaLixo'>
                             <th>{{item.id}}</th>
                             <td>{{item.residuo}}</td>
-                            <td>{{item.preco}}</td>
+                            <td>{{item.imagem}}</td>
                             <td class="d-flex justify-content-end">
                                 <button class="btn btn-info mr-3 "
                                     [routerLink]="['/categoria-edit', item.id]">Editar</button>
@@ -49,7 +51,5 @@
                 </table>
             </div>
         </div>
-
     </div>
 </div>
-
