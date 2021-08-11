@@ -31,3 +31,7 @@ ul.social-network li{
     background-color: #E5F2D8;
 }
 
+.footer-copyright, a {
+    text-decoration-line: none;
+}
+
