@@ -10,7 +10,7 @@
 }
 
 .table-color{
-    background-color: #001d3d;
+    background-color: #284b63;
 
 }
 .pd{
@@ -30,7 +30,7 @@
 }
 
 #end{
-    width: 30%;
+    width: 80%;
 }
 
 .card {
@@ -50,3 +50,15 @@
   .modal-bg-content{
     background-color:  #E5F2D8;
   }
+
+  #lixeira{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+
+}
+
+.bg-color-default{
+    background-color:  #E5F2D8;
+ 
+}

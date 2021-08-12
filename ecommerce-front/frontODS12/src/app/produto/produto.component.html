@@ -26,53 +26,67 @@
       <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
         aria-labelledby="nav-todasPostagens-tab">
 
-        <div class="card text-dark">
-          <div class="card-body">
-            <div class="form-group">
-              <div class="mb-3 ml-3 mt-2" id="end">
-                <label for="endereco" class="form-label">Endereço</label>
-                <input type="text" class="form-control" id="endereco" placeholder="Insira seu Endereço">
-              </div>
+        <div class="container-fluid bg-color-default">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-12">
+                  <div class="form-group mt-3 mb-5 text-dark">
+                    <div class="mb-3 ml-3 mt-2" id="end">
+                      <h1>Informações</h1>
+                      <label for="endereco" class="form-label">Endereço</label>
+                      <input [(ngModel)]='produto.endereco' type="text" class="form-control" id="endereco"
+                        placeholder="Insira seu Endereço">
+                    </div>
 
-              <div class="mb-3  ml-3" id="end">
-                <label for="dataRetirada" class="form-label">Data para Retirada</label>
-                <input [(ngModel)]='produto.dataRetirada' class="form-control" type="date" name="dataRetirada"
-                  id="dataRetirada" placeholder="dataRetirada">
-              </div>
+                    <div class="mb-3  ml-3" id="end">
+                      <label for="dataRetirada" class="form-label">Data para Retirada</label>
+                      <input [(ngModel)]='produto.dataRetirada' class="form-control" type="date" name="dataRetirada"
+                        id="dataRetirada" placeholder="dataRetirada">
+                    </div>
 
-              <div class="mb-3 ml-3" id="end">
-                <label for="categoria" class="form-label">Categoria</label>
-                <select class="form-control" name="categoria" id="categoria">
-                  <option *ngFor='let item of listaCategoria' value="{{item.id}}">
-                    {{item.residuo}}
-                  </option>
-                </select>
-              </div>
+                    <div class="mb-3 ml-3" id="end">
+                      <label for="categoria" class="form-label">Categoria</label>
+                      <select class="form-control" name="categoria" id="categoria">
+                        <option *ngFor='let item of listaCategoria' value="{{item.id}}">
+                          {{item.residuo}}
+                        </option>
+                      </select>
+                    </div>
 
-              <div class="mb-3 ml-3" id="end">
-                <label [(ngModel)]='produto.descricao' for="descricao">Descrição</label>
-                <select [(ngModel)]='produto.descricao' class="form-control-range" name="descricao" id="descricao"
-                  placeHolder="Opções">
-                  <option>Lata</option>
-                  <option>Papelão</option>
-                  <option>Garrafa</option>
-                  <option>Papel</option>
-                </select>
-              </div>
+                    <div class="mb-3 ml-3" id="end">
+                      <label class="form-label" for="descricao">Descrição</label>
+                      <select [(ngModel)]='produto.descricao' class="form-control-range" name="descricao" id="descricao"
+                        placeHolder="Opções">
+                        <option>Lata</option>
+                        <option>Papelão</option>
+                        <option>Garrafa</option>
+                        <option>Papel</option>
+                      </select>
+                    </div>
 
-              <div class="mb-3 ml-3" id="end">
-                <label for="quantidade" class="form-label">Quantidade</label>
-                <input [(ngModel)]='produto.quantidade' class="form-control" type="number" name="quantidade"
-                  id="quantidade" placeholder="quantidade">
-              </div>
+                    <div class="mb-3 ml-3" id="end">
+                      <label for="quantidade" class="form-label">Quantidade</label>
+                      <input [(ngModel)]='produto.quantidade' class="form-control" type="number" name="quantidade"
+                        id="quantidade" placeholder="Quantidade">
+                    </div>
 
-              <div class="ml-3">
-                <button class="btn btn-success text-white" type="submit" (click)='cadastrar()'>Cadastrar</button>
+                    <div class="ml-3">
+                      <button class="btn btn-success text-white" type="submit" (click)='cadastrar()'>Cadastrar</button>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
+
+            <div class="col-md-6 d-flex justify-content-center">
+              <img src="https://i.imgur.com/f1EUy4u.jpg" id="lixeira" alt="">
             </div>
           </div>
         </div>
+
       </div>
+
     </ng-container>
     <!--POSTE SEU LIXO-->
 
@@ -91,7 +105,7 @@
           <table class="table caption-top table-sm table-color table-hover ">
             <caption>Lista de Lixos Cadastrados no Sistema</caption>
             <thead>
-              <tr class="text-white">
+              <tr class="text-white modal-bg">
                 <th scope="col" class="pd-id">ID</th>
                 <th scope="col">Descrição</th>
                 <th scope="col" class="">Quantidade</th>
@@ -114,15 +128,15 @@
                 <td class="pd">
                   <div *ngIf="item.status != 'Finalizado'">
                     <ng-container *ngIf="auth.condonime();">
-                      <button data-bs-toggle="modal" class="btn btn-info me-3 pd-b" data-bs-target="#exampleModal"
-                        (click)="pegarId(item.idProduto)">Editar</button>
+                      <button data-bs-toggle="modal" class="btn me-3 pd-b modal-bg text-white"
+                        data-bs-target="#exampleModal" (click)="pegarId(item.idProduto)">Editar</button>
                     </ng-container>
                   </div>
 
                   <div *ngIf="item.status != 'Finalizado'">
                     <ng-container *ngIf="auth.sucateiro();">
-                      <button data-bs-toggle="modal" class="btn catar me-3 pd-b" data-bs-target="#exampleModal1"
-                        (click)="pegarId(item.idProduto)">Catar</button>
+                      <button data-bs-toggle="modal" class="btn modal-bg text-white me-3 pd-b"
+                        data-bs-target="#exampleModal1" (click)="pegarId(item.idProduto)">Catar</button>
                     </ng-container>
                   </div>
                 </td>
@@ -135,16 +149,6 @@
   </div>
 </div>
 <!--Tabela-->
-
-
-
-
-
-
-
-
-
-
 
 <!-- Modal Condonime -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -240,13 +244,16 @@
       </div>
       <div class="modal-footer modal-bg ">
         <ng-container *ngIf="produto.status == 'Reservado'">
-        <button type="button" class="btn btn-danger finalizar" data-bs-dismiss="modal" (click)='cancelar()'>Cancelar Reserva</button>
-    
-        <button type="button" class="btn btn-danger finalizar" data-bs-dismiss="modal"
-          (click)='finalizado()'>Finalizar</button>
+          <button type="button" class="btn btn-danger finalizar" data-bs-dismiss="modal" (click)='cancelar()'>Cancelar
+            Reserva</button>
+
+          <button type="button" class="btn btn-danger finalizar" data-bs-dismiss="modal"
+            (click)='finalizado()'>Finalizar</button>
         </ng-container>
 
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)='reservado()'>Reservar</button>
+        <ng-container *ngIf="produto.status == 'Disponivel'">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)='reservado()'>Reservar</button>
+        </ng-container>
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Voltar</button>
       </div>
     </div>

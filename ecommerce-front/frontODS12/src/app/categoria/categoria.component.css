@@ -25,7 +25,17 @@
 }
 
 #lixeira{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
+
+.bg-color-default{
+    background-color:  #E5F2D8;
+ 
+}
+.modal-bg{
+    background-color: #001d3d;
+  }
