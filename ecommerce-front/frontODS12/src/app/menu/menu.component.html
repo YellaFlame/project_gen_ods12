@@ -11,6 +11,15 @@
                     <img src="../../assets/img/logo1.png" alt="" class="logo">
                 </li>
 
+                <ng-container *ngIf="auth.admin();">
+                    <li class="nav-item pe-5">
+                        <a routerLink="/categoria">
+                            <img src="../../assets/img/configuration.png" width="30px" height="30px"
+                                alt="botao de configuração">
+                        </a>
+                    </li>
+                </ng-container>
+
                 <ng-container *ngIf="auth.logado();">
                     <li class="nav-item pe-5">
                         <a routerLink="/produto">
@@ -20,14 +29,10 @@
                 </ng-container>
 
 
-                <ng-container *ngIf="auth.admin();">
-                    <li class="nav-item pe-5">
-                        <a routerLink="/categoria">
-                            <img src="../../assets/img/configuration.png" width="30px" height="30px" alt="botao de configuração">
-                        </a>
-                    </li>
-                </ng-container>
-                
+
+
+
+
                 <li class="nav-item pe-5">
                     <a class="">
                         <p class="m-0 text-white fs-16" routerLink='/inicio'>Inicio</p>
@@ -63,7 +68,7 @@
                     </div>
                 </li>
 
-               
+
             </ul>
 
         </div>

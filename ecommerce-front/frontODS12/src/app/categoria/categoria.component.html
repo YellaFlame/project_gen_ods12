@@ -1,63 +1,78 @@
-
+<!--NAV + TABLES-->
 <div class="container mb-5 mt-5" id="postagens">
     <nav>
         <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
             <a class="nav-item nav-link text-secondary " id="nav-todasPostagens-tab" data-bs-toggle="tab" role="tab"
-                aria-controls="nav-todasPostagens" aria-selected="false" href="#todasPostagens">Cadastro de Residuo</a>
+                aria-controls="nav-todasPostagens" aria-selected="false" href="#todasPostagens">Cadastro</a>
 
             <a class="nav-item nav-link text-secondary " id="nav-minhasPostagens-tab" data-bs-toggle="tab" role="tab"
                 aria-controls="nav-minhasPostagens" aria-selected="false" href="#minhasPostagens">Residuos
                 Cadastrados</a>
+
         </div>
     </nav>
 
+
+    <!--contens-->
     <div class="tab-content" id="nav-tabContent">
+
         <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
             aria-labelledby="nav-todasPostagens-tab">
-            <div class="form-group w-50 mt-5 mb-5">
-                <div class="mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="form-group mt-3 mb-5 text-dark">
+                                <div class="mb-3">
+                                    <label for="residuo" class="form-label">Residuo</label>
+                                    <input [(ngModel)]="lixo.residuo" type="text" class="form-control" id="residuo"
+                                        name="residuo">
+                                </div>
+                                <div class="mb-3 ">
+                                    <label for="preco" class="form-label">Imagem</label>
+                                    <input [(ngModel)]="lixo.imagem" type="text" class="form-control" id="preco"
+                                        name="preco" placeholder="Link da Imagem">
 
-                    <label for="residuo" class="form-label">Residuo</label>
-                    <input [(ngModel)]="lixo.residuo" type="text" class="form-control" id="residuo" name="residuo">
+                                </div>
+                                <button (click)="cadastrar()" type="submit"
+                                    class="btn btn-success mb-3">Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="preco" class="form-label">Imagem</label>
-
-                    <input [(ngModel)]="lixo.imagem" type="text" class="form-control" id="preco" name="preco" placeholder="Link da Imagem">
-
-
-                    <input [(ngModel)]="lixo.imagem" type="text" class="form-control" id="preco" name="preco"
-                        placeholder="Link da Imagem">
-
-                </div>
-                <button (click)="cadastrar()" type="submit" class="btn btn-primary mb-3">Cadastrar</button>
             </div>
+
         </div>
 
         <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-            <table class="table caption-top table-outline-dark table-sm table-hover mt-5">
+            <table class="table caption-top table-outline-dark table-sm table-hover mt-5 table-color">
                 <caption></caption>
                 <thead>
-                    <tr>
+                    <tr class="text-white">
                         <th scope="col">ID</th>
                         <th scope="col">Residuo</th>
                         <th scope="col">Imagem</th>
-                        <th scope="col" class="text-right pr-4">Modificações</th>
+                        <th scope="col" class="text-left pr-4">Modificações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let item of listaLixo'>
+                    <tr *ngFor='let item of listaLixo' class="text-white">
                         <th>{{item.id}}</th>
                         <td>{{item.residuo}}</td>
                         <td>{{item.imagem}}</td>
-                        <td class="d-flex justify-content-end">
-                            <button class="btn btn-info mr-3 "
-                                [routerLink]="['/categoria-edit', item.id]">Editar</button>
-                            <button class="btn btn-danger" [routerLink]="['/categoria-delete', item.id]">Apagar</button>
+                        <td>
+                            <button class="btn btn-info" [routerLink]="['/categoria-edit', item.id]">Editar</button>
+
+                            <button class="btn btn-danger ml-5"
+                                [routerLink]="['/categoria-delete', item.id]">Apagar</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+
+
+
+
         </div>
+
     </div>
-</div>
