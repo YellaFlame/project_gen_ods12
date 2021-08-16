@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-color">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-color">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,28 +6,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto d-flex align-items-center justify-content-center">
+                <!--Logo Ttipo-->
                 <li class="nav-item pe-5">
-                    <img src="https://i.imgur.com/cTgSGYG.png" alt="" class="logo">
+                    <img src="../../assets/img/sucaterialogo.png" alt="" class="logo">
                 </li>
 
-                <ng-container *ngIf="auth.logado();">
-                    <li class="nav-item pe-5">
-                        <a routerLink="/produto">
-                            <img src="../../assets/img/search.png" width="30px" height="30px" alt="">
-                        </a>
-                    </li>
-                </ng-container>
-
-
+                <!--Painel de Controle-->
                 <ng-container *ngIf="auth.admin();">
                     <li class="nav-item pe-5">
                         <a routerLink="/categoria">
-                            <img src="../../assets/img/configuration.png" width="30px" height="30px" alt="botao de configuração">
+                            <img src="../../assets/img/settings (1).png" width="30px" height="30px"
+                                alt="botao de configuração">
                         </a>
                     </li>
                 </ng-container>
-                
-                <li class="nav-item pe-5 alig">
+
+                <!--Produto-->
+                <ng-container *ngIf="auth.logado();">
+                    <li class="nav-item pe-5">
+                        <a routerLink="/produto">
+                            <img src="../../assets/img/recycle-sign.png" width="30px" height="30px" alt="">
+                        </a>
+                    </li>
+                </ng-container>
+
+                <li class="nav-item pe-5">
                     <a class="">
                         <p class="m-0 text-white fs-16" routerLink='/inicio'>Inicio</p>
                     </a>
@@ -50,8 +53,10 @@
                                 <ul class="dropdown-menu dropdown-menu-dark"
                                     aria-labelledby="navbarDarkDropdownMenuLink">
                                     <li><a class="dropdown-item" routerLink="/parceiro">Seja um Parceiro</a></li>
+                                    <hr>
                                     <li><a class="dropdown-item" routerLink="/como-funciona">Como Funciona</a></li>
-                                    <li><a class="dropdown-item" routerLink="/descarte">Descarte Cosnciente</a></li>
+                                    <hr>
+                                    <li><a class="dropdown-item" routerLink="/descarte">Descarte Consciente</a></li>
                                     <hr>
                                     <li><a class="dropdown-item" routerLink="/sobre">Nós</a></li>
                                 </ul>
@@ -60,7 +65,7 @@
                     </div>
                 </li>
 
-               
+
             </ul>
 
         </div>

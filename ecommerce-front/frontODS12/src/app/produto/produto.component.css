@@ -1,0 +1,64 @@
+.catar{
+    background-color:  #E5F2D8;
+}
+.teste{
+    background-color:  #E5F2D8;
+}
+
+#finalizar { 
+    padding-left: 10px;
+}
+
+.table-color{
+    background-color: #284b63;
+
+}
+.pd{
+    padding: 10px;
+}
+
+.pd-b{
+    padding: 5px 25px;
+}
+
+.pd-id{
+    padding-right: 5px;
+}
+
+.mr{
+    margin-inline-start: 0%;
+}
+
+#end{
+    width: 80%;
+}
+
+.card {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color:  #E5F2D8;
+    margin-left: 0px;
+  }
+
+  .modal-bg{
+    background-color: #001d3d;
+  }
+
+  .modal-bg-content{
+    background-color:  #E5F2D8;
+  }
+
+  #lixeira{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+
+}
+
+.bg-color-default{
+    background-color:  #E5F2D8;
+ 
+}
