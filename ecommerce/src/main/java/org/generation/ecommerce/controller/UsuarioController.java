@@ -41,12 +41,12 @@ public class UsuarioController {
 	private UsuarioRepository repositoryU;
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
 		return serviceU.cadastrarUsuario(usuario);
 	}
 
 	@PostMapping("/logar")
-	public ResponseEntity<UserLoginDto> authentication(@Valid @RequestBody Optional<UserLoginDto> user) {
+	public ResponseEntity<UserLoginDto> authentication(@RequestBody Optional<UserLoginDto> user) {
 		return serviceU.logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
@@ -62,18 +62,18 @@ public class UsuarioController {
 	}
 
 	@GetMapping("/buscar/nome")
-	public ResponseEntity<List<Usuario>> listarNome(@Valid @RequestBody String nome) {
+	public ResponseEntity<List<Usuario>> listarNome(@RequestBody String nome) {
 		return serviceU.listarPorNome(nome);
 	}
 
 	@PutMapping("/alterar/senha")
-	public Optional<Usuario> alterarSenha(@Valid @RequestBody Long idUsuario,
+	public Optional<Usuario> alterarSenha(@RequestBody Long idUsuario,
 			@RequestBody UsuarioDTO senhaParaAtualizar) {
 		return serviceU.alterarSenha(idUsuario, senhaParaAtualizar);
 	}
 
 	@PutMapping("/alterar/usuario")
-	public Optional<Usuario> alterarUsuario(@Valid @RequestBody Long idUsuario,
+	public Optional<Usuario> alterarUsuario(@RequestBody Long idUsuario,
 			@RequestBody UsuarioDTO usuarioParaAtualizar) {
 		return serviceU.alterarUsuario(idUsuario, usuarioParaAtualizar);
 	}
@@ -87,7 +87,7 @@ public class UsuarioController {
 	}
 
 	@DeleteMapping("/deletar")
-	public ResponseEntity<String> deletarUsuario(@Valid @RequestBody Long idUsuario) {
+	public ResponseEntity<String> deletarUsuario(@RequestBody Long idUsuario) {
 		return serviceU.deletarUsuario(idUsuario);
 	}
 

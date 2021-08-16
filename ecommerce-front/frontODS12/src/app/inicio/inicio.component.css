@@ -43,6 +43,7 @@ p {
     height: 400px;
     width: 500px;
     margin-top: 10px;
+    object-fit: cover;
 }
 
 .img-4 {
@@ -50,6 +51,7 @@ p {
     height: 400px;
     width: 550px;
     margin: 10px 10px 50px 50px;
+    object-fit: cover;
 }
 
 .card-texto1 {
