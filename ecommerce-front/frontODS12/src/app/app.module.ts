@@ -14,8 +14,6 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { ComoFuncionaComponent } from './como-funciona/como-funciona.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ProdutoComponent } from './produto/produto.component';
-import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.component';
-import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
 import { FormsModule } from "@angular/forms";
 import { ParceiroComponent } from "./parceiro/parceiro.component";
 import { DescarteComponent } from "./descarte/descarte.component";
@@ -25,6 +23,7 @@ import { MetalComponent } from './descarte/metal/metal.component';
 import { VidroComponent } from './descarte/vidro/vidro.component';
 import { OrganicoComponent } from './descarte/organico/organico.component';
 import { CategoriaEditComponent } from "./edit/categoria-edit/categoria-edit.component";
+import { AlertasComponent } from './alertas/alertas.component';
 
 
 @NgModule({
@@ -47,11 +46,9 @@ import { CategoriaEditComponent } from "./edit/categoria-edit/categoria-edit.com
     MetalComponent,
     VidroComponent,
     OrganicoComponent,
-    ProdutoEditarComponent,
-    ProdutoDeletarComponent,
     CategoriaComponent,
-    CategoriaEditComponent
-
+    CategoriaEditComponent,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,

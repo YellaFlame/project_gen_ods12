@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav mr-auto d-flex align-items-center justify-content-center">
-                <!--Logoipo-->
+                <!--Logotipo-->
                 <li class="nav-item pe-5">
                     <a href=""><img src="https://i.imgur.com/cTgSGYG.png" title="logo" class="logo"/></a>
                 </li>
@@ -22,17 +22,10 @@
                 </ng-container>
 
                 <!--Produto-->
-                <ng-container *ngIf="auth.logado();">
-                    <li class="nav-item pe-5">
-                        <a routerLink="/produto">
-                            <img src="../../assets/img/recycle-sign.png" width="30px" height="30px" alt="">
-                        </a>
-                    </li>
-                </ng-container>
-
+                
                 <li class="nav-item pe-5">
                     <a class="">
-                        <p class="m-0 text-white fs-16" routerLink='/inicio'>Inicio</p>
+                        <p class="m-0 text-white fs-16" routerLink='/inicio'>Início</p>
                     </a>
                 </li>
 
@@ -64,7 +57,13 @@
                         </ul>
                     </div>
                 </li>
-
+                <ng-container *ngIf="auth.logado();">
+                    <li class="nav-item pe-5">
+                        <a routerLink="/produto">
+                            <img src="https://i.imgur.com/Xtf4pjO.png" width="40px" height="40px" alt="ícone de lixeira">
+                        </a>
+                    </li>
+                </ng-container>
 
             </ul>
 
@@ -85,7 +84,7 @@
             <ul class="navbar-nav ml-auto d-flex align-items-center pe-2,5 ">
                 <li class="nav-item fa-lg text-white ">
                     <a>
-                        <p routerLink='/cadastro' class="m-0 text-white fs-16"> Entrar | Cadastrar
+                        <p routerLink='/cadastro' class="m-0 text-white fs-16"> Cadastrar | Entrar
                         </p>
                     </a>
                 </li>

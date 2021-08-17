@@ -56,38 +56,38 @@ public class UsuarioController {
 		return ResponseEntity.ok(repositoryU.findAll());
 	}
 
-	@GetMapping("/buscar/{id}")
+	@GetMapping("/buscar/{idUsuario}")
 	public ResponseEntity<Usuario> listarId(@PathVariable long idUsuario) {
 		return serviceU.listarPorId(idUsuario);
 	}
 
-	@GetMapping("/buscar/nome")
-	public ResponseEntity<List<Usuario>> listarNome(@RequestBody String nome) {
+	@GetMapping("/buscar/nome/{nome}")
+	public ResponseEntity<List<Usuario>> listarNome(@PathVariable String nome) {
 		return serviceU.listarPorNome(nome);
 	}
 
 	@PutMapping("/alterar/senha")
-	public Optional<Usuario> alterarSenha(@RequestBody Long idUsuario,
+	public Optional<Usuario> alterarSenha(@RequestBody long idUsuario,
 			@RequestBody UsuarioDTO senhaParaAtualizar) {
 		return serviceU.alterarSenha(idUsuario, senhaParaAtualizar);
 	}
 
 	@PutMapping("/alterar/usuario")
-	public Optional<Usuario> alterarUsuario(@RequestBody Long idUsuario,
+	public Optional<Usuario> alterarUsuario(@RequestBody long idUsuario,
 			@RequestBody UsuarioDTO usuarioParaAtualizar) {
 		return serviceU.alterarUsuario(idUsuario, usuarioParaAtualizar);
 	}
 
 	@PutMapping("/alterar/produto")
-	public ResponseEntity<Usuario> adicionarProdutonaCesta(@RequestBody Long idUsuario,
+	public ResponseEntity<Usuario> adicionarProdutonaCesta(@RequestBody long idUsuario,
 			@RequestBody Long idProduto) {
 		return serviceU.selecionarProduto(idUsuario, idProduto)
 				.map(produtoSelecionado -> ResponseEntity.status(201).body(produtoSelecionado))
 				.orElse(ResponseEntity.badRequest().build());
 	}
 
-	@DeleteMapping("/deletar")
-	public ResponseEntity<String> deletarUsuario(@RequestBody Long idUsuario) {
+	@DeleteMapping("/deletar/{idUsuario}")
+	public ResponseEntity<String> deletarUsuario(@PathVariable long idUsuario) {
 		return serviceU.deletarUsuario(idUsuario);
 	}
 

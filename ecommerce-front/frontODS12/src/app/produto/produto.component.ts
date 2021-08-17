@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router"
 import { environment } from "src/environments/environment.prod"
 import { Categoria } from "../model/Categoria"
 import { Produto } from "../model/Produto"
+import { Usuario } from "../model/Usuario"
 import { AuthService } from "../service/auth.service"
 import { CategoriaService } from "../service/categoria.service"
 import { ProdutoService } from "../service/produto.service"
@@ -24,6 +25,9 @@ export class ProdutoComponent implements OnInit {
   listaCategoria: Categoria[]
   idCategoria: number
 
+  user: Usuario = new Usuario()
+  idUsuario = environment.id
+
   constructor(
     public auth: AuthService,
     private produtoService: ProdutoService,
@@ -35,14 +39,22 @@ export class ProdutoComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0)
     if(environment.token == '') {
-      alert('Sua sessão expirou, faça o login novamente.')
-      this.router.navigate(['/inicio'])
-     }
+       alert('Sua sessão expirou, faça o login novamente.')
+       this.router.navigate(['/inicio'])
+    }
     
     this.getAllProdutos()
     this.getAllCategoria()
   }
 
+   //USUÁRIO MÉTODO
+   getByIdUser(){
+     this.produtoService.getByIdUsuario(this.idUsuario).subscribe((resp: Usuario) => {
+       this.user = resp
+     })
+   }
+
+   //CATEGORIA MÉTODOS
   getAllCategoria(){
     this.categoriaService.getAllResiduo().subscribe((resp: Categoria[]) => {
       this.listaCategoria = resp
@@ -55,6 +67,13 @@ export class ProdutoComponent implements OnInit {
     })
   }
 
+  findByIdCategoria(id: number){
+    this.categoriaService.getByIdResiduo(id).subscribe((resp: Categoria)=> {
+      this.categoria = resp
+    })
+  }
+
+  //PRODUTOS MÉTODOS
   getAllProdutos() {
       this.produtoService.getAllProduto().subscribe((resp: Produto []) => {
         this.listaProdutos = resp
@@ -78,19 +97,12 @@ export class ProdutoComponent implements OnInit {
     })
   }
 
-  findByIdCategoria(id: number){
-    this.categoriaService.getByIdResiduo(id).subscribe((resp: Categoria)=> {
-      this.categoria = resp
-    })
-  }
-
   reservado(){
     // this.categoria.id = this.idCategoria
     // this.produto.categoria = this.categoria
     this.produto.status = "Reservado";
       this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
-      alert('Produto atualizado com sucesso.')
       this.produto = new Produto()
       this.getAllProdutos()
       this.router.navigate(['/produto'])
@@ -101,7 +113,6 @@ export class ProdutoComponent implements OnInit {
     this.produto.status = "Disponivel";
       this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
-      alert('Produto atualizado com sucesso.')
       this.produto = new Produto()
       this.getAllProdutos()
       this.router.navigate(['/produto'])
@@ -114,7 +125,7 @@ export class ProdutoComponent implements OnInit {
     this.produto.status = "Finalizado";
       this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
-      alert('Produto atualizado com sucesso.')
+      alert('Parabéns por finalizar.')
       this.produto = new Produto()
       this.getAllProdutos()
       this.router.navigate(['/produto'])

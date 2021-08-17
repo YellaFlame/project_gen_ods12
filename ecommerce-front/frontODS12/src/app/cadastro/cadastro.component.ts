@@ -3,7 +3,10 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { UserLoginDto } from '../model/UserLoginDto';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
+
+
 
 @Component({
   selector: 'app-cadastro',
@@ -15,7 +18,7 @@ export class CadastroComponent implements OnInit {
   //Atributos para Usuario
   user: Usuario = new Usuario()
   cSenha: string
-  tipoU: string
+  tipoU: string = ""
   termos: boolean = true
 
   //Atributos para Logar
@@ -23,12 +26,14 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
-
+    private router: Router,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
+
+    
   }
 
   //Metodos para Cadastro
@@ -39,16 +44,16 @@ export class CadastroComponent implements OnInit {
 
   tipoUser(event: any) {
     this.tipoU = event.target.value
-
   }
 
   cadastrar() {
-
+    this.user.tipo = this.tipoU
     if (this.user.senha != this.cSenha) {
       alert("As senhas estão incorretas!")
     } else {
       this.authService.cadastrar(this.user).subscribe((resp: Usuario) => {
         this.user = resp
+        environment.tipo = this.tipoU
         this.router.navigate(["/cadastro"])
         alert("Usuário cadastrado com sucesso!")
         this.user = new Usuario()
@@ -94,7 +99,7 @@ export class CadastroComponent implements OnInit {
       environment.token = this.userLogin.token
       environment.usuario = this.userLogin.usuario
       environment.tipo = this.userLogin.tipo
-      environment.Id = this.userLogin.Id
+      environment.id = this.userLogin.id
       console.log(JSON.stringify(this.userLogin))
 
       this.router.navigate(["/inicio"])
@@ -104,6 +109,4 @@ export class CadastroComponent implements OnInit {
       }
     })
   }
-
-  
 }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
 import { Produto } from '../model/Produto';
+import { Usuario } from '../model/Usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +15,15 @@ export class ProdutoService {
   ) { }
 
   token = {
-    headers: new HttpHeaders().set('Authorization', "Basic bWFyaTphc2RmYXNkZg==")
+    headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
   getAllProduto(): Observable<Produto[]>{
     return this.http.get<Produto[]>('https://sucateriaods12.herokuapp.com/produto/buscar/todos', this.token)
   }
 
-  getByIdProduto(idProduto:number): Observable<Produto>{
-    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/${idProduto}`, this.token)
+  getByIdProduto(id:number): Observable<Produto>{
+    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/${id}`, this.token)
   }
 
   getByStatusProduto(status:string): Observable<Produto>{
@@ -30,7 +31,7 @@ export class ProdutoService {
   }
 
   getByEnderecoProduto(endereco:string): Observable<Produto>{
-    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/status/${endereco}`, this.token)
+    return this.http.get<Produto>(`https://sucateriaods12.herokuapp.com/produto/buscar/endereco/${endereco}`, this.token)
   }
 
   getByDescricaoProduto(descricao:string): Observable<Produto>{
@@ -45,7 +46,11 @@ export class ProdutoService {
     return this.http.put<Produto>('https://sucateriaods12.herokuapp.com/produto/atualizar', produto, this.token)
   }
 
-  deleteProduto(idProduto:number) {
-    return this.http.delete(`https://sucateriaods12.herokuapp.com/produto/deletar/${idProduto}`, this.token)
+  deleteProduto(id:number) {
+    return this.http.delete(`https://sucateriaods12.herokuapp.com/produto/deletar/${id}`, this.token)
+  }
+
+  getByIdUsuario(idUsuario:number): Observable<Usuario> {
+    return this.http.get<Usuario>(`https://sucateriaods12.herokuapp.com/usuario/buscar/${idUsuario}`, this.token)
   }
 }

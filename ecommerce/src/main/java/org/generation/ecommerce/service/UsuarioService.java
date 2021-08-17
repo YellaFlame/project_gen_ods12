@@ -74,6 +74,7 @@ public class UsuarioService {
 				usuarioLogin.get().setEmail(usuario.get().getEmail());
 				usuarioLogin.get().setTipo(usuario.get().getTipo());
 				usuarioLogin.get().setUsuario(usuario.get().getUsuario());
+				usuarioLogin.get().setId(usuario.get().getIdUsuario());
 
 				return usuarioLogin;
 			}
@@ -142,7 +143,7 @@ public class UsuarioService {
 	 * @param idUsuario, tipo Long para retornar usuario e deletar
 	 * @return String com mensagem de ação
 	 */
-	public ResponseEntity<String> deletarUsuario(Long idUsuario) {
+	public ResponseEntity<String> deletarUsuario(long idUsuario) {
 		return repositoryU.findById(idUsuario).map(usuarioExistente -> {
 			repositoryU.deleteById(usuarioExistente.getIdUsuario());
 			return ResponseEntity.ok("Usuário deletado com sucesso!");
