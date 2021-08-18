@@ -27,7 +27,7 @@ export class CadastroComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private alertas: AlertasService
+    private alert: AlertasService
   ) { }
 
   ngOnInit() {
@@ -49,20 +49,20 @@ export class CadastroComponent implements OnInit {
   cadastrar() {
     this.user.tipo = this.tipoU
     if (this.user.senha != this.cSenha) {
-      alert("As senhas estão incorretas!")
+      this.alert.showAlertDanger("As senhas estão incorretas!")
     } else {
       this.authService.cadastrar(this.user).subscribe((resp: Usuario) => {
         this.user = resp
         environment.tipo = this.tipoU
         this.router.navigate(["/cadastro"])
-        alert("Usuário cadastrado com sucesso!")
+        this.alert.showAlertSuccess("Usuário cadastrado com sucesso!")
         this.user = new Usuario()
       }, erro => {
         if (erro.status == 400) {
-          alert("Email ou usuário existentes")
+          this.alert.showAlertInfo("Email ou usuário existentes")
         } else {
           if (erro.status == 500) {
-            alert("Por favor, preencha todos os campos")
+            this.alert.showAlertInfo("Por favor, preencha todos os campos")
           }
         }
       })
@@ -105,7 +105,7 @@ export class CadastroComponent implements OnInit {
       this.router.navigate(["/inicio"])
     }, erro => {
       if (erro.status == 500) {
-        alert("Usuário ou senha incorretos")
+        this.alert.showAlertDanger("Usuário ou senha incorretos")
       }
     })
   }

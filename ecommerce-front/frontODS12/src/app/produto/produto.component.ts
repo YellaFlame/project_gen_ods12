@@ -5,6 +5,7 @@ import { environment } from "src/environments/environment.prod"
 import { Categoria } from "../model/Categoria"
 import { Produto } from "../model/Produto"
 import { Usuario } from "../model/Usuario"
+import { AlertasService } from "../service/alertas.service"
 import { AuthService } from "../service/auth.service"
 import { CategoriaService } from "../service/categoria.service"
 import { ProdutoService } from "../service/produto.service"
@@ -33,13 +34,14 @@ export class ProdutoComponent implements OnInit {
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertasService
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
     if(environment.token == '') {
-       alert('Sua sessão expirou, faça o login novamente.')
+       this.alert.showAlertInfo('Sua sessão expirou, faça o login novamente.')
        this.router.navigate(['/inicio'])
     }
     
@@ -91,7 +93,7 @@ export class ProdutoComponent implements OnInit {
     this.produto.status = "Disponivel";
     this.produtoService.postProduto(this.produto).subscribe((resp: Produto) => {
       this.produto = resp
-      alert('Produto criado com sucesso!')
+      this.alert.showAlertSuccess('Produto criado com sucesso!')
       this.getAllProdutos()
       this.produto = new Produto()
     })
@@ -125,7 +127,7 @@ export class ProdutoComponent implements OnInit {
     this.produto.status = "Finalizado";
       this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
-      alert('Parabéns por finalizar.')
+      this.alert.showAlertSuccess('Parabéns por finalizar.')
       this.produto = new Produto()
       this.getAllProdutos()
       this.router.navigate(['/produto'])
@@ -138,7 +140,7 @@ export class ProdutoComponent implements OnInit {
 
       this.produtoService.putProduto(this.produto).subscribe((resp: Produto) =>{
       this.produto = resp
-      alert('Produto atualizado com sucesso.')
+      this.alert.showAlertSuccess('Produto atualizado com sucesso.')
       this.produto = new Produto()
       this.getAllProdutos()
       this.router.navigate(['/produto'])
@@ -153,7 +155,7 @@ export class ProdutoComponent implements OnInit {
   deletar(){
     if(this.idProd != 0) {
       this.produtoService.deleteProduto(this.idProd).subscribe(()=> {
-        alert('Produto deletado.')
+        this.alert.showAlertSuccess('Produto deletado.')
         this.router.navigate(['/produto'])
         this.getAllProdutos()
       })

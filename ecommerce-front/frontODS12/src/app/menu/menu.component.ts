@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class MenuComponent implements OnInit {
 
   constructor( 
     private router: Router,
-    public auth: AuthService
+    public auth: AuthService,
+    private alertas: AlertasService
   ) { }
   
   ngOnInit(){
@@ -28,7 +30,7 @@ export class MenuComponent implements OnInit {
     environment.tipo = ""
     environment.usuario = ''
     this.router.navigate(["/inicio"])
-    alert("Log-Off realizado com sucesso, obrigado por visitar nossa página")
+    this.alertas.showAlertInfo("Logoff realizado com sucesso, obrigado por visitar nossa página")
    
   }
 }

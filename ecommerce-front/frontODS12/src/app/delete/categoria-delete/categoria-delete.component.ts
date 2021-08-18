@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from 'src/app/model/Categoria';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -18,12 +19,13 @@ export class CategoriaDeleteComponent implements OnInit {
   constructor(
     private categoriaService: CategoriaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertasService
   ) { }
 
   ngOnInit(){
     if(environment.token == ""){
-      alert("Seu token expirou")
+      this.alert.showAlertInfo("Seu token expirou")
       this.router.navigate(["/inicio"])
     }
 
@@ -40,7 +42,7 @@ export class CategoriaDeleteComponent implements OnInit {
 
   apagar(){
     this.categoriaService.deleteResiduo(this.id).subscribe(()=>{
-      alert("Deletou mano")
+      this.alert.showAlertSuccess("Deletado com sucesso")
       this.router.navigate(["/categoria"])
     })
   }
