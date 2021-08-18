@@ -29,6 +29,9 @@ export class ProdutoComponent implements OnInit {
   user: Usuario = new Usuario()
   idUsuario = environment.id
 
+  key = 'data'
+  reverse = true
+
   constructor(
     public auth: AuthService,
     private produtoService: ProdutoService,

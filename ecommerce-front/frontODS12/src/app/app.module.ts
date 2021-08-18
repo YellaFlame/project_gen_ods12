@@ -25,6 +25,7 @@ import { VidroComponent } from './descarte/vidro/vidro.component';
 import { OrganicoComponent } from './descarte/organico/organico.component';
 import { CategoriaEditComponent } from "./edit/categoria-edit/categoria-edit.component";
 import { AlertasComponent } from './alertas/alertas.component';
+import { OrderModule } from "ngx-order-pipe";
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [{
     provide: LocationStrategy,
