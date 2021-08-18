@@ -16,8 +16,6 @@ import { MetalComponent } from './descarte/metal/metal.component';
 import { VidroComponent } from './descarte/vidro/vidro.component';
 import { OrganicoComponent } from './descarte/organico/organico.component';
 
-import { ProdutoEditarComponent } from './editar/produto-editar/produto-editar.component';
-import { ProdutoDeletarComponent } from './deletar/produto-deletar/produto-deletar.component';
 import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 
@@ -38,13 +36,10 @@ const routes: Routes = [
   {path:"metal", component: MetalComponent},
   {path:"vidro", component: VidroComponent},
   {path:"organico", component: OrganicoComponent},
-  {path:"produto-editar/:id", component: ProdutoEditarComponent},
-  {path:"produto-deletar/:id", component: ProdutoDeletarComponent},
   {path:"parceiro", component:ParceiroComponent},
   {path:"descarte", component:DescarteComponent},
   {path:"categoria-edit/:id", component:CategoriaEditComponent},
-  {path:"categoria-delete/:id", component:CategoriaDeleteComponent}
-
+  {path:"categoria-delete/:id", component:CategoriaDeleteComponent},
 ];
 
 @NgModule({

@@ -41,12 +41,12 @@ public class UsuarioController {
 	private UsuarioRepository repositoryU;
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> cadastrarUsuario(@Valid @RequestBody Usuario usuario) {
+	public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody Usuario usuario) {
 		return serviceU.cadastrarUsuario(usuario);
 	}
 
 	@PostMapping("/logar")
-	public ResponseEntity<UserLoginDto> authentication(@Valid @RequestBody Optional<UserLoginDto> user) {
+	public ResponseEntity<UserLoginDto> authentication(@RequestBody Optional<UserLoginDto> user) {
 		return serviceU.logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
@@ -56,38 +56,38 @@ public class UsuarioController {
 		return ResponseEntity.ok(repositoryU.findAll());
 	}
 
-	@GetMapping("/buscar/{id}")
+	@GetMapping("/buscar/{idUsuario}")
 	public ResponseEntity<Usuario> listarId(@PathVariable long idUsuario) {
 		return serviceU.listarPorId(idUsuario);
 	}
 
-	@GetMapping("/buscar/nome")
-	public ResponseEntity<List<Usuario>> listarNome(@Valid @RequestBody String nome) {
+	@GetMapping("/buscar/nome/{nome}")
+	public ResponseEntity<List<Usuario>> listarNome(@PathVariable String nome) {
 		return serviceU.listarPorNome(nome);
 	}
 
 	@PutMapping("/alterar/senha")
-	public Optional<Usuario> alterarSenha(@Valid @RequestBody Long idUsuario,
+	public Optional<Usuario> alterarSenha(@RequestBody long idUsuario,
 			@RequestBody UsuarioDTO senhaParaAtualizar) {
 		return serviceU.alterarSenha(idUsuario, senhaParaAtualizar);
 	}
 
 	@PutMapping("/alterar/usuario")
-	public Optional<Usuario> alterarUsuario(@Valid @RequestBody Long idUsuario,
+	public Optional<Usuario> alterarUsuario(@RequestBody long idUsuario,
 			@RequestBody UsuarioDTO usuarioParaAtualizar) {
 		return serviceU.alterarUsuario(idUsuario, usuarioParaAtualizar);
 	}
 
 	@PutMapping("/alterar/produto")
-	public ResponseEntity<Usuario> adicionarProdutonaCesta(@RequestBody Long idUsuario,
+	public ResponseEntity<Usuario> adicionarProdutonaCesta(@RequestBody long idUsuario,
 			@RequestBody Long idProduto) {
 		return serviceU.selecionarProduto(idUsuario, idProduto)
 				.map(produtoSelecionado -> ResponseEntity.status(201).body(produtoSelecionado))
 				.orElse(ResponseEntity.badRequest().build());
 	}
 
-	@DeleteMapping("/deletar")
-	public ResponseEntity<String> deletarUsuario(@Valid @RequestBody Long idUsuario) {
+	@DeleteMapping("/deletar/{idUsuario}")
+	public ResponseEntity<String> deletarUsuario(@PathVariable long idUsuario) {
 		return serviceU.deletarUsuario(idUsuario);
 	}
 

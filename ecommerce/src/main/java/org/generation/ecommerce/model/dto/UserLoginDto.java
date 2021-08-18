@@ -5,6 +5,8 @@ import javax.validation.constraints.NotNull;
 
 public class UserLoginDto {
 
+	private long id;
+
 	private String nome;
 
 	private String sobrenome;
@@ -27,6 +29,15 @@ public class UserLoginDto {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNome() {

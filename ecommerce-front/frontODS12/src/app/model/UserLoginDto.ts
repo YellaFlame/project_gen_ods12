@@ -1,6 +1,6 @@
 export class UserLoginDto {
     
-    public Id: number
+    public id: number
     public email: string
     public nome: string
     public senha: string
