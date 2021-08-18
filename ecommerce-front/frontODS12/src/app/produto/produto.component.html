@@ -3,18 +3,18 @@
   <div class="d-flex w-100">
     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <ng-container *ngIf="auth.condonime();">
-        <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+        <button class=" butao2 mb-3" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
           type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Poste
           seu Lixo</button>
       </ng-container>
 
       <ng-container *ngIf="auth.condonime(); else elseTemplate">
-        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+        <button class="butao2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
           type="submit" role="tab" aria-controls="v-pills-profile" aria-selected="false">Lixos Postados</button>
       </ng-container>
 
       <ng-template #elseTemplate>
-        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+        <button class="butao2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
           type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">Cate seu reciclável</button>
       </ng-template>
     </div>
@@ -75,7 +75,7 @@
                           </div>
 
                           <div class="ml-3">
-                            <button class="btn btn-success text-white" type="submit"
+                            <button class="butao2" type="submit"
                               (click)='cadastrar()'>Cadastrar</button>
                           </div>
                         </div>
@@ -123,19 +123,20 @@
                   <td class="pd">{{item.status}}</td>
 
                   <td class="pd">
-                    <div *ngIf="item.status != 'Finalizado'">
                       <ng-container *ngIf="auth.condonime();">
                         <button data-bs-toggle="modal" class="btn me-3 pd-b modal-bg text-white"
                           data-bs-target="#exampleModal" (click)="pegarId(item.idProduto)">Editar</button>
                       </ng-container>
-                    </div>
-
-                    <div *ngIf="item.status != 'Finalizado'">
-                      <ng-container *ngIf="auth.sucateiro();">
+                   
+                   
+                      <ng-container *ngIf="item.status != 'Finalizado'">
                         <button data-bs-toggle="modal" class="btn modal-bg text-white me-3 pd-b"
                           data-bs-target="#exampleModal1" (click)="pegarId(item.idProduto)">Catar</button>
                       </ng-container>
-                    </div>
+                     
+                 
+
+                  
                   </td>
                 </tr>
               </tbody>

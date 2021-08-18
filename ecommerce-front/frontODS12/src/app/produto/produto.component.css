@@ -49,6 +49,7 @@
 
   .modal-bg-content{
     background-color:  #E5F2D8;
+    
   }
 
   #lixeira{
@@ -60,5 +61,40 @@
 
 .bg-color-default{
     background-color:  #E5F2D8;
+    border-color: #001d3d;
+    border-radius: 20px;
  
 }
+
+.butao{
+    position: relative;
+    display: inline-block;
+    background-color: #E5F2D8;
+    border-radius: 20px;
+    color: #001d3d;
+    border-color:#001d3d;;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    margin: 0;
+    
+}
+
+.butao2{
+    position: relative;
+    display: inline-block;
+    background-color: #001d3d;;
+    border-radius: 20px;
+    color: #E5F2D8;
+    border-color:#E5F2D8;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    margin: 0;
+
+}
+
