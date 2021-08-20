@@ -123,10 +123,12 @@
                   <td class="pd">{{item.status}}</td>
 
                   <td class="pd">
+                    <div *ngIf="item.status !='Finalizado'">
                       <ng-container *ngIf="auth.condonime();">
                         <button data-bs-toggle="modal" class="btn me-3 pd-b modal-bg text-white"
                           data-bs-target="#exampleModal" (click)="pegarId(item.idProduto)">Editar</button>
                       </ng-container>
+                    </div>
                     
 
                    <div *ngIf="auth.sucateiro();">
