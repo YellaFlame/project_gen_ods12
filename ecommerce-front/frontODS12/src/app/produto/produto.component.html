@@ -95,7 +95,7 @@
         </div>
       </ng-container>
 
-      <!--LIXOS POSTADOS-->
+      <!--LIXOS POSTADOS TABLE-->
       <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
         <div class="row mt-3 mb-5 d-flex tabela-suceteiro">
           <div class="col-md-12">
@@ -127,16 +127,14 @@
                         <button data-bs-toggle="modal" class="btn me-3 pd-b modal-bg text-white"
                           data-bs-target="#exampleModal" (click)="pegarId(item.idProduto)">Editar</button>
                       </ng-container>
-                   
-                   
+                    
+
+                   <div *ngIf="auth.sucateiro();">
                       <ng-container *ngIf="item.status != 'Finalizado'">
                         <button data-bs-toggle="modal" class="btn modal-bg text-white me-3 pd-b"
                           data-bs-target="#exampleModal1" (click)="pegarId(item.idProduto)">Catar</button>
                       </ng-container>
-                     
-                 
-
-                  
+                    </div>
                   </td>
                 </tr>
               </tbody>
