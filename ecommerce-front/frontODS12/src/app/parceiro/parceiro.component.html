@@ -1,0 +1,239 @@
+<!-- autor: Paola -->
+<div class="container-fluid bg-claro">
+  <div class="row d-flex align-items-center">
+    <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-7 mt-5">
+          <h1>Se torne um parceiro!</h1>
+          <h5>Curtiu a nossa missão e deseja fazer parte? Então, entre em contato conosco!</h5>
+        </div>
+      </div>
+
+      <div class="row mt-4 d-flex justify-content-center">
+        <form class="col-md-7">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Endereço de email</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com"
+              name="email" required='' (input)="validaEmail()">
+            <div class="email"></div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput2">CNPJ</label>
+            <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="somente números"
+              name="cnpj" required='' (input)="validaCnpj()">
+            <div class="cnpj"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Descrição</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+              placeholder="Faça uma pequena descrição sobre sua empresa"></textarea>
+          </div>
+          <!--Termos de uso-->
+          <form class="was-validated">
+            <div class="mb-3 form-check" data-toggle="modal" data-target="#modalExemplo">
+              <input (change)="changeEvent($event)" type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <label class="form-check-label" for="exampleCheck1">Aceitar os termos e condições</label>
+            <div class="invalid-feedback">(Você deve concordar com os termos para continuar)</div>
+            </div>
+          </form>
+          <!--/Termos de uso-->
+        </form>
+
+      </div>
+
+      <div class="row d-flex justify-content-center mb-5">
+        <div class="col-md-7">
+          <button [disabled]='termos' class="btn btn-dark mr-2" data-toggle="modal" data-target="">Enviar</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6 d-flex justify-content-left">
+      <img src="../../assets/img/Solidarity-amico.png" alt="aqui" width="500px" height="500px">
+    </div>
+  </div>
+
+</div>
+
+
+<!--modal termos de uso-->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Termos e Condições Gerais de Uso do Site</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Acesso e Uso do Site</h5>
+        <p class="text-justify termotxt">Você, ao acessar quaisquer páginas do site, ou finalizar seu cadastro
+          na
+          https://sucateria.netlify.app ou
+          cadastrar seu e-mail individual para recebimento de nossas mensagens, estará concordando
+          automaticamente
+          com todas as disposições destes termos. Se você não concordar com o todo ou parte do conteúdo dos
+          Termos,
+          ou de quaisquer alterações realizadas nestes, deverá imediatamente abster-se de utilizar o site. Em
+          caso
+          de dúvidas envie e-mail para sucateria@contato.com</p>
+        <h5>01 - Objeto</h5>
+        <p class="text-justify termotxt">Os serviços objeto dos presentes Termos e Condições gerais consistem
+          em:
+        </p>
+        <p class="text-justify termotxt">(i) Anunciar produtos recicláveis para descarte;</p>
+        <p class="text-justify termotxt">(ii) Viabilizar o contato entre catadores interessados em adquirir os
+          produtos anunciados, por meio da
+          plataforma de comércio eletrônico da sucateria.herokuapp.com.</p>
+        <h5>02 - Capacidade para cadastrar-se</h5>
+        <p class="text-justify termotxt">Os serviços da sucateria.herokuapp.com estão disponíveis apenas para
+          as
+          pessoas físicas ou jurídicas que
+          tenham capacidade legal para adquirir produtos por sites. É proibido o cadastro de usuários que não
+          tenham
+          capacidade civil (com relação a pessoas físicas) ou não sejam os representantes legais ou estejam
+          autorizados pelos representantes legais(com relação a pessoas jurídicas), bem como de usuários que
+          tenham
+          sido suspensos da sucateria.herokuapp.com, temporária ou definitivamente, sem prejuízo da aplicação
+          das
+          sanções legais previstas no Código Civil Brasileiro, notadamente, art. 166, I; 171, I e 180.</p>
+        <h5>03 - Cadastro</h5>
+        <p class="text-justify termotxt">Apenas será confirmado o cadastramento dos usuários que preencherem
+          todos
+          os campos obrigatórios
+          solicitados na(s) página(s) de cadastro de Usuários dos sites, com informações exatas, precisas e
+          verdadeiras. Ao confirmar o cadastro, os usuários declaram serem verdadeiras as informações
+          inseridas
+          no
+          cadastro e assumem o compromisso de atualizar os dados inseridos em seu cadastro (“Dados
+          individuais”)
+          sempre que houver qualquer alteração das informações de cadastro registrados no site. Ao se
+          cadastrarem na
+          sucateria.herokuapp.com, os usuários poderão utilizar todos os serviços disponibilizados pelo site,
+          declarando, para tanto, terem lido, compreendido e aceitado os respectivos Termos e Condições de uso
+          do
+          site. A sucateria.herokuapp.com não se responsabiliza pela incorreção dos dados de produtos
+          recicláveis e
+          Individuais inseridos no cadastro pelos usuários. Os usuários garantem e respondem, em qualquer
+          caso,
+          civil e criminalmente pela veracidade, exatidão e autenticidade dos dados inseridos nos cadastros do
+          site.
+          Os Usuários comprometem-se a notificar o site imediatamente, e por meio seguro, a respeito de
+          qualquer
+          uso
+          não autorizado de sua conta. O usuário será o único responsável pelas operações efetuadas em sua
+          conta
+          direta.</p>
+        <h5>04 - Modificações dos Termos e condições gerais</h5>
+        <p class="text-justify termotxt">O conteúdo deste termo poderá ser modificado a qualquer tempo e a
+          nova
+          versão deste documento entrará em
+          vigor quando da sua publicação no site. Você somente será comunicado sobre a alteração dos termos se
+          houver obrigação legal neste sentido. Por isso, recomendamos que você verifique periodicamente seu
+          conteúdo para manter-se atualizado sobre os termos. Caso não concorde com os novos termos, num prazo
+          máximo de 5 (cinco) dias contados à partir da publicação no site da nova versão dos Termos, você
+          deverá
+          comunicar-se pelo e-mail sucateria@contato.com manifestando formalmente as suas discordâncias e
+          interrompendo imediatamente o uso do site. Nesse caso, o vínculo contratual deixará de existir. Não
+          havendo manifestação no prazo estipulado, entender-se-á que você aceitou os novos termos e condições
+          gerais de uso e o contrato continuará vinculando as partes, com base nos novos Termos.</p>
+        <h5>05 - Produtos anunciados</h5>
+        <p class="text-justify termotxt">5.1 Processamento de anunciante: O usuário declara e reconhece que o
+          processamento de anunciante depende
+          do cumprimento de alguns procedimentos, como análise de risco a depender do meio utilizado.</p>
+        <p class="text-justify termotxt">5.2 Inclusão de imagens, fotografias e vídeos: O Site pode incluir
+          imagens,
+          fotografias e vídeos do
+          produto reciclável oferecido sempre que estas correspondam exatamente ao produto anunciado. O site
+          declara
+          ser possuidor do direito autoral das imagens, vídeos, fotografias, textos, informações e tudo mais
+          inserido nas suas lojas, produtos e serviços, ou deter autorização expressa do detentor do direito
+          autoral
+          que garanta à utilização no site, devendo se responsabilizar exclusivamente por eventual infração
+          dos
+          direitos de terceiros. A Sucateria poderá, a qualquer momento, divulgar e/ou adaptar as imagens
+          incluídas
+          em seus anúncios para fins de classificação dos produtos no site ou seus anúncios realizados fora do
+          site
+          nas redes sociais e/ ou qualquer outro meio de comunicação.</p>
+        <h5>06 - Privacidade da Informação</h5>
+        <p class="text-justify termotxt">Toda informação ou dado Individual do usuário é armazenado em
+          servidores ou
+          meios magnéticos de alta
+          segurança. Salvo com relação às informações que são publicadas no site. A sucateria.herokuapp.com
+          adotará
+          todas as medidas possíveis para manter a confidencialidade e a segurança das informações sigilosas,
+          porém
+          não se responsabilizará por eventuais prejuízos que sejam decorrentes da divulgação de tais
+          informações
+          por parte de terceiros que utilizem as redes públicas ou a internet, subvertendo os sistemas de
+          segurança
+          para acessar as informações dos usuários. Os Usuários expressamente autorizam que suas informações e
+          dados
+          Individuais sejam compartilhados pelo Site com as demais empresas parceiras comerciais, membros do
+          Programa de Proteção à Propriedade Intelectual, autoridades e pessoas físicas ou jurídicas que
+          aleguem
+          ter
+          sido lesadas por usuários.</p>
+        <h5>07 - Violação no sistema ou da base de dados</h5>
+        <p class="text-justify termotxt">Não é permitida a utilização de nenhum dispositivo, software ou outro
+          recurso que venha a utilizar,
+          reproduzir ou interferir nas atividades e operações do Site, bem como nos anúncios, descrições de
+          produtos, contas ou seus bancos de dados. Qualquer intromissão, ou tentativa de intromissão ou
+          atividade
+          que viole ou contrarie as leis de direito de propriedade intelectual e/ou as proibições estipuladas
+          nestes
+          Termos e condições gerais de uso, tornarão o responsável passível das ações legais pertinentes, bem
+          como
+          das sanções aqui previstas, sendo ainda responsável pelas indenizações por eventuais danos causados.
+        </p>
+        <h5>08 - Falhas no sistema</h5>
+        <p class="text-justify termotxt">O Site não se responsabiliza por qualquer dano, prejuízo ou perda
+          sofridos
+          pelos usuários em razão de
+          falhas na internet, no sistema ou no servidor utilizado pelos usuários, decorrentes de condutas de
+          terceiros, caso fortuito ou força maior. O Site também não é responsável por qualquer vírus que
+          possa
+          atacar o equipamento dos usuários em decorrência do acesso, utilização ou navegação na internet ou
+          como
+          consequência da transferência de dados, arquivos, imagens, textos, vídeos ou áudio.</p>
+        <h5>09 - Tarifas e faturamento</h5>
+        <p class="text-justify termotxt">O cadastro de usuários no site é gratuito. O site se reserva o
+          direito
+          de
+          modificar, aumentar ou excluir
+          tarifas vigentes a qualquer momento, observado o estipulado na cláusula 4.</p>
+        <h5>10 - Propriedade Intelectual e links</h5>
+        <p class="text-justify termotxt">O uso comercial da expressão "sucateria.herokuapp.com”, “Sucateria”
+          como
+          marca, nome empresarial ou nome
+          de domínio, bem como os conteúdos das telas relativas aos serviços da sucateria.herokuapp.com assim
+          como
+          os programas, aparência do site, bancos de dados, redes, arquivos que permitem aos usuários
+          acessarem
+          e
+          usarem a sua conta são propriedade da prestadora e estão protegidos pelas leis e tratados
+          internacionais
+          de direito autoral, marcas, patentes, modelos e desenhos industriais. O uso indevido e a reprodução
+          total
+          ou parcial dos referidos conteúdos são proibidos, salvo a autorização prévia e expressa por escrito
+          do
+          Site. O Site pode manter links com outros sites, o que não significa que esses sites sejam de
+          propriedade
+          ou operados pela prestadora. Não possuindo controle sobre esses sites de terceiros, razão pela qual
+          a
+          sucateriaa.herokuapp.com não será responsável pelos seus conteúdos, práticas e serviços ofertados. A
+          presença de links para outros sites não implica relação de sociedade, de supervisão, de cumplicidade
+          ou
+          solidariedade da Prestadora para com esses sites e seus conteúdos.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Concordar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Modal termos de uso-->

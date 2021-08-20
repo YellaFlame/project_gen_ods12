@@ -24,25 +24,27 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCategoria;
+	private Long id;
 
 	@NotNull(message = "Campo não pode ser nulo")
 	private String residuo;
 
-	@NotNull(message = "Campo não pode ser nulo")
-	private Float preco;
+//	@NotNull(message = "Campo não pode ser nulo")
+//	private Float preco;
+	
+	private String imagem;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "categoria" })
 	private List<Produto> listaProduto = new ArrayList<>();
 
-	public Float getPreco() {
-		return preco;
-	}
-
-	public void setPreco(Float preco) {
-		this.preco = preco;
-	}
+//	public Float getPreco() {
+//		return preco;
+//	}
+//
+//	public void setPreco(Float preco) {
+//		this.preco = preco;
+//	}
 
 	public List<Produto> getListaProduto() {
 		return listaProduto;
@@ -53,11 +55,11 @@ public class Categoria {
 	}
 
 	public Long getId() {
-		return idCategoria;
+		return id;
 	}
 
-	public void setId(Long idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getResiduo() {
@@ -67,5 +69,15 @@ public class Categoria {
 	public void setResiduo(String residuo) {
 		this.residuo = residuo;
 	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
+	
+	
 
 }

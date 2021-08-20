@@ -1,3 +1,41 @@
 .w-50{
     width: 50%;
 }
+
+.fs-16{
+    font-size: 25px;
+}
+
+.card{
+    width: 100%;
+    margin: left;
+    background-color:  #E5F2D8;
+}
+
+#end{
+    width: 40%;
+}
+
+.table-color{
+    background-color: #001d3d;
+
+}
+.position{
+    margin-right: 50px;
+}
+
+#lixeira{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.bg-color-default{
+    background-color:  #E5F2D8;
+ 
+}
+.modal-bg{
+    background-color: #001d3d;
+  }

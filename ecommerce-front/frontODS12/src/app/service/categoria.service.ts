@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
-
 import { Categoria } from '../model/Categoria';
 
 @Injectable({
@@ -15,14 +14,28 @@ export class CategoriaService {
   ) { }
 
   token = {
-    headers: new HttpHeaders().set("Authorization", "Basic bmFydXRvOjEyMzQ1Njc4")
+    headers: new HttpHeaders().set("Authorization", environment.token)
   }
 
   getAllResiduo(): Observable<Categoria[]>{
-    return this.http.get<Categoria[]>("http://localhost:8080/residuo/todos", this.token)
+    return this.http.get<Categoria[]>("https://sucateriaods12.herokuapp.com/residuo/todos", this.token)
+  }
+
+  getByIdResiduo(id: number): Observable<Categoria>{
+    return this.http.get<Categoria>(`https://sucateriaods12.herokuapp.com/residuo/${id}`, this.token)
   }
 
   postResiduo(residuo: Categoria): Observable<Categoria>{
-    return this.http.post<Categoria>("http://localhost:8080/residuo/cadastrar", residuo, this.token)
+    return this.http.post<Categoria>("https://sucateriaods12.herokuapp.com/residuo/cadastrar", residuo, this.token)
+  }
+
+  putResiduo(residuo: Categoria): Observable<Categoria>{
+    return this.http.put<Categoria>("https://sucateriaods12.herokuapp.com/residuo/atualizar", residuo, this.token)
+  }
+
+  deleteResiduo(id: number){
+
+    return this.http.delete(`https://sucateriaods12.herokuapp.com/residuo/deletar/${id}`, this.token)
   }
 }
+

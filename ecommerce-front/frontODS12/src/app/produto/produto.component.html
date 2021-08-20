@@ -1,89 +1,260 @@
-<div class="container">
-    <div class="d-flex align-items-start">
-        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <button class="nav-link active mt-5" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Poste meu lixo</button>
+<!--Opções-->
+<div class="container mb-5 mt-5" id="postagens">
+  <div class="d-flex w-100">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <ng-container *ngIf="auth.condonime();">
+        <button class=" butao2 mb-3" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+          type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Poste
+          seu Lixo</button>
+      </ng-container>
 
-          <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Meus lixos</button>
+      <ng-container *ngIf="auth.condonime(); else elseTemplate">
+        <button class="butao2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+          type="submit" role="tab" aria-controls="v-pills-profile" aria-selected="false">Lixos Postados</button>
+      </ng-container>
 
-          <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Lixos retirados</button>
+      <ng-template #elseTemplate>
+        <button class="butao2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+          type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">Cate seu reciclável</button>
+      </ng-template>
+    </div>
 
-          <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
-        </div>
+    <!--MENU USUARIO-->
+    <div class="tab-content d-flex w-100" id="v-pills-tabContent">
+      <!--POSTE SEU LIXO-->
+      <ng-container *ngIf="auth.condonime()">
+        <div class="tab-pane fade show active w-100" id="v-pills-home" role="tabpanel"
+          aria-labelledby="v-pills-home-tab">
+          <ng-container>
+            <div class="tab-pane fade show active d-flex w-100" id="todasPostagens" role="tabpanel"
+              aria-labelledby="nav-todasPostagens-tab">
 
-        <!-- POSTE MEU LIXO -->
-        <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                <div class="row ">
-                    <div class="col d-flex flex-column align-items-center m-5">
-                        <h1 class="m-2 fs-54">Lixo</h1>
-                        
-                        <input class="m-2" type="text" name="imagem" id="imagem" placeholder="imagem">
+              <div class=" bg-color-default d-flex justify-content-between w-100">
+                <div class="row d-flex justify-content-between w-100">
+                  <div class="col">
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-md-12">
+                        <div class="form-group mt-3 mb-5 text-dark">
+                          <div class="mb-3 ml-3 mt-2" id="end">
+                            <h1>Informações</h1>
+                            <label for="endereco" class="form-label">Endereço</label>
+                            <input [(ngModel)]='produto.endereco' type="text" class="form-control" id="endereco"
+                              placeholder="Insira seu Endereço">
+                          </div>
 
+                          <div class="mb-3  ml-3" id="end">
+                            <label for="dataRetirada" class="form-label">Data para Retirada</label>
+                            <input [(ngModel)]='produto.dataRetirada' class="form-control" type="date"
+                              name="dataRetirada" id="dataRetirada" placeholder="dataRetirada">
+                          </div>
 
-                        <input [(ngModel)]='produto.status' class="m-2" type="text" name="text" id="status" placeholder="status">
+                          <div class="mb-3 ml-3" id="end">
+                            <label for="categoria" class="form-label">Categoria</label>
+                            <select class="form-control" name="categoria" id="categoria">
+                              <option *ngFor='let item of listaCategoria | orderBy : key : reverse' value="{{item.id}}">
+                                {{item.residuo}}
+                              </option>
+                            </select>
+                          </div>
 
-                        <input [(ngModel)]='produto.endereco' class="m-2" type="text" name="endereco" id="endereco" placeholder="endereco">
+                          <div class="mb-3 ml-3" id="end">
+                            <label class="form-label" for="descricao">Descrição</label>
+                            <select [(ngModel)]='produto.descricao' class="form-control-range" name="descricao"
+                              id="descricao" placeHolder="Opções">
+                              <option>Lata</option>
+                              <option>Papelão</option>
+                              <option>Garrafa</option>
+                              <option>Papel</option>
+                            </select>
+                          </div>
 
-                        <input [(ngModel)]='produto.dataRetirada' class="m-2" type="date" name="dataRetirada" id="dataRetirada" placeholder="dataRetirada">
+                          <div class="mb-3 ml-3" id="end">
+                            <label for="quantidade" class="form-label">Quantidade</label>
+                            <input [(ngModel)]='produto.quantidade' class="form-control" type="number" name="quantidade"
+                              id="quantidade" placeholder="Quantidade">
+                          </div>
 
-                        <input [(ngModel)]='produto.descricao' class="m-2" type="text" name="descricao" id="descricao" placeholder="descrição">
-
-                        <input [(ngModel)]='produto.quantidade' class="m-2" type="number" name="quantidade" id="quantidade" placeholder="quantidade">
-
-                        <!-- <input [(ngModel)]='produto.categoria' class="m-2" type="text" name="categoria" id="categoria" placeholder="categoria"> -->
-
-                        <button  class="btn btn-warning text-white" type="submit" (click)='cadastrar()'>Cadastrar</button>
+                          <div class="ml-3">
+                            <button class="butao2" type="submit"
+                              (click)='cadastrar()'>Cadastrar</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+
+                  <div class="col">
+                    <img src="https://i.imgur.com/f1EUy4u.jpg" id="lixeira" alt="lixeira" class="mt-5">
+                  </div>
                 </div>
+              </div>
+
             </div>
 
+          </ng-container>
+        </div>
+      </ng-container>
 
-          <!-- MEUS LIXOS -->
-          <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-            <div class="row mt-5">
-                <div class="col">
-                    <h2>Todos os Lixos</h2>
-                </div>
-            </div>
-        
-            <div class="row mt-3 mb-5 d-flex justify-content-center">
-                <div class="col-md-6">
-                    <table class="table">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">Imagem</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col" class="">Quantidade</th>
-                            <th scope="col" class="">Categoria</th>
-                            <th scope="col" class="">Mensagem</th>
-                            <th scope="col" class="">Configuração</th>
-              
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor = 'let item of listaProdutos'>
-                            <th>{{item.idProduto}}</th>
-                            <td>{{item.descricao}}</td>
-                            <th>{{item.quantidade}}</th>
-                            <td>8</td>
-                            <td>Deixando uma mensagem</td>
-                            <td class="d-flex justify-content-end">
-                              <button class="btn btn-info me-3" >Editar</button>
-                              <button class="btn btn-danger" >Apagar</button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      
-                </div>
-            </div>
+      <!--LIXOS POSTADOS TABLE-->
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <div class="row mt-3 mb-5 d-flex tabela-suceteiro">
+          <div class="col-md-12">
+            <table class="table caption-top table-sm table-color table-hover">
+              <caption>Lista de Lixos Cadastrados no Sistema</caption>
+              <thead>
+                <tr class="text-white modal-bg">
+                  <th scope="col" class="pd-id">ID</th>
+                  <th scope="col">Descrição</th>
+                  <th scope="col" class="">Quantidade</th>
+                  <th scope="col" class="">Endereço</th>
+                  <th scope="col" class="">Data Retirada</th>
+                  <th scope="col" class="">Status</th>
+                  <th scope="col" class="">Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="text-white" *ngFor='let item of listaProdutos | orderBy : key : reverse'>
+                  <td class="pd">{{item.idProduto}}</td>
+                  <td class="pd">{{item.descricao}}</td>
+                  <td class="pd">{{item.quantidade}}</td>
+                  <td class="pd">{{item.endereco}}</td>
+                  <td class="pd">{{item.dataRetirada | date: 'dd/MM/yyyy'}}</td>
+                  <td class="pd">{{item.status}}</td>
+
+                  <td class="pd">
+                    <div *ngIf="item.status !='Finalizado'">
+                      <ng-container *ngIf="auth.condonime();">
+                        <button data-bs-toggle="modal" class="btn me-3 pd-b modal-bg text-white"
+                          data-bs-target="#exampleModal" (click)="pegarId(item.idProduto)">Editar</button>
+                      </ng-container>
+                    </div>
+                    
+
+                   <div *ngIf="auth.sucateiro();">
+                      <ng-container *ngIf="item.status != 'Finalizado'">
+                        <button data-bs-toggle="modal" class="btn modal-bg text-white me-3 pd-b"
+                          data-bs-target="#exampleModal1" (click)="pegarId(item.idProduto)">Catar</button>
+                      </ng-container>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-
-          <!-- LIXOS RETIRADOS -->
-          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-          
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
         </div>
       </div>
-</div>
+
+      <!-- Modal Condonime -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header modal-bg text-white">
+              <h5 class="modal-title" id="exampleModalLabel">Alterar pedido</h5>
+              <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body modal-bg-content">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                aria-labelledby="v-pills-home-tab">
+                <div class="row">
+                  <div class="col d-flex flex-column align-items-left m-5 mt-0">
+                    <h1 class="fs-54">Resumo</h1>
+
+                    <div class="mb-3 mt-2">
+                      <label for="endereco1" class="form-label">Endereço</label>
+                      <input type="text" class="form-control" id="endereco1" placeholder="Insira seu Endereço">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="dataRetirada" class="form-label">Data para Retirada</label>
+                      <input [(ngModel)]='produto.dataRetirada' class="form-control" type="date" name="dataRetirada"
+                        id="dataRetirada" placeholder="dataRetirada">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="categoria" class="form-label">Categoria</label>
+                      <select class="form-control" name="categoria" id="categoria">
+                        <option *ngFor='let item of listaCategoria  | orderBy : key : reverse' value="{{item.id}}">
+                          {{item.residuo}}
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label [(ngModel)]='produto.descricao' for="descricao">Descrição</label>
+                      <select [(ngModel)]='produto.descricao' class="form-control-range" name="descricao" id="descricao"
+                        placeHolder="Opções">
+                        <option>Lata</option>
+                        <option>Papelão</option>
+                        <option>Garrafa</option>
+                        <option>Papel</option>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="quantidade" class="form-label">Quantidade</label>
+                      <input [(ngModel)]='produto.quantidade' class="form-control" type="number" name="quantidade"
+                        id="quantidade" placeholder="quantidade">
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="modal-footer modal-bg">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)='atualizar()'>Atualizar
+              </button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)='deletar()'>Apagar</button>
+              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Voltar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--Modal Catador-->
+      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header modal-bg text-white">
+              <h5 class="modal-title" id="exampleModalLabel">Pedido</h5>
+              <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body modal-bg-content">
+              <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                aria-labelledby="v-pills-home-tab">
+                <div class="col d-flex flex-column align-items-left m-5 mt-0">
+                  <h1 class="fs-54">Resumo</h1>
+
+                  <h5>Endereço: {{produto.endereco}}</h5>
+                  <h5>Descrição: {{produto.descricao}}</h5>
+                  <h5>Quantidade: {{produto.quantidade}}</h5>
+                  <h5>Status: {{produto.status}}</h5>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="modal-footer modal-bg ">
+              <ng-container *ngIf="produto.status == 'Reservado'">
+                <button type="button" class="btn btn-danger finalizar" data-bs-dismiss="modal"
+                  (click)='cancelar()'>Cancelar
+                  Reserva</button>
+
+                <button type="button" class="btn btn-danger finalizar" data-bs-dismiss="modal"
+                  (click)='finalizado()'>Finalizar</button>
+              </ng-container>
+
+              <ng-container *ngIf="produto.status == 'Disponivel'">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                  (click)='reservado()'>Reservar</button>
+              </ng-container>
+              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Voltar</button>
+            </div>
+          </div>
+        </div>
+      </div>

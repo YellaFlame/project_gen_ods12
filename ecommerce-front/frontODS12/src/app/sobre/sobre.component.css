@@ -1,5 +1,5 @@
 .bg-canudo {
-    background-image: url(../../assets/img/canudo.jpg);
+    background-image: url(https://i.imgur.com/29AKkuh.jpg);
     background-size:cover;
     height: 150vh; 
     width:fit-content;
@@ -7,24 +7,53 @@
 
 .sobre {
     display: flex;
-    text-align: center;
+    text-align: justify;
     width: 70%; 
     margin: auto;
     background-color: #1b532e;
 }
 
-h1, h3, p {
-    margin: 20px;
-    line-height: 2rem;
+h1, h3 {
+  margin: 20px;
+  line-height: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+p {
+  line-height: 2rem;
+  text-align:justify;
 }
 
 .bg-missao {
-    background-color: #1b532e;
-    padding: 70px;
+  background-color: #1b532e;
+  padding: 70px;
 }
 
 .missao {
     margin: auto;
     background-color: #E5F2D8;
     width: 70%;
+    color: #1b532e;
+    text-align: justify;
+    padding: 20px;
 }
+
+li {
+  line-height: 2rem;
+}
+
+.box {
+  box-sizing: border-box;
+  width: auto;
+  height: 470px;
+}
+
+.card-text {
+text-align: center;
+}
+
+.img-icone {
+width: 80px;
+height: 80px;
+}
+
